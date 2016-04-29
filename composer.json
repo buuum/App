@@ -1,5 +1,22 @@
 {
+    "name": "buuum/app",
+    "type": "skeleton",
+    "description": "Skeleton App",
+    "homepage": "https://github.com/buuum/App",
+    "version": "0.0.1",
+    "keywords": [
+        "skeleton",
+        "app"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alfons Martinez",
+            "email": "alfonsmartinezparra@gmail.com"
+        }
+    ],
     "require": {
+        "php": ">=5.5.0",
         "buuum/route": "^1.0",
         "buuum/cache": "^1.0.0",
         "buuum/orm": "^1.0",
