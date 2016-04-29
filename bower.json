@@ -1,0 +1,19 @@
+{
+  "name": "Buuum",
+  "version": "0.0.1",
+  "homepage": "http://buuum.in",
+  "authors": [
+    "Ferran"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {},
+  "license": "MIT",
+  "devDependencies": {
+    "jquery": "~2.1.4"
+  }
+}

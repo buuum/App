@@ -1,0 +1,29 @@
+!!! 5
+%html{:lang => 'es'}
+  %head
+    %meta{:charset => "utf-8"}
+
+    %meta{:name => "description", :content => "{{$header['description']}}"}
+    %meta{:name => "keywords", :content => "{{$header['keywords']}}"}
+    %title {{$header['title']}}
+
+    {{if $header['index']}}
+    {{if $header['canonical']}}
+    %link{:rel => "canonical", :href => "{{$header['canonical']}}"}
+    {{endif}}
+    %meta{:name => "robots", :content => "index, follow"}
+    {{else}}
+    %meta{:name => "robots", :content => "noindex, follow"}
+    {{endif}}
+
+    %link{:href => "{{$header['favicon']}}", :rel => "shortcut icon"}
+    %link{:href => "https://fonts.googleapis.com/css?family=Lato:400,100,300", :rel=>"stylesheet", :type=>'text/css'}
+    %link{:href => "{{$header['pluginscssurl']}}", :rel => "stylesheet"}
+    %script{:src => "{{$header['pluginsjsurl']}}"}
+
+    :javascript
+      $(function(){ App = new App(); App.ini();});
+
+  %body
+
+    {{@view}}
