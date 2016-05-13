@@ -151,10 +151,10 @@ class Template
                 foreach ($extras as $extra) {
                     $parts = explode('|', $extra);
                     $value = $parts[1];
-                    if(substr($parts[1], 0, 1) != '$'){
-                        $value = '"'.$value.'"';
+                    if (substr($parts[1], 0, 1) != '$') {
+                        $value = '"' . $value . '"';
                     }
-                    $arr['"'.$parts[0].'"'] = $value;
+                    $arr['"' . $parts[0] . '"'] = $value;
                 }
 
                 $array = var_export($arr, true);
@@ -169,7 +169,8 @@ class Template
             $name = $part;
         }
 
-        return ($print) ? HelperTemplate::printVar(HelperTemplate::getUrl($name, $options)) : HelperTemplate::getUrl($name,
+        return ($print) ? HelperTemplate::printVar(HelperTemplate::getUrl($name,
+            $options)) : HelperTemplate::getUrl($name,
             $options);
 
 
@@ -231,8 +232,7 @@ class Template
         $part = str_replace('}}', '', $part);
 
         if (substr($part, 0, 1) == '/') {
-            return '<?php include \CONFIG\DOCUMENTROOTBASE."/".\CONFIG\FOLDER."/' . substr_replace($part, '', 0,
-                1) . '.php"; ?>';
+            return '<?php include __DIR__."/' . substr_replace($part, '', 0, 1) . '.php"; ?>';
         } else {
             return '<?php include $' . $part . ';?>';
         }

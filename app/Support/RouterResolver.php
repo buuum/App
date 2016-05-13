@@ -63,10 +63,13 @@ class RouterResolver implements HandlerResolverInterface
             //'Admin'      => '/admin/',
         ];
 
+        $config = $this->container->get('config');
+
         if (!empty($scopes)) {
 
             foreach ($scopes as $scope => $prefix) {
                 if ($prefix && substr($request['path'], 0, strlen($prefix)) == $prefix) {
+                    $config->set('scope', $scope);
                     return $scope;
                 }
             }
