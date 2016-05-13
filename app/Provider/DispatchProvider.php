@@ -37,26 +37,8 @@ class DispatchProvider
 
     public function dispatch(Container $app, Request $request)
     {
-        $config = $app->get('config');
-        $scope = $config->get('scope');
-        $error_controller = "Application\\Controller\\$scope\\ErrorController";
-        $app->share($error_controller)
-            ->withMethodCall('setView', ['view'])
-            ->withMethodCall('setHeader', ['header'])
-            ->withMethodCall('iniController');
-
         $resolver = new RouterResolver($app);
-
-        try {
-            return $app->get('router')->dispatchRequest($request->getMethod(), $request->getUri(), $resolver);
-        } catch (HttpRouteNotFoundException $e) {
-            return $app->get($error_controller)->error404();
-        } catch (HttpMethodNotAllowedException $e) {
-            return $app->get($error_controller)->error405();
-        } catch (\Exception $e) {
-            return $app->get($error_controller)->error500($e);
-        }
-
+        return $app->get('router')->dispatchRequest($request->getMethod(), $request->getUri(), $resolver);
     }
 
 }

@@ -60,7 +60,7 @@ class GruntCommand extends AbstractCommand
                     'dist/css/bootstrap.min.css'
                 ),
                 'replaces'     => array(
-                    '../fonts' => 'bootstrap/dist/fonts'
+                    '../fonts' => 'plugins/bootstrap/dist/fonts'
                 )
             ),
 
@@ -70,7 +70,7 @@ class GruntCommand extends AbstractCommand
                     'css/font-awesome.css'
                 ),
                 'replaces'     => array(
-                    '../fonts' => 'font-awesome/fonts'
+                    '../fonts' => 'plugins/font-awesome/fonts'
                 ),
                 // 'rename_folder' => 'fontawesome'
             ),
@@ -81,7 +81,7 @@ class GruntCommand extends AbstractCommand
                     'media/css/jquery.dataTables.css'
                 ),
                 'replaces'     => array(
-                    '../images' => 'datatables/media/images'
+                    '../images' => 'plugins/datatables/media/images'
                 )
             ),
 
@@ -90,7 +90,7 @@ class GruntCommand extends AbstractCommand
                     'chosen.min.css'
                 ),
                 'replaces'     => array(
-                    '(chosen-sprite' => '(chosen/chosen-sprite'
+                    '(chosen-sprite' => '(plugins/chosen/chosen-sprite'
                 )
             ),
 
@@ -104,7 +104,7 @@ class GruntCommand extends AbstractCommand
     {
 
         $paths = $this->container->get('paths');
-        $path = $paths['public'] . '/plugins/';
+        $path = $paths['public'] . '/assets/plugins/';
 
         foreach ($fontplugins as $folder => $plugin) {
 

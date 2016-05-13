@@ -19,8 +19,9 @@ $app->share('paths', function () {
 $providers = [
     new Application\Provider\ConfigProvider,
     new Application\Provider\SessionProvider,
-    //new Application\Provider\CacheProvider,
-    //new Application\Provider\DBProvider,
+    new Application\Provider\CacheProvider,
+    new Application\Provider\DBProvider,
+    new Application\Provider\ORMProvider,
     new Application\Provider\RequestProvider,
     new Application\Provider\RouterProvider,
     new Application\Provider\ViewProvider,

@@ -22,12 +22,6 @@ class ViewProvider
             return new Header($config->getHost(), $config->cssjsVersion());
         });
 
-        //$app->share('view', function () use ($app) {
-        //
-        //    $twig = new \Easyt\Template\View($app->get('config'), $app->get('urls'));
-        //
-        //    return $twig;
-        //});
     }
 
 }

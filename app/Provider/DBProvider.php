@@ -35,8 +35,6 @@ class DBProvider
             return $connection;
         });
 
-        //AbstractRepository::setConnection($app->get('database'));
-        //AbstractRepository::setsCache($app->get('cache'));
     }
 
 }
