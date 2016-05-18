@@ -3,7 +3,7 @@
     "type": "skeleton",
     "description": "Skeleton App",
     "homepage": "https://github.com/buuum/App",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "keywords": [
         "skeleton",
         "app"
@@ -26,10 +26,11 @@
         "symfony/http-foundation": "^3.0",
         "symfony/console": "^3.0",
         "buuum/encode": "^1.0",
-        "mrjgreen/database": "^2.5"
+        "mrjgreen/database": "^2.5",
+        "buuum/config": "^1.0",
+        "buuum/template": "^0.0.2"
     },
     "autoload": {
-        "files" : ["app/helpers.php"],
         "psr-4": {
             "Application\\": "app"
         }

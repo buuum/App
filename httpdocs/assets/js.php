@@ -57,12 +57,15 @@ if (!file_exists($cachefile) || (intval(@filemtime($cachefile)) + $timecache) < 
         $jsmin_php .= file_get_contents($file);
     }
 
-    if (!is_dir($base_cache)) {
-        mkdir($base_cache, 0755);
+    if (!empty($prefix)) {
+        if (!is_dir($base_cache)) {
+            mkdir($base_cache, 0755);
+        }
+        file_put_contents($cachefile, $jsmin_php);
     }
-    file_put_contents($cachefile, $jsmin_php);
+    echo $jsmin_php;
 } else {
     header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($cachefile)) . ' GMT', true, 200);
+    echo file_get_contents($cachefile);
 }
 
-echo file_get_contents($cachefile);

@@ -19,13 +19,13 @@ abstract class AbstractController
 
     public function render($view, array $data = array(), $layout = 'layout')
     {
-        $this->header->setScope($this->scope);
-        return $this->view->render($this->scope, $view, $data, $layout, $this->header->get());
+        $data = array_merge($data, array('header' => $this->header->get()));
+        return $this->view->render($view, $data, $layout);
     }
 
     protected function loadLang($lang)
     {
-        $file = __DIR__ . '/../Views/' . $this->scope . '/langs/' . $lang . '.po';
+        $file = $this->view->getDir() . '/../langs/' . $lang . '.po';
         if (file_exists($file)) {
             $fileHandler = new FileHandler($file);
             $poParser = new PoParser($fileHandler);

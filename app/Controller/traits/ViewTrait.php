@@ -1,7 +1,7 @@
 <?php
 namespace Application\Controller\Traits;
 
-use Application\Helper\View;
+use Buuum\Template\View;
 
 trait ViewTrait
 {

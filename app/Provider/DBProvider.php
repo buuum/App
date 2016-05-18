@@ -28,13 +28,14 @@ class DBProvider
             ];
 
             $config = $app->get('config');
-            $properties = array_merge($default, $config->getDatabase());
+            $env = $config->get('environment');
+            $database = $config->get("$env.bbdd");
+            $properties = array_merge($default, $database);
 
             $connection = $factory->make($properties);
 
             return $connection;
         });
-
     }
 
 }

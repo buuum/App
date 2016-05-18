@@ -1,7 +1,7 @@
 <?php
 namespace Application\Controller\Traits;
 
-use Application\Helper\Header;
+use Buuum\Template\Header;
 
 trait HeaderTrait
 {

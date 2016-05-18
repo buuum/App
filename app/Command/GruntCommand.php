@@ -1,6 +1,6 @@
 <?php namespace Application\Command;
 
-use Application\Helper\Template;
+use Buuum\Template\Template;
 use Symfony\Component\Console\Input\InputArgument;
 
 class GruntCommand extends AbstractCommand
@@ -33,12 +33,21 @@ class GruntCommand extends AbstractCommand
         } elseif ($type == 'template') {
             $folder = $this->input->getArgument('folder');
             $file = $this->input->getArgument('file');
-            new Template($folder, $file);
+
+            $paths = $this->container->get('paths');
+            $path = $paths['views'] . '/' . $folder . '/public';
+
+            new Template($path, $file);
+
             $this->success('template ' . $folder . ' - ' . $file);
         } elseif ($type == 'templatechars') {
             $folder = $this->input->getArgument('folder');
             $file = $this->input->getArgument('file');
-            new Template($folder, $file, true);
+
+            $paths = $this->container->get('paths');
+            $path = $paths['views'] . '/' . $folder . '/public';
+
+            new Template($path, $file, true);
             $this->success('templatechars ' . $folder . ' - ' . $file);
         } elseif ($type == 'updateversion') {
             $file = __DIR__ . '/../../version.json';

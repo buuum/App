@@ -7,6 +7,9 @@ return [
     'session.name' => 's_id',
 
     'scope'  => 'Web',
+    'scopes' => [
+        //'Admin'      => '/admin/',
+    ],
 
     'local' => [
         'host'        => 'buuum.dev',

@@ -21,10 +21,6 @@ class RouterProvider
 
             $dispatcher = new Dispatcher($routeData);
 
-            $app->share('urls', function () use ($dispatcher) {
-                return $dispatcher;
-            });
-
             return $dispatcher;
 
         });
