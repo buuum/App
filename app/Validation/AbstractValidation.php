@@ -10,12 +10,16 @@ class AbstractValidation
 
     private $filter_rules = [];
     private $validated_rules = [];
+    private $messages;
+    private $alias;
     private $data = null;
 
-    public function __construct($validated_rules, $filter_rules)
+    public function __construct($validated_rules, $filter_rules, $messages = null, $alias = null)
     {
         $this->validated_rules = $validated_rules;
         $this->filter_rules = $filter_rules;
+        $this->messages = $messages;
+        $this->alias = $alias;
     }
 
     public function getData(array $data = null, $force = false)
@@ -34,7 +38,7 @@ class AbstractValidation
         $filter = new Filter($this->filter_rules);
         $this->data = $filter->filter($data);
 
-        $validation = new Validation($this->validated_rules);
+        $validation = new Validation($this->validated_rules, $this->messages, $this->alias);
 
         if (!$data = $validation->validate($this->data)) {
             return $validation->getErrors();

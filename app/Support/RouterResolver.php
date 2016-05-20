@@ -22,6 +22,7 @@ class RouterResolver implements HandlerResolverInterface
                 ->withMethodCall('setHeader', ['header'])
                 ->withMethodCall('setRequest', ['request'])
                 ->withMethodCall('setSession', ['session'])
+                ->withMethodCall('setRouter', ['router'])
                 ->withMethodCall('iniController');
 
             $handler[0] = $this->container->get($handler[0]);
@@ -44,6 +45,7 @@ class RouterResolver implements HandlerResolverInterface
             ->withMethodCall('setHeader', ['header'])
             ->withMethodCall('setRequest', ['request'])
             ->withMethodCall('setSession', ['session'])
+            ->withMethodCall('setRouter', ['router'])
             ->withMethodCall('iniController');
 
         if ($type_error == 404) {

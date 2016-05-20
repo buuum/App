@@ -3,6 +3,7 @@ namespace Application\Controller;
 
 use Application\Controller\Traits\HeaderTrait;
 use Application\Controller\Traits\RequestTrait;
+use Application\Controller\Traits\RouterTrait;
 use Application\Controller\Traits\SessionTrait;
 use Application\Controller\Traits\ViewTrait;
 use Sepia\FileHandler;
@@ -14,8 +15,31 @@ abstract class AbstractController
     use HeaderTrait;
     use RequestTrait;
     use SessionTrait;
+    use RouterTrait;
 
     protected $scope;
+
+    private static $_instances = [];
+
+    public function __construct()
+    {
+        $this->setInstance();
+    }
+
+    /**
+     * @return self
+     */
+    public static function getInstance()
+    {
+        $class = get_called_class();
+        return self::$_instances[$class];
+    }
+
+    public function setInstance()
+    {
+        $class = get_called_class();
+        self::$_instances[$class] = $this;
+    }
 
     public function render($view, array $data = array(), $layout = 'layout')
     {
