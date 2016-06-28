@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Provider;
+namespace App\Provider;
 
 use Buuum\Dispatcher;
 use Buuum\Router;
@@ -10,7 +10,7 @@ class RouterProvider
 {
     public function register(Container $app)
     {
-        $app->share('router', function () use ($app) {
+        $app->share('Buuum\Dispatcher', function () use ($app) {
 
             $router = new Router();
             $paths = $app->get('paths');

@@ -1,4 +1,4 @@
-<?php namespace Application\Support;
+<?php namespace App\Support;
 
 use Buuum\HandlerResolverInterface;
 use League\Container\Container;
@@ -17,15 +17,11 @@ class RouterResolver implements HandlerResolverInterface
     public function resolve($handler)
     {
         if (is_array($handler) and is_string($handler[0])) {
-            $this->container->share($handler[0])
-                ->withMethodCall('setView', ['view'])
-                ->withMethodCall('setHeader', ['header'])
-                ->withMethodCall('setRequest', ['request'])
-                ->withMethodCall('setSession', ['session'])
-                ->withMethodCall('setRouter', ['router'])
-                ->withMethodCall('iniController');
+
+            $this->container->share($handler[0])->withArguments($this->getContructArguments($handler[0]));
 
             $handler[0] = $this->container->get($handler[0]);
+
         }
 
         return $handler;
@@ -38,15 +34,12 @@ class RouterResolver implements HandlerResolverInterface
 
     public function resolveErrors($type_error, $request)
     {
-        $scope = $this->getScope($request);
-        $error_controller = "Application\\Controller\\$scope\\ErrorController";
-        $this->container->share($error_controller)
-            ->withMethodCall('setView', ['view'])
-            ->withMethodCall('setHeader', ['header'])
-            ->withMethodCall('setRequest', ['request'])
-            ->withMethodCall('setSession', ['session'])
-            ->withMethodCall('setRouter', ['router'])
-            ->withMethodCall('iniController');
+        $config = $this->container->get('config');
+        $scope = $config->get('scope');
+
+        $error_controller = "App\\Controller\\$scope\\ErrorController";
+
+        $this->container->share($error_controller)->withArguments($this->getContructArguments($error_controller));
 
         if ($type_error == 404) {
             // ROUTE NOT FOUND
@@ -64,22 +57,18 @@ class RouterResolver implements HandlerResolverInterface
 
     }
 
-    protected function getScope($request)
+    private function getContructArguments($classname)
     {
+        $arguments = [];
+        $reflector = new \ReflectionClass($classname);
 
-        $config = $this->container->get('config');
-        $scopes = $config->get('scopes');
-
-        if (!empty($scopes)) {
-
-            foreach ($scopes as $scope => $prefix) {
-                if ($prefix && substr($request['path'], 0, strlen($prefix)) == $prefix) {
-                    $config->set('scope', $scope);
-                    return $scope;
-                }
+        if ($reflector->getConstructor()) {
+            foreach ($reflector->getConstructor()->getParameters() as $param) {
+                $param->getClass()->name;
+                $arguments[] = $param->getClass()->name;
             }
         }
 
-        return $this->container->get('config')->get('scope');
+        return $arguments;
     }
 }

@@ -1,9 +1,11 @@
 <?php
 
-namespace Application\Provider;
+namespace App\Provider;
 
-use Application\Support\HandleError;
+use App\Helpers\AppHelper;
+use App\Support\HandleError;
 use Buuum\Config;
+use Buuum\Encoding\Encode;
 use League\Container\Container;
 
 class ConfigProvider
@@ -20,7 +22,7 @@ class ConfigProvider
             $autoloads = [
                 "files" => [$app_path . '/helpers.php'],
                 //"psr-4" => [
-                //    "Application\\" => $app_path
+                //    "App\\" => $app_path
                 //]
             ];
 
@@ -31,6 +33,7 @@ class ConfigProvider
 
             $config->set("environment.development", $debugMode);
             $config->set("environment.host", $config->get("$env.host"));
+            $config->set("paths", $paths);
 
             $handle = new HandleError($debugMode, $paths['log']);
             $config->setupErrors($handle);

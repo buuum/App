@@ -1,9 +1,8 @@
 <?php
 
-namespace Application\Provider;
+namespace App\Provider;
 
-use Buuum\AbstractRepository;
-use Database\Connectors\ConnectionFactory;
+use Illuminate\Database\Capsule\Manager;
 use League\Container\Container;
 
 class DBProvider
@@ -12,19 +11,15 @@ class DBProvider
     public function register(Container $app)
     {
         $app->share('database', function () use ($app) {
-            $factory = new ConnectionFactory();
+
+            //https://siipo.la/blog/how-to-use-eloquent-orm-migrations-outside-laravel
 
             $default = [
                 'driver'    => 'mysql',
+                'host'      => 'localhost',
                 'charset'   => 'utf8',
-                'collation' => 'utf8_unicode_ci',
-                // Don't connect until we execute our first query
-                'lazy'    => true,
-                // Set PDO attributes after connection
-                'options' => [
-                    \PDO::MYSQL_ATTR_LOCAL_INFILE => true,
-                    \PDO::ATTR_EMULATE_PREPARES   => true,
-                ]
+                'collation' => 'utf8_general_ci',
+                'prefix'    => ''
             ];
 
             $config = $app->get('config');
@@ -32,10 +27,15 @@ class DBProvider
             $database = $config->get("$env.bbdd");
             $properties = array_merge($default, $database);
 
-            $connection = $factory->make($properties);
-
-            return $connection;
+            $capsule = new Manager();
+            $capsule->addConnection($properties);
+            $capsule->setAsGlobal();
+            $capsule->bootEloquent();
+            // set timezone for timestamps etc
+            date_default_timezone_set('UTC');
+            return $capsule;
         });
+        $app->get('database');
     }
 
 }

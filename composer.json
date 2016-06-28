@@ -17,21 +17,20 @@
     "require": {
         "php": ">=5.5.0",
         "buuum/route": "^1.0",
-        "buuum/cache": "^1.0",
-        "buuum/orm": "^1.0",
         "buuum/validation": "^1.0.0",
         "league/container": "^2.2",
         "sepia/po-parser": "^4.2",
         "symfony/http-foundation": "^3.0",
         "symfony/console": "^3.0",
         "buuum/encode": "^1.0",
-        "mrjgreen/database": "^2.5",
         "buuum/config": "^1.0",
-        "buuum/template": "^0.0.2"
+        "buuum/template": "^0.0.7",
+        "buuum/mail": "^1.0",
+        "illuminate/database": "^5.2"
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "app"
+            "App\\": "app"
         }
     }
 }

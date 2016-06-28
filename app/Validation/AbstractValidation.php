@@ -1,26 +1,26 @@
 <?php
 
-namespace Application\Validation;
+namespace App\Validation;
 
 use Buuum\Filter;
 use Buuum\Validation;
 
-class AbstractValidation
+abstract class AbstractValidation
 {
 
-    private $filter_rules = [];
-    private $validated_rules = [];
-    private $messages;
-    private $alias;
+    protected $filter_rules = [];
+    protected $validated_rules = [];
+    protected $messages;
+    protected $alias;
     private $data = null;
 
-    public function __construct($validated_rules, $filter_rules, $messages = null, $alias = null)
-    {
-        $this->validated_rules = $validated_rules;
-        $this->filter_rules = $filter_rules;
-        $this->messages = $messages;
-        $this->alias = $alias;
-    }
+    //public function __construct($validated_rules, $filter_rules, $messages = null, $alias = null)
+    //{
+    //    $this->validated_rules = $validated_rules;
+    //    $this->filter_rules = $filter_rules;
+    //    $this->messages = $messages;
+    //    $this->alias = $alias;
+    //}
 
     public function getData(array $data = null, $force = false)
     {
@@ -43,6 +43,8 @@ class AbstractValidation
         if (!$data = $validation->validate($this->data)) {
             return $validation->getErrors();
         }
+
+        return false;
     }
 
     private function getBasicData()

@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Provider;
+namespace App\Provider;
 
 use League\Container\Container;
 

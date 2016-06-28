@@ -1,16 +1,14 @@
 <?php
 
-namespace Application\Controller\Web;
+namespace App\Controller\Web;
 
-class HomeController extends Controller
+class Home extends Controller
 {
-    public function getIndex()
+    public function get()
     {
         $title = htmlentities("<Buuum/>");
         $quote = "Sólo hay dos cosas que sobrevivirían a un holocausto nuclear: las cucarachas y la ñapa \"temporal\" que metiste para solucionar ese bug.";
-        return $this->render('index', compact("title","quote"));
+        return $this->render('index', compact("title", "quote"));
     }
-
-
 
 }

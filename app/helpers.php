@@ -32,3 +32,61 @@ if (!function_exists('dd')) {
         die;
     }
 }
+
+if (!function_exists('slugify')) {
+
+    function slugify($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+        // transliterate
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // remove duplicate -
+        $text = preg_replace('~-+~', '-', $text);
+
+        // lowercase
+        $text = strtolower($text);
+
+        if (empty($text)) {
+            return 'n-a';
+        }
+
+        return $text;
+    }
+}
+
+if (!function_exists('randomString')) {
+    function randomString($length = 10, $uc = true, $n = true, $sc = false)
+    {
+        $rstr = "";
+        $source = 'abcdefghijklmnopqrstuvwxyz';
+        if ($uc == 1) {
+            $source .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        }
+        if ($n == 1) {
+            $source .= '1234567890';
+        }
+        if ($sc == 1) {
+            $source .= '|@#~$%()=^*+[]{}-_';
+        }
+        if ($length > 0) {
+            $source = str_split($source, 1);
+            for ($i = 1; $i <= $length; $i++) {
+                mt_srand((double)microtime() * 1000000);
+                $num = mt_rand(1, count($source));
+                $rstr .= $source[$num - 1];
+            }
+
+        }
+
+        return $rstr;
+    }
+}

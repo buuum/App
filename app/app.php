@@ -17,18 +17,16 @@ $app->share('paths', function () {
 });
 
 $providers = [
-    new Application\Provider\ConfigProvider,
-    new Application\Provider\SessionProvider,
-    new Application\Provider\CacheProvider,
-    new Application\Provider\DBProvider,
-    new Application\Provider\ORMProvider,
-    new Application\Provider\RequestProvider,
-    new Application\Provider\RouterProvider,
-    new Application\Provider\ViewProvider,
-    new Application\Provider\DispatchProvider,
-    new Application\Provider\CommandProvider
+    new App\Provider\ConfigProvider,
+    new App\Provider\DBProvider,
+    new App\Provider\RequestProvider,
+    new App\Provider\RouterProvider,
+    new App\Provider\ViewProvider,
+    new App\Provider\DispatchProvider,
+    new App\Provider\CommandProvider,
+    new App\Provider\AppProvider,
+    new App\Provider\SessionProvider,
 ];
-
 array_walk($providers, function ($provider) use ($app) {
     $provider->register($app);
 });

@@ -1,60 +1,59 @@
 <?php
-namespace Application\Controller;
 
-use Application\Controller\Traits\HeaderTrait;
-use Application\Controller\Traits\RequestTrait;
-use Application\Controller\Traits\RouterTrait;
-use Application\Controller\Traits\SessionTrait;
-use Application\Controller\Traits\ViewTrait;
-use Sepia\FileHandler;
-use Sepia\PoParser;
+namespace App\Controller;
+
+use Buuum\Cache;
+use Buuum\Dispatcher;
+use Buuum\Template\View;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 abstract class AbstractController
 {
-    use ViewTrait;
-    use HeaderTrait;
-    use RequestTrait;
-    use SessionTrait;
-    use RouterTrait;
-
-    protected $scope;
-
-    private static $_instances = [];
-
-    public function __construct()
-    {
-        $this->setInstance();
-    }
-
     /**
-     * @return self
+     * @var Session
      */
-    public static function getInstance()
+    public $session;
+    /**
+     * @var View
+     */
+    public $view;
+    /**
+     * @var Request
+     */
+    public $request;
+    /**
+     * @var Dispatcher
+     */
+    public $router;
+
+    public function __construct(View $view, Request $request, Session $session, Dispatcher $router)
     {
-        $class = get_called_class();
-        return self::$_instances[$class];
+        $this->session = $session;
+        $this->flash = $session->getFlashBag();
+        $this->view = $view;
+        $this->request = $request;
+        $this->router = $router;
+        $this->initialize();
     }
 
-    public function setInstance()
+    public function initialize()
     {
-        $class = get_called_class();
-        self::$_instances[$class] = $this;
+        $this->setDefaultHeader();
+    }
+
+    public function setDefaultHeader()
+    {
+        $this->view->header
+            ->title('Buuum')
+            ->description('Buuum App')
+            ->keywords('')
+            ->plugins(['jquery', 'bootstrap', 'font-awesome']);
     }
 
     public function render($view, array $data = array(), $layout = 'layout')
     {
-        $data = array_merge($data, array('header' => $this->header->get()));
         return $this->view->render($view, $data, $layout);
     }
 
-    protected function loadLang($lang)
-    {
-        $file = $this->view->getDir() . '/../langs/' . $lang . '.po';
-        if (file_exists($file)) {
-            $fileHandler = new FileHandler($file);
-            $poParser = new PoParser($fileHandler);
-            $GLOBALS['traducciones'] = $poParser->parse();
-        }
-
-    }
 }

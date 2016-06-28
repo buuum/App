@@ -4,5 +4,14 @@ use Buuum\Router;
 
 return function (Router $route) {
 
-    $route->get('/', array('Application\Controller\Web\HomeController', 'getIndex'))->setName('index');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Routes for scope WEB
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+    $route->get('/', ['App\Controller\Web\Home', 'get']);
+
 };

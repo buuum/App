@@ -1,20 +1,10 @@
 <?php
 
-namespace Application\Controller\Web;
+namespace App\Controller\Web;
 
-use Application\Controller\AbstractController;
+use App\Controller\AbstractController;
 
 class Controller extends AbstractController
 {
-
-    public function iniController()
-    {
-
-        $this->header
-            ->title('Buuum')
-            ->description('Skeleton App')
-            ->keywords('')
-            ->plugins(array('jquery', 'bootstrap'));
-    }
 
 }

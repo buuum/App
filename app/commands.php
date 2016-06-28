@@ -1,6 +1,7 @@
 <?php
-namespace Application;
+namespace App;
 
 return [
-    'Application\Command\GruntCommand'
+    'App\Command\GruntCommand',
+    'App\Command\MailCommand'
 ];

@@ -1,9 +1,10 @@
-<?php namespace Application\Command;
+<?php namespace App\Command;
 
 use League\Container\Container;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 
@@ -60,6 +61,18 @@ abstract class AbstractCommand extends Command
     protected function question($question, $default = null)
     {
         $question = new Question($question, $default);
+
+        return $this->getHelper('question')->ask($this->input, $this->output, $question);
+    }
+
+
+    protected function choiceQuestion($question, $answers, $default = null)
+    {
+        $question = new ChoiceQuestion(
+            $question,
+            $answers,
+            $default
+        );
 
         return $this->getHelper('question')->ask($this->input, $this->output, $question);
     }

@@ -31,8 +31,8 @@ module.exports = (grunt) ->
               files: [
                 "chosen-sprite.png",
                 "chosen-sprite@2x.png",
-                "chosen.jquery.min.js",
-                "chosen.min.css"
+                "chosen.jquery.js",
+                "chosen.css"
               ]
             'font-awesome':
               files: [
@@ -44,6 +44,12 @@ module.exports = (grunt) ->
                 "dist/css/bootstrap.min.css",
                 "dist/js/bootstrap.min.js",
                 "dist/fonts/*"
+              ]
+            'summernote':
+              files: [
+                "dist/summernote.js",
+                "dist/summernote.css"
+                "dist/font/*"
               ]
             'moment':
               files: [

@@ -1,4 +1,4 @@
-<?php namespace Application\Command;
+<?php namespace App\Command;
 
 use Buuum\Template\Template;
 use Symfony\Component\Console\Input\InputArgument;
@@ -84,6 +84,17 @@ class GruntCommand extends AbstractCommand
                 // 'rename_folder' => 'fontawesome'
             ),
 
+            // font awesome icons
+            'summernote' => array(
+                'files_change' => array(
+                    'dist/summernote.css'
+                ),
+                'replaces'     => array(
+                    'font/' => 'plugins/summernote/dist/font/'
+                ),
+                // 'rename_folder' => 'fontawesome'
+            ),
+
             // images datatables //
             'datatables'   => array(
                 'files_change' => array(
@@ -96,10 +107,10 @@ class GruntCommand extends AbstractCommand
 
             'chosen' => array(
                 'files_change' => array(
-                    'chosen.min.css'
+                    'chosen.css'
                 ),
                 'replaces'     => array(
-                    '(chosen-sprite' => '(plugins/chosen/chosen-sprite'
+                    'chosen-sprite' => 'plugins/chosen/chosen-sprite'
                 )
             ),
 

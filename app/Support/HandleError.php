@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Support;
+namespace App\Support;
 
 use Buuum\HandleErrorInterface;
 
