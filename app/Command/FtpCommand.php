@@ -302,6 +302,11 @@ class FtpCommand extends AbstractCommand
         $commits = array_keys($commits);
         $commits_server = $this->getCommits();
 
+        if(!$commits_server){
+            $this->error('No se ha iniciado el proyecto en el servidor');
+            return;
+        }
+
         $diffs = (array_diff($commits, $commits_server));
 
         if (count($diffs) <= 0) {
