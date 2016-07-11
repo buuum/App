@@ -3,5 +3,7 @@ namespace App;
 
 return [
     'App\Command\GruntCommand',
-    'App\Command\MailCommand'
+    'App\Command\CrudCommand',
+    'App\Command\MailCommand',
+    'App\Command\FtpCommand',
 ];

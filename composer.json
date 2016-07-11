@@ -26,7 +26,10 @@
         "buuum/config": "^1.0",
         "buuum/template": "^0.0.7",
         "buuum/mail": "^1.0",
-        "illuminate/database": "^5.2"
+        "illuminate/database": "^5.2",
+        "buuum/ftp": "^1.0",
+        "buuum/git": "^1.0",
+        "buuum/zip": "^1.0"
     },
     "autoload": {
         "psr-4": {

@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading
+    {{e. Delete {{model}}}}
+
+
+  .panel-body
+
+    %h1 {{$formdata['id']}}
+
+    %a.btn.btn-success.removeitem{:href=>'{{*delete{{model_lower}}:id|$formdata["id"]}}'}
+      {{e. Eliminar}}
+    %a.btn.btn-info.cancelitem{:href=>"#"}
+      {{e. Cancelar}}

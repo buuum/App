@@ -4,6 +4,7 @@ $app = new \League\Container\Container;
 
 $app->share('paths', function () {
     return [
+        'root'     => __DIR__ . '/..',
         'app'      => __DIR__,
         'public'   => __DIR__ . '/../httpdocs',
         'config'   => __DIR__ . '/config.php',

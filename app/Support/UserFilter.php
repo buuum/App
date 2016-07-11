@@ -18,17 +18,25 @@ class UserFilter
         $this->router = $router;
     }
 
-    public function needLogin()
+    public function notVisibleWithoutLogin()
     {
-        if(!$this->session->get('login', false)){
+        if (!$this->session->get('login', false)) {
             return new RedirectResponse($this->router->getUrlRequest('login'));
         }
     }
 
-    public function withLogin()
+    public function notVisibleWithLogin()
     {
-        if($this->session->get('login', false)){
+        if ($this->session->get('login', false)) {
+            return new RedirectResponse($this->router->getUrlRequest('home'));
+        }
+    }
+
+    public function notVisibleWithLoginWeb()
+    {
+        if ($this->session->get('login', false)) {
             return new RedirectResponse($this->router->getUrlRequest('homeuser'));
         }
     }
+
 }

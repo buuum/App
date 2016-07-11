@@ -24,7 +24,7 @@ class DBProvider
 
             $config = $app->get('config');
             $env = $config->get('environment');
-            $database = $config->get("$env.bbdd");
+            $database = $config->get("environments.$env.bbdd");
             $properties = array_merge($default, $database);
 
             $capsule = new Manager();

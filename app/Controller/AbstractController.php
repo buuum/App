@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use Buuum\Cache;
+use App\Form\AbstractForm;
 use Buuum\Dispatcher;
 use Buuum\Template\View;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,6 +26,10 @@ abstract class AbstractController
      * @var Dispatcher
      */
     public $router;
+    /**
+     * @var AbstractForm
+     */
+    protected $form;
 
     public function __construct(View $view, Request $request, Session $session, Dispatcher $router)
     {

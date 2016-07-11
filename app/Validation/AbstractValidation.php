@@ -13,14 +13,7 @@ abstract class AbstractValidation
     protected $messages;
     protected $alias;
     private $data = null;
-
-    //public function __construct($validated_rules, $filter_rules, $messages = null, $alias = null)
-    //{
-    //    $this->validated_rules = $validated_rules;
-    //    $this->filter_rules = $filter_rules;
-    //    $this->messages = $messages;
-    //    $this->alias = $alias;
-    //}
+    protected $types = [];
 
     public function getData(array $data = null, $force = false)
     {
@@ -54,6 +47,19 @@ abstract class AbstractValidation
             $data[$key] = '';
         }
         return $data;
+    }
+
+    protected function init($type, $filter_rules, $validated_rules)
+    {
+
+        $this->filter_rules = array_filter($filter_rules, function($k) use ($type){
+            return in_array($k, $this->types[$type]);
+        }, ARRAY_FILTER_USE_KEY);
+
+        $this->validated_rules = array_filter($validated_rules, function($k) use ($type){
+            return in_array($k, $this->types[$type]);
+        }, ARRAY_FILTER_USE_KEY);
+
     }
 
 }

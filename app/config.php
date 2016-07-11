@@ -23,47 +23,50 @@ return [
     'scope'  => 'Web',
     'scopes' => [],
 
-    'local' => [
-        'host'        => 'buuum.dev',
-        'public'      => 'httpdocs',
-        'development' => true,
-        'bbdd'        => [
-            'database' => 'buuum',
-            'host'     => '127.0.0.1',
-            'username' => 'admin',
-            'password' => 'admin'
-        ],
-        'ftp'         => [
+    'environments' => [
+        'local' => [
+            'host'        => 'buuum.dev',
+            'public'      => 'httpdocs',
+            'development' => true,
+            'bbdd'        => [
+                'database' => 'buuum',
+                'host'     => '127.0.0.1',
+                'username' => 'admin',
+                'password' => 'admin'
+            ],
+            'ftp'         => [
 
-        ]
-    ],
-    'dev'   => [
-        'host'        => 'buuum.dev',
-        'public'      => 'httpdocs',
-        'development' => true,
-        'bbdd'        => [
-            'database' => 'buuum',
-            'host'     => '127.0.0.1',
-            'username' => 'admin',
-            'password' => 'admin'
+            ]
         ],
-        'ftp'         => [
+        'dev'   => [
+            'host'        => 'buuum.dev',
+            'public'      => 'httpdocs',
+            'development' => true,
+            'bbdd'        => [
+                'database' => 'buuum',
+                'host'     => '127.0.0.1',
+                'username' => 'admin',
+                'password' => 'admin'
+            ],
+            'ftp'         => [
 
-        ]
-    ],
-    'prod'  => [
-        'host'        => 'buuum.dev',
-        'public'      => 'httpdocs',
-        'development' => true,
-        'bbdd'        => [
-            'database' => 'buuum',
-            'host'     => '127.0.0.1',
-            'username' => 'admin',
-            'password' => 'admin'
+            ]
         ],
-        'ftp'         => [
+        'prod'  => [
+            'host'        => 'buuum.dev',
+            'public'      => 'httpdocs',
+            'development' => true,
+            'bbdd'        => [
+                'database' => 'buuum',
+                'host'     => '127.0.0.1',
+                'username' => 'admin',
+                'password' => 'admin'
+            ],
+            'ftp'         => [
 
+            ]
         ]
+
     ]
 
 ];

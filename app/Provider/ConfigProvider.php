@@ -29,10 +29,10 @@ class ConfigProvider
             $config = new Config($configs, $autoloads);
 
             $env = $config->get('environment');
-            $debugMode = $config->get("$env.development");
+            $debugMode = $config->get("environments.$env.development");
 
             $config->set("environment.development", $debugMode);
-            $config->set("environment.host", $config->get("$env.host"));
+            $config->set("environment.host", $config->get("environments.$env.host"));
             $config->set("paths", $paths);
 
             $handle = new HandleError($debugMode, $paths['log']);
