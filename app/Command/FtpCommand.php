@@ -272,6 +272,12 @@ class FtpCommand extends AbstractCommand
             $this->ftp->put('commits/commits.json', $temp_commits_path);
             unlink($temp_commits_path);
 
+            // descomprimimos el zip en servidor
+            $host = 'http://' . $this->environment['host'] . '/unzip.php';
+            file_get_contents($host);
+
+            sleep(2);
+
             // change config.php with environment required
             $temp_config_path = __DIR__ . '/_conf.php';
             $config_path = $this->container->get('config')->get('paths.config');
@@ -280,13 +286,8 @@ class FtpCommand extends AbstractCommand
             $arr['environment'] = $this->environment_name;
 
             file_put_contents($temp_config_path, "<?php return " . var_export($arr, true) . ";");
-            $rfile = str_replace(dirname($config_path) . '/', '', $temp_config_path);
-            $this->ftp->put(dirname($rfile) . '/config.php', $temp_config_path);
+            $this->ftp->put('app/config.php', $temp_config_path);
             unlink($temp_config_path);
-
-            // descomprimimos el zip en servidor
-            $host = 'http://' . $this->environment['host'] . '/unzip.php';
-            file_get_contents($host);
 
 
         }
