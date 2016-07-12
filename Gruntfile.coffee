@@ -27,6 +27,10 @@ module.exports = (grunt) ->
         options:
           expand: true
           packageSpecific:
+            'masonry':
+              files: [
+                "dist/masonry.pkgd.min.js"
+              ]
             'chosen':
               files: [
                 "chosen-sprite.png",
