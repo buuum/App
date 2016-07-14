@@ -125,7 +125,7 @@ abstract class AbstractForm
     {
         if (!empty($this->request)) {
             $this->errors = $this->validation->validate($this->request);
-            $this->formdata = array_merge($this->extradata, $this->request);
+            $this->formdata = array_merge($this->extradata, $this->validation->getData());
             $this->removeMultipleFields();
         } else {
             $this->formdata = $this->validation->getData($this->extradata);
