@@ -46,8 +46,10 @@ class AppSupport
     {
         if (substr($request_path, 0, 4) == '/en/') {
             self::loadLang('en_EN');
+            setlocale(LC_CTYPE, "en_US.utf8");
             date_default_timezone_set("Europe/Madrid");
         } else {
+            setlocale(LC_CTYPE, "es_ES.utf8");
             date_default_timezone_set("Europe/Madrid");
         }
     }
