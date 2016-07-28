@@ -154,4 +154,9 @@ abstract class AbstractForm
     {
         return get_called_class();
     }
+
+    public function getErrors()
+    {
+        return $this->errors;
+    }
 }
