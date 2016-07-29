@@ -91,13 +91,27 @@ if (!function_exists('randomString')) {
     }
 }
 
-
 if (!function_exists('boot_detected')) {
     function boot_detected()
     {
-        if (isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/bot|crawl|slurp|spider/i', $_SERVER['HTTP_USER_AGENT'])) {
+        if (isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/bot|crawl|slurp|spider/i',
+                $_SERVER['HTTP_USER_AGENT'])
+        ) {
             return true;
         }
+        return false;
+    }
+}
+
+if (!function_exists('preview_request')) {
+    function preview_request()
+    {
+        if ((isset($_SERVER["HTTP_X_PURPOSE"]) && (strtolower($_SERVER["HTTP_X_PURPOSE"]) == "preview")) ||
+            (isset($_SERVER["HTTP_X_MOZ"]) && (strtolower($_SERVER["HTTP_X_MOZ"]) == "prefetch"))
+        ) {
+            return true;
+        }
+
         return false;
     }
 }
