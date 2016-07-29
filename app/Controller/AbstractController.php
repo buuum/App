@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\AbstractForm;
+use Buuum\Config;
 use Buuum\Dispatcher;
 use Buuum\Template\View;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,17 +28,22 @@ abstract class AbstractController
      */
     public $router;
     /**
+     * @var Config
+     */
+    public $config;
+    /**
      * @var AbstractForm
      */
     protected $form;
 
-    public function __construct(View $view, Request $request, Session $session, Dispatcher $router)
+    public function __construct(View $view, Request $request, Session $session, Dispatcher $router, Config $config)
     {
         $this->session = $session;
         $this->flash = $session->getFlashBag();
         $this->view = $view;
         $this->request = $request;
         $this->router = $router;
+        $this->config = $config;
         $this->initialize();
     }
 
