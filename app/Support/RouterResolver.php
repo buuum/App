@@ -64,8 +64,11 @@ class RouterResolver implements HandlerResolverInterface
 
         if ($reflector->getConstructor()) {
             foreach ($reflector->getConstructor()->getParameters() as $param) {
-                $param->getClass()->name;
-                $arguments[] = $param->getClass()->name;
+                $classname = $param->getClass()->name;
+                if ($classname == 'Buuum\Config') {
+                    $classname = 'config';
+                }
+                $arguments[] = $classname;
             }
         }
 
