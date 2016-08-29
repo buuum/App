@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Controller\AbstractController;
+use App\Support\DB;
 use App\Validation\AbstractValidation;
 
 abstract class AbstractForm
@@ -111,10 +112,13 @@ abstract class AbstractForm
 
     protected function onSuccess()
     {
+        DB::beginTransaction();
         try {
             $this->onFormSuccess();
+            DB::commit();
         } catch (\Exception $e) {
             $this->messages = ['error' => ['error' => [$e->getMessage()]]];
+            DB::rollback();
             return false;
         }
 
@@ -153,10 +157,5 @@ abstract class AbstractForm
     protected function getName()
     {
         return get_called_class();
-    }
-
-    public function getErrors()
-    {
-        return $this->errors;
     }
 }

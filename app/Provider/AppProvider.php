@@ -4,6 +4,7 @@ namespace App\Provider;
 
 use App\Services\Mailer;
 use App\Support\AppSupport;
+use App\Support\DB;
 use Buuum\Encoding\Encode;
 use Buuum\Mail;
 use League\Container\Container;
@@ -25,6 +26,7 @@ class AppProvider
         Encode::$key = $config->get('encode.key');
         Encode::setAlgorithm($config->get('encode.algorithm'));
 
+        DB::setCapsule( $app->get('database') );
     }
 
 }
