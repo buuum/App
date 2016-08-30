@@ -42,13 +42,16 @@ abstract class AbstractValidation
 
         if ($this->related_forms) {
             foreach ($this->related_forms as $name => $relation) {
-                if(isset($relation['validation_type'][$this->type])){
+                if (in_array($name, $this->types[$this->type])) {
+                    if (!isset($relation['validation_type'][$this->type])) {
+                        throw new \Exception("No esta definido 'validation_type  {$this->type}' para la relación $name");
+                    }
                     $class = new $relation['validation_class']($relation['validation_type'][$this->type]);
+                    $alias = (!empty($this->alias[$name])) ? $this->alias[$name] : $name;
                     if (isset($this->data[$name])) {
                         foreach ($this->data[$name] as $k => $v) {
                             if ($error_ = $class->validate($v)) {
-                                $alias = (!empty($this->alias[$name])) ? $this->alias[$name] : $name;
-                                $errors[$alias .' '. ($k+1)][$k] = $error_;
+                                $errors[$alias . ' ' . ($k + 1)][$k] = $error_;
                             }
                         }
                     }
