@@ -27,7 +27,7 @@ class DB
      */
     public function __call($methods, $arguments)
     {
-        return self::$capsule->$methods($arguments);
+        return self::$capsule->$methods(...$arguments);
     }
 
     /**
@@ -38,7 +38,7 @@ class DB
     public static function __callStatic($methods, $arguments)
     {
         $capsule = self::$capsule;
-        return $capsule::$methods($arguments);
+        return $capsule::$methods(...$arguments);
     }
 
 }
