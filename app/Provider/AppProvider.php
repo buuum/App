@@ -18,7 +18,6 @@ class AppProvider
         $config = $app->get('config');
 
         AppSupport::setConfig($config);
-        AppSupport::initialize($app->get('Symfony\Component\HttpFoundation\Request')->getPathInfo());
 
         Mail::setConfig($config->get('mail'));
         Mailer::setRouter($app->get('Buuum\Dispatcher'));

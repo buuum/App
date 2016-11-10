@@ -18,9 +18,9 @@ $app->share('paths', function () {
 });
 
 $providers = [
+    new App\Provider\RequestProvider,
     new App\Provider\ConfigProvider,
     new App\Provider\DBProvider,
-    new App\Provider\RequestProvider,
     new App\Provider\RouterProvider,
     new App\Provider\ViewProvider,
     new App\Provider\DispatchProvider,

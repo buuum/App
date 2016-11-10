@@ -28,6 +28,9 @@ return [
             'host'        => 'buuum.dev',
             'public'      => 'httpdocs',
             'development' => true,
+            'lang'        => 'es_ES',
+            'scope'       => 'Web',
+            'scopes'      => [],
             'bbdd'        => [
                 'database' => 'buuum',
                 'host'     => '127.0.0.1',
@@ -39,9 +42,12 @@ return [
             ]
         ],
         'dev'   => [
-            'host'        => 'buuum.dev',
+            'host'        => 'buuum2.dev',
             'public'      => 'httpdocs',
             'development' => true,
+            'lang'        => 'es_ES',
+            'scope'       => 'Web',
+            'scopes'      => [],
             'bbdd'        => [
                 'database' => 'buuum',
                 'host'     => '127.0.0.1',
@@ -53,7 +59,7 @@ return [
             ]
         ],
         'prod'  => [
-            'host'        => 'buuum.dev',
+            'host'        => 'buuum3.dev',
             'public'      => 'httpdocs',
             'development' => true,
             'bbdd'        => [

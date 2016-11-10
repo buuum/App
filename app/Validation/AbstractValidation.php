@@ -23,12 +23,33 @@ abstract class AbstractValidation
     public function getData(array $data = null, $force = false)
     {
         if ($this->data && !$force) {
-            return array_merge($this->getBasicData(), $this->data);
+            return $this->mergeDatas($this->getBasicData(), $this->data);
         } elseif ($data) {
-            return array_merge($this->getBasicData(), $data);
+            return $this->mergeDatas($this->getBasicData(), $data);
         } else {
             return $this->getBasicData();
         }
+    }
+
+    public function getMergeData($extradata, $data)
+    {
+        $response = array_replace_recursive($extradata, $data);
+        if ($this->related_forms) {
+            foreach ($this->related_forms as $name => $relation) {
+                if (in_array($name, $this->types[$this->type])) {
+                    foreach ($data[$name] as $key => $relationdata) {
+                        $response[$name][$key] = (isset($extradata[$name][$key])) ? array_merge($extradata[$name][$key],
+                            $relationdata) : $relationdata;
+                    }
+                }
+            }
+        }
+        return $response;
+    }
+
+    public function mergeDatas($data, $extradata)
+    {
+        return array_replace_recursive($data, $extradata);
     }
 
     public function validate(array $data)
@@ -70,12 +91,27 @@ abstract class AbstractValidation
         return false;
     }
 
-    private function getBasicData()
+    public function getBasicData()
     {
         $data = [];
         foreach ($this->validated_rules as $key => $validated_rule) {
             $data[$key] = '';
         }
+
+        if ($this->related_forms) {
+            foreach ($this->related_forms as $name => $relation) {
+                if (in_array($name, $this->types[$this->type])) {
+                    if (!isset($relation['validation_type'][$this->type])) {
+                        throw new \Exception("No esta definido 'validation_type  {$this->type}' para la relación $name");
+                    }
+                    $class = new $relation['validation_class']($relation['validation_type'][$this->type]);
+                    $datarelation = [];
+                    $datarelation[$name][] = $class->getBasicData();
+                    $data = array_replace_recursive($data, $datarelation);
+                }
+            }
+        }
+
         return $data;
     }
 

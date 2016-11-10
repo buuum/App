@@ -67,6 +67,7 @@ abstract class AbstractForm
     protected $errors = false;
 
     abstract public function onFormSuccess();
+
     abstract public function onFormSuccessReturn();
 
     public function setExtradata($extradata)
@@ -95,7 +96,8 @@ abstract class AbstractForm
             'formdata' => $this->formdata,
             'error'    => $this->errors,
             'action'   => $action,
-            'success'  => ($msgs = $this->controller->flash->get($this->getName() . 'success')) ? implode('', $msgs) : false,
+            'success'  => ($msgs = $this->controller->flash->get($this->getName() . 'success')) ? implode('',
+                $msgs) : false,
             'avisos'   => ($msgs = $this->controller->flash->get('avisos')) ? implode('', $msgs) : false
         ], $this->messages);
 
@@ -104,7 +106,7 @@ abstract class AbstractForm
 
     public function getForm()
     {
-        if(!$this->formdata){
+        if (!$this->formdata) {
             $this->getData();
         }
         return $this->renderForm($this->action, $this->view);
@@ -129,7 +131,7 @@ abstract class AbstractForm
     {
         if (!empty($this->request)) {
             $this->errors = $this->validation->validate($this->request);
-            $this->formdata = array_merge($this->extradata, $this->validation->getData());
+            $this->formdata = $this->validation->getMergeData($this->extradata, $this->validation->getData());
             $this->removeMultipleFields();
         } else {
             $this->formdata = $this->validation->getData($this->extradata);
@@ -147,8 +149,8 @@ abstract class AbstractForm
 
     protected function removeMultipleFields()
     {
-        foreach($this->multiplefields as $multiplefield){
-            if(!isset($this->request[$multiplefield])){
+        foreach ($this->multiplefields as $multiplefield) {
+            if (!isset($this->request[$multiplefield])) {
                 $this->formdata[$multiplefield] = '';
             }
         }
