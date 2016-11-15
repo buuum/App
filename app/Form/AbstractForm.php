@@ -50,13 +50,6 @@ abstract class AbstractForm
     protected $view;
 
     /**
-     * Este variable sirve para sobreescribir los valores de extradata cuando el $_Post no existe.
-     *
-     * @var array
-     */
-    protected $multiplefields = [];
-
-    /**
      * @var array
      */
     protected $formdata = false;
@@ -90,26 +83,27 @@ abstract class AbstractForm
         return false;
     }
 
-    public function renderForm($action, $view)
+    protected function getData()
+    {
+        $this->formdata = $this->validation->filter($this->extradata, $this->request);
+        if (!empty($this->request)) {
+            $this->errors = $this->validation->validate($this->formdata);
+        }
+        return $this->formdata;
+    }
+
+    public function getForm()
     {
         $data = array_merge([
-            'formdata' => $this->formdata,
+            'formdata' => $this->formdata ?: $this->getData(),
             'error'    => $this->errors,
-            'action'   => $action,
+            'action'   => $this->action,
             'success'  => ($msgs = $this->controller->flash->get($this->getName() . 'success')) ? implode('',
                 $msgs) : false,
             'avisos'   => ($msgs = $this->controller->flash->get('avisos')) ? implode('', $msgs) : false
         ], $this->messages);
 
-        return $this->controller->render($view, $data, false);
-    }
-
-    public function getForm()
-    {
-        if (!$this->formdata) {
-            $this->getData();
-        }
-        return $this->renderForm($this->action, $this->view);
+        return $this->controller->render($this->view, $data, false);
     }
 
     protected function onSuccess()
@@ -127,17 +121,6 @@ abstract class AbstractForm
         return $this->onFormSuccessReturn();
     }
 
-    protected function getData()
-    {
-        if (!empty($this->request)) {
-            $this->errors = $this->validation->validate($this->request);
-            $this->formdata = $this->validation->getMergeData($this->extradata, $this->validation->getData());
-            $this->removeMultipleFields();
-        } else {
-            $this->formdata = $this->validation->getData($this->extradata);
-        }
-    }
-
     protected function success()
     {
         if (!empty($this->request) && !$this->errors) {
@@ -145,15 +128,6 @@ abstract class AbstractForm
         }
 
         return false;
-    }
-
-    protected function removeMultipleFields()
-    {
-        foreach ($this->multiplefields as $multiplefield) {
-            if (!isset($this->request[$multiplefield])) {
-                $this->formdata[$multiplefield] = '';
-            }
-        }
     }
 
     protected function getName()

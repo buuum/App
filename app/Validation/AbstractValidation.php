@@ -20,15 +20,44 @@ abstract class AbstractValidation
     private $data = null;
     protected $types = [];
 
-    public function getData(array $data = null, $force = false)
+
+    public function filter($extradata, $request, $removeempty = [])
     {
-        if ($this->data && !$force) {
-            return $this->mergeDatas($this->getBasicData(), $this->data);
-        } elseif ($data) {
-            return $this->mergeDatas($this->getBasicData(), $data);
-        } else {
-            return $this->getBasicData();
+
+        $data = array_replace_recursive($this->getBasicData(), $extradata);
+        if (!empty($request)) {
+            $removeempty = (empty($removeempty)) ? array_diff_key($this->getBasicData(), $request) : $removeempty;
+            $data = $this->getMergeData($data, $request);
         }
+
+        $filter = new Filter($this->filter_rules);
+        $data = $filter->filter($data);
+
+        if ($this->related_forms) {
+            foreach ($this->related_forms as $name => $relation) {
+                if (in_array($name, $this->types[$this->type])) {
+                    $nwr = new $relation['validation_class']($relation['validation_type'][$this->type]);
+                    foreach ($data[$name] as $key => $relationdata) {
+                        $remove = (!empty($request[$name])) ? array_diff_key($nwr->getBasicData(),
+                            $request[$name][$key]) : [];
+                        $data[$name][$key] = $nwr->filter([], $relationdata, $remove);
+                    }
+                }
+            }
+        }
+
+        return $this->clean($data, $removeempty);
+    }
+
+    protected function clean($data, $remove)
+    {
+        if (!empty($remove)) {
+            foreach ($remove as $key => $val) {
+                unset($data[$key]);
+            }
+        }
+
+        return $data;
     }
 
     public function getMergeData($extradata, $data)
@@ -47,15 +76,9 @@ abstract class AbstractValidation
         return $response;
     }
 
-    public function mergeDatas($data, $extradata)
-    {
-        return array_replace_recursive($data, $extradata);
-    }
-
     public function validate(array $data)
     {
-        $filter = new Filter($this->filter_rules);
-        $this->data = $filter->filter($data);
+        $this->data = $data;
         $errors = [];
         $error = [];
 
