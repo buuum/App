@@ -62,7 +62,7 @@ abstract class AbstractValidation
 
     public function getMergeData($extradata, $data)
     {
-        $response = array_replace_recursive($extradata, $data);
+        $response = array_merge($extradata, $data);
         if ($this->related_forms) {
             foreach ($this->related_forms as $name => $relation) {
                 if (in_array($name, $this->types[$this->type])) {
