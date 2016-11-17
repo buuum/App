@@ -206,7 +206,10 @@ module.exports = (grunt) ->
     grunt.task.run ['copy']
     return
 
-  grunt.registerTask 'build', 'Generamos All', (folder) =>
+  grunt.registerTask 'build', 'Generamos All', (folder = false) =>
+    if !folder
+      grunt.log.writeln('Este comando no existe. Pruba con grunt build:folder_name')
+      return
     options.folder = folder
     options.file = false
     grunt.task.run ['clean', 'copy', 'compass', 'cssmin', 'clean:tmp', 'clean:cache', 'coffee', 'concat:js',
