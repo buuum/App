@@ -65,7 +65,7 @@ abstract class AbstractValidation
         $response = array_merge($extradata, $data);
         if ($this->related_forms) {
             foreach ($this->related_forms as $name => $relation) {
-                if (in_array($name, $this->types[$this->type])) {
+                if (in_array($name, $this->types[$this->type]) && !empty($data[$name])) {
                     foreach ($data[$name] as $key => $relationdata) {
                         $response[$name][$key] = (isset($extradata[$name][$key])) ? array_merge($extradata[$name][$key],
                             $relationdata) : $relationdata;
