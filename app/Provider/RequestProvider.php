@@ -9,13 +9,11 @@ class RequestProvider
 {
     public function register(Container $app)
     {
-        $app->share('Symfony\Component\HttpFoundation\Request', function () {
+        $app->share('current_request', function () {
             //$_POST => $request->request->all();
             //$_GET => $request->query->all()
             //$_FILES => $request->files->all()
             return Request::createFromGlobals();
         });
-
     }
-
 }

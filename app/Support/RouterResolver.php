@@ -1,4 +1,6 @@
-<?php namespace App\Support;
+<?php
+
+namespace App\Support;
 
 use Buuum\HandlerResolverInterface;
 use League\Container\Container;
@@ -18,7 +20,7 @@ class RouterResolver implements HandlerResolverInterface
     {
         if (is_array($handler) and is_string($handler[0])) {
 
-            $this->container->share($handler[0])->withArguments($this->getContructArguments($handler[0]));
+            $this->container->share($handler[0])->withArguments([$this->container]);
 
             $handler[0] = $this->container->get($handler[0]);
 
@@ -39,7 +41,7 @@ class RouterResolver implements HandlerResolverInterface
 
         $error_controller = "App\\Controller\\$scope\\ErrorController";
 
-        $this->container->share($error_controller)->withArguments($this->getContructArguments($error_controller));
+        $this->container->share($error_controller)->withArguments([$this->container]);
 
         if ($type_error == 404) {
             // ROUTE NOT FOUND

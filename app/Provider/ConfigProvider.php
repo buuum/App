@@ -7,6 +7,9 @@ use App\Support\HandleError;
 use Buuum\Config;
 use Buuum\Encoding\Encode;
 use League\Container\Container;
+use Sepia\FileHandler;
+use Sepia\PoParser;
+use Symfony\Component\HttpFoundation\Request;
 
 class ConfigProvider
 {
@@ -27,7 +30,7 @@ class ConfigProvider
             ];
 
             $config = new Config($configs, $autoloads);
-            $request = $app->get('Symfony\Component\HttpFoundation\Request');
+            $request = $app->get('current_request');
             $environment = $this->getEnvironment(
                 $request,
                 $config->get('environments')
@@ -47,7 +50,6 @@ class ConfigProvider
             return $config;
         });
     }
-
 
     protected function getEnvironment(Request $request, $environments)
     {

@@ -62,6 +62,7 @@ abstract class AbstractValidation
 
     public function getMergeData($extradata, $data)
     {
+        //$response = array_replace_recursive($extradata, $data);
         $response = array_merge($extradata, $data);
         if ($this->related_forms) {
             foreach ($this->related_forms as $name => $relation) {
@@ -124,12 +125,16 @@ abstract class AbstractValidation
         if ($this->related_forms) {
             foreach ($this->related_forms as $name => $relation) {
                 if (in_array($name, $this->types[$this->type])) {
-                    if (!isset($relation['validation_type'][$this->type])) {
-                        throw new \Exception("No esta definido 'validation_type  {$this->type}' para la relación $name");
+                    if (!isset($relation['dont_show_in']) || !in_array($this->type, $relation['dont_show_in'])) {
+                        if (!isset($relation['validation_type'][$this->type])) {
+                            throw new \Exception("No esta definido 'validation_type  {$this->type}' para la relación $name");
+                        }
+                        $class = new $relation['validation_class']($relation['validation_type'][$this->type]);
+                        $datarelation = [];
+                        $datarelation[$name][] = $class->getBasicData();
+                    } else {
+                        $datarelation[$name] = [];
                     }
-                    $class = new $relation['validation_class']($relation['validation_type'][$this->type]);
-                    $datarelation = [];
-                    $datarelation[$name][] = $class->getBasicData();
                     $data = array_replace_recursive($data, $datarelation);
                 }
             }

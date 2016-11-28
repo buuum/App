@@ -25,10 +25,10 @@ class ViewSupport implements ParseViewInterface
         $paths = $this->container->get('paths');
         $this->view_path = $paths['views'];
 
-        $this->scope = $this->config->get('scope');
+        $this->scope = $this->config->get('environment.scope');
         $this->host = $this->config->get('environment.host');
 
-        $this->dispatcher = $this->container->get('Buuum\Dispatcher');
+        $this->dispatcher = $this->container->get('router');
     }
 
     public function getText($text, $params = [])

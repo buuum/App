@@ -6,6 +6,7 @@ use App\Form\AbstractForm;
 use Buuum\Config;
 use Buuum\Dispatcher;
 use Buuum\Template\View;
+use League\Container\Container;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -36,14 +37,15 @@ abstract class AbstractController
      */
     protected $form;
 
-    public function __construct(View $view, Request $request, Session $session, Dispatcher $router, Config $config)
+    public function __construct(Container $container)
     {
-        $this->session = $session;
-        $this->flash = $session->getFlashBag();
-        $this->view = $view;
-        $this->request = $request;
-        $this->router = $router;
-        $this->config = $config;
+        $this->container = $container;
+        $this->session = $this->container->get('session');
+        $this->flash = $this->session->getFlashBag();
+        $this->view = $this->container->get('view');
+        $this->request = $this->container->get('current_request');
+        $this->router = $this->container->get('router');
+        $this->config = $this->container->get('config');
         $this->initialize();
     }
 

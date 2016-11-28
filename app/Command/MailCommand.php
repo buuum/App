@@ -1,7 +1,5 @@
 <?php namespace App\Command;
 
-use App\Services\Mailer;
-use Symfony\Component\Console\Input\InputArgument;
 
 class MailCommand extends AbstractCommand
 {
@@ -9,28 +7,15 @@ class MailCommand extends AbstractCommand
     {
         $this
             ->setName('mail')
-            ->setDescription('Sending mails')
-            ->addArgument(
-                'to',
-                InputArgument::OPTIONAL,
-                '¿A quien?'
-            )->addArgument(
-                'type',
-                InputArgument::OPTIONAL,
-                '¿que template?'
-            );
+            ->setDescription('Sending mails');
     }
 
     protected function fire()
     {
-        $to = $this->input->getArgument('to');
-        $type = $this->input->getArgument('type');
 
-        if ($type == 'confirm') {
-            Mailer::sendConfirm($to);
-        }elseif ($type == 'reset') {
-            Mailer::sendReset($to);
-        }
+        $mailhandler = $this->container->get('mailhandler');
+        $mailhandler->sendSpooledMessages();
 
+        $this->comment('messages send');
     }
 }

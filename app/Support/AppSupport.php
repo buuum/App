@@ -24,4 +24,5 @@ class AppSupport
         return self::$config->get($name);
     }
 
+
 }

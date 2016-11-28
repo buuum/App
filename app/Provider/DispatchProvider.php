@@ -15,7 +15,7 @@ class DispatchProvider
     public function register(Container $app)
     {
         $app->share('dispatch', function () use ($app) {
-            $request = $app->get('Symfony\Component\HttpFoundation\Request');
+            $request = $app->get('current_request');
 
             $response = $this->wrapResponse($this->dispatch($app, $request));
 
@@ -38,7 +38,6 @@ class DispatchProvider
     public function dispatch(Container $app, Request $request)
     {
         $resolver = new RouterResolver($app);
-        return $app->get('Buuum\Dispatcher')->dispatchRequest($request->getMethod(), $request->getUri(), $resolver);
+        return $app->get('router')->dispatchRequest($request->getMethod(), $request->getUri(), $resolver);
     }
-
 }

@@ -29,7 +29,8 @@
         "illuminate/database": "^5.2",
         "buuum/ftp": "^1.0",
         "buuum/git": "^1.0",
-        "buuum/zip": "^1.0"
+        "buuum/zip": "^1.0",
+        "buuum/phevent": "^0.0.3"
     },
     "autoload": {
         "psr-4": {

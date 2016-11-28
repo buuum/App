@@ -54,6 +54,8 @@ abstract class AbstractForm
      */
     protected $formdata = false;
 
+    protected $force_form_data_to_var = false;
+
     /**
      * @var mixed
      */
@@ -92,16 +94,23 @@ abstract class AbstractForm
         return $this->formdata;
     }
 
-    public function getForm()
+    public function enableforceFormdataToVar()
     {
+        $this->force_form_data_to_var = true;
+    }
+
+    public function getForm($params = [])
+    {
+        $formdata = $this->formdata ?: $this->getData();
+        $force = ($this->force_form_data_to_var) ? $formdata : [];
         $data = array_merge([
-            'formdata' => $this->formdata ?: $this->getData(),
+            'formdata' => $formdata,
             'error'    => $this->errors,
             'action'   => $this->action,
             'success'  => ($msgs = $this->controller->flash->get($this->getName() . 'success')) ? implode('',
                 $msgs) : false,
             'avisos'   => ($msgs = $this->controller->flash->get('avisos')) ? implode('', $msgs) : false
-        ], $this->messages);
+        ], $this->messages, $params, $force);
 
         return $this->controller->render($this->view, $data, false);
     }

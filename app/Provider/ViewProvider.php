@@ -11,7 +11,7 @@ class ViewProvider
 {
     public function register(Container $app)
     {
-        $app->share('Buuum\Template\View', function () use ($app) {
+        $app->share('view', function () use ($app) {
 
             $config = $app->get('config');
 

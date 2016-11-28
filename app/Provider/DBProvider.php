@@ -32,7 +32,7 @@ class DBProvider
             $capsule->setAsGlobal();
             $capsule->bootEloquent();
             // set timezone for timestamps etc
-            date_default_timezone_set('UTC');
+            //date_default_timezone_set('UTC');
             return $capsule;
         });
         $app->get('database');
