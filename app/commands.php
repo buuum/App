@@ -6,4 +6,5 @@ return [
     'App\Command\CrudCommand',
     'App\Command\MailCommand',
     'App\Command\FtpCommand',
+    'App\Command\DBCommand',
 ];

@@ -12,16 +12,27 @@ return [
     ],
 
     'mail' => [
-        'smtpsecure' => 'tls',
-        'host'       => "",
-        'username'   => "",
-        'password'   => "",
-        'from'       => ['@.com', ''],
-        'response'   => ['@.com', '']
+        'smtpsecure'      => 'tls',
+        'host'            => "email-smtp.us-east-1.amazonaws.com",
+        'username'        => "",
+        'port'            => 25,
+        'password'        => "",
+        'from'            => ['news@testamus.com', 'Testamus'],
+        'response'        => ['news@testamus.com', 'Testamus'],
+        'spool'           => true,
+        'spool_directory' => __DIR__ . '/spool'
     ],
 
+    'typeform' => [
+        'api_key' => ''
+    ],
+
+    'lang' => 'es_ES',
+
     'scope'  => 'Web',
-    'scopes' => [],
+    'scopes' => [
+        'Admin' => '/admin/',
+    ],
 
     'environments' => [
         'local' => [
@@ -30,48 +41,39 @@ return [
             'development' => true,
             'lang'        => 'es_ES',
             'scope'       => 'Web',
-            'scopes'      => [],
+            'scopes'      => [
+                'Admin' => '/admin/',
+            ],
+            'locales'     => [
+                'date'     => 'd/m/Y H:i:s',
+                'number'   => [0, '', ''],
+                'timezone' => "Europe/Madrid"
+            ],
             'bbdd'        => [
-                'database' => 'buuum',
-                'host'     => '127.0.0.1',
-                'username' => 'admin',
-                'password' => 'admin'
+                'database' => '',
+                'host'     => 'localhost',
+                'username' => '',
+                'password' => ''
             ],
             'ftp'         => [
 
+            ],
+            'aws'         => [
+                'key'    => '',
+                'secret' => '',
+                'bucket' => '',
+                'urls'   => [
+                    'http'  => 'http://s3-eu-west-1.amazonaws.com/4timedev',
+                    'https' => 'https://s3-eu-west-1.amazonaws.com/4timedev'
+                ]
+            ],
+            'analytics'   => [
+                'UA'           => '',
+                'tagmanagerid' => ''
             ]
+
         ],
-        'dev'   => [
-            'host'        => 'buuum2.dev',
-            'public'      => 'httpdocs',
-            'development' => true,
-            'lang'        => 'es_ES',
-            'scope'       => 'Web',
-            'scopes'      => [],
-            'bbdd'        => [
-                'database' => 'buuum',
-                'host'     => '127.0.0.1',
-                'username' => 'admin',
-                'password' => 'admin'
-            ],
-            'ftp'         => [
 
-            ]
-        ],
-        'prod'  => [
-            'host'        => 'buuum3.dev',
-            'public'      => 'httpdocs',
-            'development' => true,
-            'bbdd'        => [
-                'database' => 'buuum',
-                'host'     => '127.0.0.1',
-                'username' => 'admin',
-                'password' => 'admin'
-            ],
-            'ftp'         => [
-
-            ]
-        ]
 
     ]
 

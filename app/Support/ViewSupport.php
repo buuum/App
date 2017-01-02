@@ -17,6 +17,10 @@ class ViewSupport implements ParseViewInterface
 
     private $dispatcher;
 
+    public $defaultTimeZone = "Europe/Madrid";
+    public $defaultDateFormat = "d-m-Y";
+    public $defaultNumberFormat = [0, '', ''];
+
     public function __construct(Container $container)
     {
         $this->container = $container;
@@ -94,5 +98,28 @@ class ViewSupport implements ParseViewInterface
         }
 
         return '';
+    }
+
+    public function filter_number($value, $params)
+    {
+        if (!empty($params)) {
+            return number_format($value, ...$params);
+        }
+        return number_format($value, ...$this->defaultNumberFormat);
+    }
+
+    public function filter_date($value, $params)
+    {
+        $dt = new \DateTime($value);
+        $dt->setTimezone(new \DateTimeZone($this->defaultTimeZone));
+
+        if (!empty($params)) {
+            if (!empty($params[1])) {
+                $dt->setTimezone(new \DateTimeZone($params[1]));
+            }
+            return $dt->format($params[0]);
+        }
+
+        return $dt->format($this->defaultDateFormat);
     }
 }

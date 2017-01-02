@@ -1,10 +1,9 @@
 class App
   constructor: ->
-
     @kuv = new Kuv()
 
     @controller = new Controller()
-    @controllers_page = []
+    @controllers_page = ['home']
 
   ini: ->
     @kuv.buildMyEvents('Controller')

@@ -5,4 +5,5 @@ class Controller
     #   'resize window': 'App.views.resizeValues'
     #   'click a.backbutton': 'closePage'
       'click .blockload notpreventdefault': 'Utils.blockload'
+      'click .blockloadstop notpreventdefault': 'Utils.blockload'
     #   'click a#startapp': 'closeTutorial'

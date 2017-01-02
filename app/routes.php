@@ -4,7 +4,6 @@ use Buuum\Router;
 
 return function (Router $route) {
 
-
     /*
     |--------------------------------------------------------------------------
     | Routes for scope WEB
@@ -12,6 +11,7 @@ return function (Router $route) {
     |
     |
     */
-    $route->get('/', ['App\Controller\Web\Home', 'get']);
+    $route->get('/', [\App\Controller\Web\Home::class, 'get'])->setName('home');
+
 
 };

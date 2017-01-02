@@ -2,12 +2,9 @@
 
 use Buuum\Event;
 
-return function(Event $event){
+return function (Event $event) {
 
-    $event->addListener('email.send.confirm', function($event){
-        var_dump($event);
-    });
-
-    $event->addListener('email.send.rememberme', [App\Controller\Admin\Blog\Category\Add::class, 'demo']);
+    //$event->addListener('mail.send.confirm', [App\Controller\Web\Mail\User::class, 'sendconfirm']);
+    //$event->addListener('mail.send.reset', [App\Controller\Web\Mail\User::class, 'sendreset']);
 
 };

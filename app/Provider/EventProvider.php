@@ -15,10 +15,11 @@ class EventProvider
             $paths = $app->get('paths');
 
             $event = Event::getInstance();
-            $event->loadListeners($paths['listeners']);
+            $event->loadListeners(include_once $paths['listeners']);
             $event->setResolver(new EventResolver($app));
 
             return $event;
         });
+        $app->get('event');
     }
 }

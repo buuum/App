@@ -8,25 +8,27 @@ class ErrorController extends Controller
 {
     public function error404()
     {
-        $title = "Página no encotrada";
-        $quote = "Soy tan despistado que no sé si he perdido el perro o me he encontrado una correa.";
-        return new Response($this->render('errors/404', array('error' => 404, 'title' => $title, 'quote' => $quote),
-            'layouterror'), 404);
+        return new Response( $this->getViewError([
+                    'error' => $this->render('errors/404', array('error' => 404), false)
+                ]), 404);
     }
 
     public function error405()
     {
-        $title = "Página no encotrada";
-        $quote = "Soy tan despistado que no sé si he perdido el perro o me he encontrado una correa.";
-        return new Response($this->render('errors/404', array('error' => 405, 'title' => $title, 'quote' => $quote),
-            'layouterror'), 405);
+        return new Response($this->getViewError([
+                $this->render('errors/404', array('error' => 405), false)
+                ]), 405);
     }
 
     public function error500(\Exception $e = null)
     {
-        $title = "Página no encotrada";
-        $quote = "Soy tan despistado que no sé si he perdido el perro o me he encontrado una correa.";
-        return new Response($this->render('errors/500', array('error' => 500, 'title' => $title, 'quote' => $quote),
-            'layouterror'), 500);
+        return new Response( $this->getViewError([
+                    'error' =>$this->render('errors/500', array('error' => 500), false)
+                ]), 500);
+    }
+
+    public function getViewError($params = []){
+        return $this->render('errors/error', $params,
+            'layout');
     }
 }

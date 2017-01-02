@@ -25,7 +25,6 @@ $providers = [
     new App\Provider\RouterProvider,
     new App\Provider\ViewProvider,
     new App\Provider\DispatchProvider,
-    new App\Provider\ControllerResolverProvider,
     new App\Provider\CommandProvider,
     new App\Provider\AppProvider,
     new App\Provider\EventProvider,

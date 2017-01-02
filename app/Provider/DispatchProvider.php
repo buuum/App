@@ -9,6 +9,7 @@ use League\Container\Container;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class DispatchProvider
 {
@@ -21,6 +22,10 @@ class DispatchProvider
 
             //// Head responses should not return a content body
             $request->isMethod('head') and $response->setContent(null);
+
+            if(!$request->cookies->get('accept-cookies')){
+                $response->headers->setCookie(new Cookie('accept-cookies', true, time() + (24 * 60 * 60 * 100)));
+            }
 
             return $response;
         });

@@ -2,13 +2,12 @@
 
 namespace App\Controller;
 
-use App\Form\AbstractForm;
 use Buuum\Config;
 use Buuum\Dispatcher;
 use Buuum\Template\View;
-use League\Container\Container;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
+use League\Container\Container;
 
 abstract class AbstractController
 {
@@ -32,10 +31,6 @@ abstract class AbstractController
      * @var Config
      */
     public $config;
-    /**
-     * @var AbstractForm
-     */
-    protected $form;
 
     public function __construct(Container $container)
     {
@@ -49,23 +44,7 @@ abstract class AbstractController
         $this->initialize();
     }
 
-    public function initialize()
-    {
-        $this->setDefaultHeader();
-    }
+    protected function initialize(){
 
-    public function setDefaultHeader()
-    {
-        $this->view->header
-            ->title('Buuum')
-            ->description('Buuum App')
-            ->keywords('')
-            ->plugins(['jquery', 'bootstrap', 'font-awesome']);
     }
-
-    public function render($view, array $data = array(), $layout = 'layout')
-    {
-        return $this->view->render($view, $data, $layout);
-    }
-
 }

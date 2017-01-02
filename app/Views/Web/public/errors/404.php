@@ -1,1 +1,0 @@
-<div class="container"><div class="content"><img src="<?=$this->getImgPath();?>/imgs/error.png"><div class="title"><?=$title?></div><div class="quote"><?=$quote?></div></div></div>

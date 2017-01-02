@@ -7,6 +7,7 @@ use Buuum\Ftp\Connection;
 use Buuum\Ftp\FtpWrapper;
 use Buuum\Git;
 use Buuum\Zip\Zip;
+use \Curl\Curl;
 
 class FtpCommand extends AbstractCommand
 {
@@ -22,6 +23,14 @@ class FtpCommand extends AbstractCommand
      * @var Git
      */
     protected $git;
+
+    protected function curl_get_contents($host){
+        $curl = new Curl();
+        $curl->setOpt(CURLOPT_SSL_VERIFYHOST, false);
+        $curl->setOpt(CURLOPT_SSL_VERIFYPEER, false);
+        $curl->setOpt(CURLOPT_FOLLOWLOCATION, true);
+        return $curl->get($host);
+    }
 
     protected function configure()
     {
@@ -82,30 +91,32 @@ class FtpCommand extends AbstractCommand
                 $this->comment('elementos a subir');
 
                 foreach ($files['add'] as $file) {
-                    $zip->add($base_path . '/' . $file, $file);
+                    $re = '@^(httpdocs)(?=/.*)@';
+                    $filer = preg_replace($re, $this->environment['public'], $file);
+                    $zip->add($base_path . '/' . $file, $filer);
                     $this->success("$file > adjuntado");
                 }
 
                 $zip->close();
 
-                $this->ftp->put('httpdocs/Zip.php', __DIR__ . '/../../vendor/buuum/zip/src/Zip/Zip.php');
+                $this->ftp->put($this->environment['public'] . '/Zip.php',
+                    __DIR__ . '/../../vendor/buuum/zip/src/Zip/Zip.php');
                 $this->ftp->put('deploy.zip', $zip_path);
                 unlink($zip_path);
 
                 $temp_unzip_path = __DIR__ . '/_un';
                 file_put_contents($temp_unzip_path, $this->getPlantillaUnzip());
-                $this->ftp->put('httpdocs/unzip.php', $temp_unzip_path);
+                $this->ftp->put($this->environment['public'] . '/unzip.php', $temp_unzip_path);
                 unlink($temp_unzip_path);
 
                 // descomprimimos el zip en servidor
                 $host = 'http://' . $this->environment['host'] . '/unzip.php';
-                file_get_contents($host);
+                $this->curl_get_contents($host);
 
 
             }
 
-            if($update)
-            {
+            if ($update) {
                 // update commits
                 $temp_commits_path = __DIR__ . '/_c';
                 $this->createCommits($temp_commits_path);
@@ -148,7 +159,7 @@ class FtpCommand extends AbstractCommand
 
             foreach ($files as $n => $file) {
                 $rfile = str_replace($path . '/', '', $file);
-                if(!is_dir($file)){
+                if (!is_dir($file)) {
                     $zip->add($file, $rfile);
                 }
             }
@@ -157,7 +168,7 @@ class FtpCommand extends AbstractCommand
 
             foreach ($files as $n => $file) {
                 $rfile = str_replace($path . '/', '', $file);
-                if(!is_dir($file)){
+                if (!is_dir($file)) {
                     $zip->add($file, $rfile);
                 }
             }
@@ -168,7 +179,7 @@ class FtpCommand extends AbstractCommand
             $files = $this->rglob($path . '/vendor/*');
             foreach ($files as $n => $file) {
                 $rfile = str_replace($path . '/', '', $file);
-                if(!is_dir($file)){
+                if (!is_dir($file)) {
                     $zip->add($file, $rfile);
                 }
             }
@@ -176,18 +187,18 @@ class FtpCommand extends AbstractCommand
 
         $zip->close();
 
-        $this->ftp->put('httpdocs/Zip.php', __DIR__ . '/../../vendor/buuum/zip/src/Zip/Zip.php');
+        $this->ftp->put($this->environment['public'] . '/Zip.php', __DIR__ . '/../../vendor/buuum/zip/src/Zip/Zip.php');
         $this->ftp->put('deploy.zip', $zip_path);
         unlink($zip_path);
 
         $temp_unzip_path = __DIR__ . '/_un';
         file_put_contents($temp_unzip_path, $this->getPlantillaUnzip());
-        $this->ftp->put('httpdocs/unzip.php', $temp_unzip_path);
+        $this->ftp->put($this->environment['public'] . '/unzip.php', $temp_unzip_path);
         unlink($temp_unzip_path);
 
         // descomprimimos el zip en servidor
         $host = 'http://' . $this->environment['host'] . '/unzip.php';
-        file_get_contents($host);
+        $this->curl_get_contents($host);
 
 
         $this->success($option);
@@ -205,26 +216,9 @@ class FtpCommand extends AbstractCommand
         return $this->choiceQuestion('¿Que quieres actualizar?', $folders);
     }
 
-    protected function demo()
-    {
-
-        $this->setFtp();
-
-        // change config.php with environment required
-        $temp_config_path = __DIR__ . '/_conf.php';
-        $config_path = $this->container->get('config')->get('paths.config');
-        $arr = include $config_path;
-
-        $arr['environment'] = $this->environment_name;
-
-        file_put_contents($temp_config_path, "<?php return " . var_export($arr, true) . ";");
-        $this->ftp->put('app/config.php', $temp_config_path);
-        unlink($temp_config_path);
-
-    }
-
     protected function start()
     {
+
         $this->setFtp();
         $this->setGit();
         if ($commits = $this->getCommits()) {
@@ -241,23 +235,26 @@ class FtpCommand extends AbstractCommand
             $zip = Zip::create($zip_path);
 
             foreach ($files as $n => $file) {
+                $re = '@^(httpdocs)(?=/.*)@';
                 $rfile = str_replace($base_path . '/', '', $file);
+                $rfile = preg_replace($re, $this->environment['public'], $rfile);
                 $zip->add($file, $rfile);
             }
 
             $zip->add($base_path . '/.htaccess', '.htaccess');
-            $zip->add($base_path . '/httpdocs/.htaccess', 'httpdocs/.htaccess');
-            $zip->add($base_path . '/httpdocs/.maintenance.php', 'httpdocs/.maintenance.php');
+            $zip->add($base_path . '/httpdocs/.htaccess', $this->environment['public'] . '/.htaccess');
+            $zip->add($base_path . '/httpdocs/.maintenance.php', $this->environment['public'] . '/.maintenance.php');
 
             $zip->close();
 
-            $this->ftp->put('httpdocs/Zip.php', __DIR__ . '/../../vendor/buuum/zip/src/Zip/Zip.php');
+            $this->ftp->put($this->environment['public'] . '/Zip.php',
+                __DIR__ . '/../../vendor/buuum/zip/src/Zip/Zip.php');
             $this->ftp->put('deploy.zip', $zip_path);
             unlink($zip_path);
 
             $temp_unzip_path = __DIR__ . '/_un';
             file_put_contents($temp_unzip_path, $this->getPlantillaUnzip());
-            $this->ftp->put('httpdocs/unzip.php', $temp_unzip_path);
+            $this->ftp->put($this->environment['public'] . '/unzip.php', $temp_unzip_path);
             unlink($temp_unzip_path);
 
             // initalize temp and log folder with 0777
@@ -274,20 +271,21 @@ class FtpCommand extends AbstractCommand
 
             // descomprimimos el zip en servidor
             $host = 'http://' . $this->environment['host'] . '/unzip.php';
-            file_get_contents($host);
+            $this->curl_get_contents($host);
 
-            sleep(2);
+            //sleep(2);
 
             // change config.php with environment required
-            $temp_config_path = __DIR__ . '/_conf.php';
-            $config_path = $this->container->get('config')->get('paths.config');
-            $arr = include $config_path;
 
-            $arr['environment'] = $this->environment_name;
-
-            file_put_contents($temp_config_path, "<?php return " . var_export($arr, true) . ";");
-            $this->ftp->put('app/config.php', $temp_config_path);
-            unlink($temp_config_path);
+            //$temp_config_path = __DIR__ . '/_conf.php';
+            //$config_path = $this->container->get('config')->get('paths.config');
+            //$arr = include $config_path;
+            //
+            //$arr['environment'] = $this->environment_name;
+            //
+            //file_put_contents($temp_config_path, "<?php return " . var_export($arr, true) . ";");
+            //$this->ftp->put('app/config.php', $temp_config_path);
+            //unlink($temp_config_path);
 
 
         }
@@ -303,7 +301,7 @@ class FtpCommand extends AbstractCommand
         $commits = array_keys($commits);
         $commits_server = $this->getCommits();
 
-        if(!$commits_server){
+        if (!$commits_server) {
             $this->error('No se ha iniciado el proyecto en el servidor');
             return;
         }
@@ -323,23 +321,41 @@ class FtpCommand extends AbstractCommand
 
     protected function selectOption()
     {
-        return $this->choiceQuestion('Selecciona la acción a realizar.', [
-            'viewchanges',
-            'upload',
-            'sync',
-            'start',
-            'updatevendor',
-            'demo'
-        ]);
+        $functions = [
+            'viewchanges' => 'ver cambios a subir',
+            'upload' => 'subir nuevos cambios',
+            'sync' => 'sincronizar los cambios',
+            'updatevendor' => 'actualizar vendor',
+            'start' => 'inicializar proyecto'
+        ];
+
+        //return $this->choiceQuestion('Selecciona la acción a realizar.', [
+        //    'viewchanges',
+        //    'upload',
+        //    'sync',
+        //    'start',
+        //    'updatevendor'
+        //]);
+
+        $question = $this->choiceQuestion('Selecciona la acción a realizar.', array_values($functions));
+
+        return array_search($question, $functions);
     }
 
     protected function setEnvironment()
     {
         $environments = $this->container->get('config')->get('environments');
-        $environments_list = array_keys($environments);
-        $this->environment_name = $this->choiceQuestion("¿Que environment usamos?\n", $environments_list);
+        $environments_list = [];
+        $environments_by_host = [];
+        foreach ($environments as $environment) {
+            $environments_list[] = $environment['host'];
+            $environments_by_host[$environment['host']] = $environment;
+        }
+        //$environments_list = array_keys($environments);
+        //$this->environment_name = $this->choiceQuestion("¿Que environment usamos?\n", $environments_list);
+        $environment_host = $this->choiceQuestion("¿Que environment usamos?\n", $environments_list);
 
-        return $environments[$this->environment_name];
+        return $environments_by_host[$environment_host];
     }
 
     protected function setGit()

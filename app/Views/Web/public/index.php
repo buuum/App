@@ -1,1 +1,1 @@
-<div class="container"><div class="content"><img src="<?=$this->getImgPath();?>/imgs/icon.png"><div class="title"><?=$title?></div><div class="quote"><?=$quote?></div></div></div>
+<h1><?=$this->getText("Hola Mundo")?></h1>
