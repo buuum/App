@@ -1,4 +1,19 @@
 {
+  "name": "buuum/app",
+  "type": "skeleton",
+  "description": "Skeleton App",
+  "homepage": "https://github.com/buuum/App",
+  "keywords": [
+    "skeleton",
+    "app"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alfons Martinez",
+      "email": "alfonsmartinezparra@gmail.com"
+    }
+  ],
   "require": {
     "buuum/route": "^1.0",
     "league/container": "^2.2",
