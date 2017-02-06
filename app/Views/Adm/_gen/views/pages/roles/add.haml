@@ -1,0 +1,18 @@
+#demo{:style=>"padding:40px"}
+
+  {{$errors}}
+
+  .card
+    #2demo{:style=>"padding:40px"}
+
+      %form{:action=>"{{*roles_add}}", :method=>"post"}
+
+        .row
+          .col-md-12
+            .form-group.label-floating
+              %label.control-label {{e. Nombre}}
+              %input.form-control{:type => "text", :name=>"rol", :value=>"{{$rol or}}"}
+
+        .bloque
+          %button.btn.btn-default.btn-raised{:type=>"submit"}
+            {{e. Crear}}

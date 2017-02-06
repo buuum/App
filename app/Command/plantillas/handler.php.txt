@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Handler{{folder}};
+
+use App\Handler\BaseHandler;
+use App\Model{{folder}}\{{model}}Model;
+
+class {{model}}Handler extends BaseHandler
+{
+    public function __construct()
+    {
+        parent::__construct(new {{model}}Model());
+    }
+
+    public function edit({{model}}Model ${{model_lower}}, $data)
+    {
+        ${{model_lower}}->field = $data['field'];
+        ${{model_lower}}->update();
+    }
+
+}

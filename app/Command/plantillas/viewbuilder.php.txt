@@ -1,0 +1,65 @@
+<?php
+
+namespace App\ViewsBuilder\{{scope}}\Pages;
+
+use App\ViewsBuilder\{{scope}}\Page;
+
+class {{model}}Page extends Page
+{
+
+    public function showlist()
+    {
+        $this->simpleHeader('Admin', 'Admin');
+
+        $breadcrumb = [
+            '{{prefix}}' => false
+        ];
+
+        $this->data->messages = $this->printMessages($this->data->flash_vars);
+
+        $page = $this->render('pages/{{prefix}}/list', $this->data);
+
+        return $this->renderLayoutBase($this->data->usersingin, $breadcrumb, $page);
+    }
+
+    public function add()
+    {
+        $this->simpleHeader('Admin', 'Admin');
+
+        $breadcrumb = [
+            '{{prefix}}' => $this->getRoute()->getUrlRequest('{{prefix}}_list'),
+            'Add' => false
+        ];
+
+        $this->data->errors = $this->printErrors($this->data->errors);
+        $this->data->messages = $this->printMessages($this->data->flash_vars);
+
+        $page = $this->render('pages/{{prefix}}/add', $this->data);
+
+        return $this->renderLayoutBase($this->data->usersingin, $breadcrumb, $page);
+    }
+
+    public function edit()
+    {
+        $this->simpleHeader('Admin', 'Admin');
+
+        $breadcrumb = [
+            '{{prefix}}' => $this->getRoute()->getUrlRequest('{{prefix}}_list'),
+            'Edit' => false
+        ];
+
+        $this->data->errors = $this->printErrors($this->data->errors);
+        $this->data->messages = $this->printMessages($this->data->flash_vars);
+
+        $page = $this->render('pages/{{prefix}}/edit', $this->data);
+
+        return $this->renderLayoutBase($this->data->usersingin, $breadcrumb, $page);
+    }
+
+    public function delete()
+    {
+        $page = $this->render('pages/{{prefix}}/delete', $this->data);
+        return $this->renderModalBase($page);
+    }
+
+}

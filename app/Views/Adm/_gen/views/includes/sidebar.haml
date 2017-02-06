@@ -1,0 +1,32 @@
+%aside.sidebar.fixed
+  .brand-logo
+    #logo {{e. ADMIN}}
+  .user-logged-in
+    .content
+      .user-name
+        {{$user->name}}
+        %span.text-muted.f9 admin
+      .user-email {{$user->email}}
+      .user-actions
+        %a.m-r-5{:href => "#"} {{e. settings}}
+        %a{:href => "{{*logout}}"} {{e. logout}}
+
+  %ul.menu-links
+    %li
+      %a{:href=>"#"}
+        %i.fa.fa-home
+        %span {{e. Dashboard}}
+    %li
+      %a.sub{:href=>"#"}
+        %i.fa.fa-users
+        %span {{e. Users}}
+      %ul
+        %li
+          %a{:href=>"{{*users_list}}"}
+            %span {{e. Usuarios}}
+        %li
+          %a{:href=>"{{*roles_list}}"}
+            %span {{e. Roles}}
+        %li
+          %a{:href=>"{{*countries_list}}"}
+            %span {{e. Paises}}

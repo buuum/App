@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Controller\{{scope}}{{folder}}\{{model}};
+
+use App\Controller\{{scope}}\Controller;
+use App\Facades\Factory{{folder}}\{{model}}Factory;
+use App\ViewsBuilder\{{scope}}\Pages\{{model}}Page;
+
+class HomeController extends Controller
+{
+
+    public function get()
+    {
+        $page = new {{model}}Page($this->prepareData([
+            '{{prefix}}' => {{model}}Factory::get()->getList()
+        ]));
+        return $page->showlist();
+    }
+
+}

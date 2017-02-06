@@ -33,7 +33,7 @@ class DBProvider
             $capsule->bootEloquent();
             // set timezone for timestamps etc
             //date_default_timezone_set('UTC');
-            //$capsule::enableQueryLog();
+            $capsule::enableQueryLog();
             return $capsule;
         });
         $app->get('database');

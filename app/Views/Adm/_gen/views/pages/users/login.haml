@@ -1,0 +1,34 @@
+.center
+  .card
+    .card-header
+      {{e. Admin}}
+
+    {{$errors}}
+    {{$messages or}}
+
+    %form.form-floating{:action=>"{{*login_adm}}", :method=>"post"}
+      .card-content
+        .form-group.label-floating
+          %label.control-label{:for => "inputEmail"} {{e. Email}}
+          %input.form-control{:type => "text", :name=>"email", :value=>"{{$email or ''}}"}
+        .form-group.label-floating
+          %label.control-label{:for => "inputPassword"} {{e. Password}}
+          %input.form-control{:name=>"password", :type => "password"}/
+        .form-group
+          .checkbox
+            %label
+              {{$checked = !empty($remember)}}
+              %input(checked:checked){:type=>"checkbox", :name=>"remember", :value=>"1"}
+              {{e. Remember me}}
+
+      .card-action.clearfix
+        .pull-right
+          %a.btn.btn-primary.btn-raised.black-text{:href => "{{*user_forgot}}"}
+            {{e. Forgot password}}
+            .ripple-wrapper
+
+          %button.btn.btn-primary.btn-raised.black-text{:type => "submit"}
+            {{e. Login}}
+            .ripple-wrapper
+
+

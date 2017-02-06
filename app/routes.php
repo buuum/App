@@ -11,7 +11,18 @@ return function (Router $route) {
     |
     |
     */
-    $route->get('/', [\App\Controller\Web\Home::class, 'get'])->setName('home');
+    include __DIR__ . '/Routes/web/web_routes.php';
+
+    /*
+    |--------------------------------------------------------------------------
+    | Routes for scope Admin
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+    include __DIR__ . '/Routes/adm/admin.php';
+
+
 
 
 };

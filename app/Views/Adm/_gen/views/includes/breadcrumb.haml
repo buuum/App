@@ -1,0 +1,11 @@
+%ul.breadcrumb
+  %li
+    %a{:href => "{{*home_adm}}"} Dashboard
+  {{foreach $links as $k=>$link}}
+  {{if $link}}
+  %li
+    %a{:href => "{{$link}}"} {{$k}}
+  {{else}}
+  %li.active {{$k}}
+  {{endif}}
+  {{endforeach}}

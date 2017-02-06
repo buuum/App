@@ -3,7 +3,8 @@ class App
     @kuv = new Kuv()
 
     @controller = new Controller()
-    @controllers_page = ['home']
+
+    @controllers_page = []
 
   ini: ->
     @kuv.buildMyEvents('Controller')

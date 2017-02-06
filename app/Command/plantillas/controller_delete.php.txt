@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Controller\{{scope}}{{folder}}\{{model}};
+
+use App\Controller\{{scope}}\Controller;
+use App\Facades\Handler\{{model}}Handler;
+use App\ViewsBuilder\{{scope}}\Pages\{{model}}Page;
+
+class DeleteController extends Controller
+{
+
+    public function get(${{model_lower}})
+    {
+        $pagina = new {{model}}Page($this->prepareData([
+            '{{model_lower}}' => ${{model_lower}}
+        ]));
+        return [
+            'error' => false,
+            'html'  => $pagina->delete()
+        ];
+    }
+
+    public function delete(${{model_lower}})
+    {
+        {{model}}Handler::get()->remove(${{model_lower}});
+        return [
+            'error' => false,
+            'id'    => ${{model_lower}}->id
+        ];
+    }
+
+}

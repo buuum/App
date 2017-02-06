@@ -1,0 +1,11 @@
+%li {{$k}}
+%ul
+  {{foreach $values as $value}}
+  {{if is_object($value) || is_array($value)}}
+  {{foreach $value as $k=>$values}}
+  {{@/includes/error}}
+  {{endforeach}}
+  {{else}}
+  %li {{$value}}
+  {{endif}}
+  {{endforeach}}

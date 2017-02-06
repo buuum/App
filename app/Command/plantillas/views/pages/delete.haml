@@ -1,0 +1,8 @@
+%h1 {{e. Delete {{model}}}}
+
+%h3 {{${{model_lower}}->field}}
+
+%a.btn.btn-primary.cancelitem{:href=>"#"}
+  {{e. Cancelar}}
+%a.btn.btn-warning.btn-raised.deleteitem{:href=>"{{*{{prefix}}_delete:id|${{model_lower}}->id}}"}
+  {{e. Borrar}}

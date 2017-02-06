@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Controller\{{scope}}{{folder}}\{{model}};
+
+use App\Controller\{{scope}}\Controller;
+use App\Facades\Handler\{{model}}Handler;
+use App\Form{{folder}}\{{model}}\{{model}}Form;
+use App\ViewsBuilder\{{scope}}\Messages\{{model}}Message;
+use App\ViewsBuilder\{{scope}}\Pages\{{model}}Page;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+
+class EditController extends Controller
+{
+
+    public function get(${{model_lower}})
+    {
+        return $this->renderView(${{model_lower}}->toArray());
+    }
+
+    public function post(${{model_lower}})
+    {
+        $form = new {{model}}Form('edit');
+
+        $data = $this->request->request->all();
+        $data['id'] = ${{model_lower}}->id;
+        $data = $form->filter($data);
+
+        if (!$errors = $form->validate($data)) {
+            // form success
+            return $this->onFormSuccess(${{model_lower}}, $data);
+        }
+
+        // form error
+        $data = array_merge(${{model_lower}}->toArray(), $data);
+        return $this->renderView($data, $errors);
+    }
+
+    public function onFormSuccess(${{model_lower}}, $data)
+    {
+        {{model}}Handler::get()->edit(${{model_lower}}, $data);
+
+        $this->flash->set('messages', [
+            'class' => {{model}}Message::class,
+            'type'  => 'success_edit_message'
+        ]);
+
+        return new RedirectResponse($this->router->getUrlRequest('{{prefix}}_edit', [
+            'id' => ${{model_lower}}->id
+        ]));
+    }
+
+    public function renderView($data = [], $errors = [])
+    {
+        $data['errors'] = $errors;
+
+        $pagina = new {{model}}Page($this->prepareData($data));
+        return $pagina->edit();
+    }
+
+}

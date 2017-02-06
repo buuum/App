@@ -1,0 +1,9 @@
+.alert.alert-danger
+  %ul
+    {{foreach $errors as $k=>$values}}
+    {{if is_array($values)}}
+    {{@/includes/error}}
+    {{else}}
+    %li {{$values}}
+    {{endif}}
+    {{endforeach}}

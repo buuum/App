@@ -2,8 +2,10 @@
 
 namespace App\Provider;
 
+use App\Helpers\AppHelper;
 use App\Support\HandleError;
 use Buuum\Config;
+use Buuum\Encoding\Encode;
 use League\Container\Container;
 use Sepia\FileHandler;
 use Sepia\PoParser;
@@ -41,6 +43,7 @@ class ConfigProvider
             $handle = new HandleError($debugMode, $paths['log']);
             $config->setupErrors($handle);
 
+            $this->setHandlers($config);
             $this->setScope($config, $request->getPathInfo());
             $this->loadLang($config);
 
@@ -80,6 +83,18 @@ class ConfigProvider
         }
 
         return $config->get('environment.scope') ?: $config->get('scope');
+    }
+
+    protected function setHandlers($config)
+    {
+        $handlers = [];
+        $directory = new \RecursiveDirectoryIterator($config->get('paths.handlers'));
+        $flattened = new \RecursiveIteratorIterator($directory);
+        foreach (new \RegexIterator($flattened, '@.*/Handler/(.*)Handler.php@',
+            \RecursiveRegexIterator::GET_MATCH) as $file) {
+            $handlers[strtolower($file[1])] = str_replace('/', "\\", 'App/Handler/' . $file[1] . 'Handler');
+        }
+        $config->set('handlers', $handlers);
     }
 
     protected function loadLang($config)

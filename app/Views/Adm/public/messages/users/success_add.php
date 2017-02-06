@@ -1,0 +1,1 @@
+<div class="alert alert-info"><span><?=$this->getText("User añadido correctamente")?></span></div>

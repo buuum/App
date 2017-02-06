@@ -1,0 +1,122 @@
+.p40
+  {{$errors}}
+  {{$messages or}}
+
+  .card
+    .p40
+
+      %form.form-floating{:action=>"{{*users_edit:id|$id}}", :method=>"post"}
+
+        .row
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. Nombre}}
+              %input.form-control{:type => "text", :name=>"name", :value=>"{{$name or}}"}
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. Apellidos}}
+              %input.form-control{:type => "text", :name=>"surname", :value=>"{{$surname or}}"}
+
+        .row
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. Email}}
+              %input.form-control{:type => "text", :name=>"email", :value=>"{{$email or}}"}
+
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. Nombre de usuario}}
+              %input.form-control{:type => "text", :name=>"pseudo", :value=>"{{$pseudo or}}"}
+
+
+        .row
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. Contraseña}}
+              %input.form-control{:type => "password", :name=>"password", :value=>""}
+
+          .col-md-6
+            .row
+              .form-group.label-floating.col-md-6
+                .radio
+                  %label
+                    {{$selected = (isset($gender) && 'm' == $gender)}}
+                    %input(checked:selected){:type=>"radio", :name=>"gender", :value=>"m"}
+                    {{e. Hombre}}
+              .form-group.label-floating.col-md-6
+                .radio
+                  %label
+                    {{$selected = (isset($gender) && 'f' == $gender)}}
+                    %input(checked:selected){:type=>"radio", :name=>"gender", :value=>"f"}
+                    {{e. Mujer}}
+
+
+        .row
+          .col-md-4
+            .form-group
+              %label {{e. Pais}}
+              %select.form-control{:name=>"pais_id"}
+                {{foreach $paises as $pais_i}}
+                {{$selected = !empty($pais_id) && ($pais_i->id == $pais_id)}}
+                %option(selected:selected){:value=>"{{$pais_i->id}}"} {{$pais_i->name}}
+                {{endforeach}}
+          .col-md-8
+            .row
+              .col-md-12
+                %label {{e. Fecha de Nacimiento}}
+              .col-md-4
+                %select.form-control{:name=>"dia"}
+                  {{foreach $dias as $name}}
+                  {{$selected = ($name == $dia)}}
+                  %option(selected:selected){:value=>"{{$name}}"} {{$name}}
+                  {{endforeach}}
+              .col-md-4
+                %select.form-control{:name=>"mes"}
+                  {{foreach $meses as $name}}
+                  {{$selected = ($name == $mes)}}
+                  %option(selected:selected){:value=>"{{$name}}"} {{$name}}
+                  {{endforeach}}
+              .col-md-4
+                %select.form-control{:name=>"ano"}
+                  {{foreach $anos as $name}}
+                  {{$selected = ($name == $ano)}}
+                  %option(selected:selected){:value=>"{{$name}}"} {{$name}}
+                  {{endforeach}}
+
+
+        .row
+          .col-lg-12
+            .form-group
+              %label {{e. Roles}}
+              %select.chosen.form-control{:name=>"roles_relation[]", :multiple=>"multiple"}
+                {{foreach $list_roles as $rol}}
+                {{$selected = (!empty($roles_relation) && in_array($rol->id, $roles_relation))}}
+                %option(selected:selected){:value=>"{{$rol->id}}"} {{$rol->rol}}
+                {{endforeach}}
+
+        .row
+          .col-md-12
+            %label {{e. Estado}}
+          .form-group.label-floating.col-md-4
+            .radio
+              %label
+                {{$selected = (isset($estado) && $estado==0)}}
+                %input(checked:selected){:type=>"radio", :name=>"estado", :value=>"0"}
+                {{e. Baja}}
+          .form-group.label-floating.col-md-4
+            .radio
+              %label
+                {{$selected = (isset($estado) && $estado==1)}}
+                %input(checked:selected){:type=>"radio", :name=>"estado", :value=>"1"}
+                {{e. Activo}}
+          .form-group.label-floating.col-md-4
+            .radio
+              %label
+                {{$selected = (isset($estado) && $estado==2)}}
+                %input(checked:selected){:type=>"radio", :name=>"estado", :value=>"2"}
+                {{e. Pendiente}}
+
+        .bloque
+          %button.btn.btn-primary.btn-raised{:type=>"submit"}
+            {{e. Editar}}
+

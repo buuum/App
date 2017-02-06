@@ -1,0 +1,1 @@
+<div class="alert alert-danger"><ul> <?php foreach($errors as $k=>$values):?> <?php if(is_array($values)):?> <?php include $this->getViewsPath()."/includes/error.php"; ?> <?php else: ?> <li><?=$values?></li> <?php endif; ?> <?php endforeach; ?> </ul></div>

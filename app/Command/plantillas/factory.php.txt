@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Factory{{folder}};
+
+use App\Factory\AbstractFactory;
+use App\Model{{folder}}\{{model}}Model;
+
+class {{model}}Factory extends AbstractFactory
+{
+    public function __construct()
+    {
+        parent::__construct(new {{model}}Model());
+    }
+
+    public function getList()
+    {
+        return {{model}}Model::all();
+    }
+
+    public function getEdit($id)
+    {
+        return $this->model->find($id);
+    }
+
+    public function build($data)
+    {
+        $item = new {{model}}Model($data);
+        $item->save();
+    }
+
+}

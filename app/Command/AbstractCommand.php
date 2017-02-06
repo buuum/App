@@ -66,13 +66,17 @@ abstract class AbstractCommand extends Command
     }
 
 
-    protected function choiceQuestion($question, $answers, $default = null)
+    protected function choiceQuestion($question, $answers, $default = null, $multiple = false)
     {
         $question = new ChoiceQuestion(
             $question,
             $answers,
             $default
         );
+
+        if ($multiple) {
+            $question->setMultiselect(true);
+        }
 
         return $this->getHelper('question')->ask($this->input, $this->output, $question);
     }

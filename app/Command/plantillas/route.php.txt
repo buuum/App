@@ -1,0 +1,23 @@
+<?php
+
+use \Buuum\Router;
+
+/** @var Router $route */
+
+$route->filter('check{{model}}', [\App\Filter\{{scope}}\{{model}}Filter::class, 'check{{model}}']);
+
+$route->group(['prefix' => '{{prefix}}'], function (Router $route) {
+
+    $route->get('/', [\App\Controller\{{scope}}{{folder}}\{{model}}\HomeController::class, 'get'])->setName('{{prefix}}_list');
+    $route->get('/add/', [\App\Controller\{{scope}}{{folder}}\{{model}}\AddController::class, 'get'])->setName('{{prefix}}_add');
+    $route->post('/add/', [\App\Controller\{{scope}}{{folder}}\{{model}}\AddController::class, 'post']);
+
+    $route->group(['before' => 'check{{model}}'], function(Router $route){
+        $route->get('/edit/{id:[0-9]+}/', [\App\Controller\{{scope}}{{folder}}\{{model}}\EditController::class, 'get'])->setName('{{prefix}}_edit');
+        $route->post('/edit/{id:[0-9]+}/', [\App\Controller\{{scope}}{{folder}}\{{model}}\EditController::class, 'post']);
+
+        $route->get('/delete/{id:[0-9]+}/', [\App\Controller\{{scope}}{{folder}}\{{model}}\DeleteController::class, 'get'])->setName('{{prefix}}_delete');
+        $route->delete('/delete/{id:[0-9]+}/', [\App\Controller\{{scope}}{{folder}}\{{model}}\DeleteController::class, 'delete']);
+    });
+
+});

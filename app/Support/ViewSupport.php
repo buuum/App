@@ -108,9 +108,20 @@ class ViewSupport implements ParseViewInterface
         return number_format($value, ...$this->defaultNumberFormat);
     }
 
+    public function filter_config($value, $params)
+    {
+        return $this->config->get("environment.$value");
+    }
+
     public function filter_date($value, $params)
     {
-        $dt = new \DateTime($value);
+
+        try {
+            $dt = new \DateTime($value);
+        } catch (\Exception $e) {
+            return $value;
+        }
+
         $dt->setTimezone(new \DateTimeZone($this->defaultTimeZone));
 
         if (!empty($params)) {

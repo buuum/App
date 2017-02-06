@@ -2,12 +2,14 @@
 
 namespace App\Controller\Web;
 
+use App\ViewsBuilder\Web\Pages\HomePage;
+
 class Home extends Controller
 {
     public function get()
     {
-        $home = new \App\ViewsBuilder\Home();
-        return $home->showHome();
+        $page = new HomePage();
+        return $page->home();
     }
 
 }

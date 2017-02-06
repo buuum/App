@@ -1,0 +1,1 @@
+<h1><?=$this->getText("Delete Rol")?></h1><h3><?=$rol->rol?></h3><a class="btn btn-primary cancelitem" href="#"> <?=$this->getText("Cancelar")?> </a><a class="btn btn-warning btn-raised deleteitem" href="<?=$this->getUrl('roles_delete', array ("id" => $rol->id,))?>"> <?=$this->getText("Borrar")?> </a>

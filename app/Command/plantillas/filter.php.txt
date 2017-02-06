@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Form{{folder}}\{{model}};
+
+use App\Form\FilterInterface;
+
+class {{model}}Filter implements FilterInterface
+{
+
+    public function getFilters()
+    {
+        return [
+            'field' => 'trim|sanitize_string'
+        ];
+    }
+
+}

@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Controller\{{scope}}{{folder}}\{{model}};
+
+use App\Controller\{{scope}}\Controller;
+use App\Facades\Factory{{folder}}\{{model}}Factory;
+use App\Form{{folder}}\{{model}}\{{model}}Form;
+use App\ViewsBuilder\{{scope}}\Messages\{{model}}Message;
+use App\ViewsBuilder\{{scope}}\Pages\{{model}}Page;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+class AddController extends Controller
+{
+
+    public function get()
+    {
+        return $this->renderView();
+    }
+
+    public function post()
+    {
+        $form = new {{model}}Form('add');
+        $data = $form->filter($this->request->request->all());
+
+        if (!$errors = $form->validate($data)) {
+            // form success
+            return $this->onFormSuccess($data);
+        }
+
+        // form error
+        return $this->renderView($data, $errors);
+    }
+
+    public function onFormSuccess($data)
+    {
+        {{model}}Factory::get()->build($data);
+
+        $this->flash->set('messages', [
+            'class' => {{model}}Message::class,
+            'type'  => 'success_add_message'
+        ]);
+
+        return new RedirectResponse($this->router->getUrlRequest('{{prefix}}_list'));
+    }
+
+    public function renderView($data = [], $errors = [])
+    {
+        $data['errors'] = $errors;
+
+        $pagina = new {{model}}Page($this->prepareData($data));
+        return $pagina->add();
+    }
+
+}

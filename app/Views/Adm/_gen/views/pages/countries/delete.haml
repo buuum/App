@@ -1,0 +1,8 @@
+%h1 {{e. Delete Country}}
+
+%h3 {{$country->name}}
+
+%a.btn.btn-primary.cancelitem{:href=>"#"}
+  {{e. Cancelar}}
+%a.btn.btn-warning.btn-raised.deleteitem{:href=>"{{*countries_delete:id|$country->id}}"}
+  {{e. Borrar}}

@@ -7,31 +7,27 @@ return [
     'session.name' => 's_id',
 
     'encode' => [
-        'key'       => '!32!32!',
+        'key'       => 'keypass',
         'algorithm' => 'GOST'
     ],
 
     'mail' => [
         'smtpsecure'      => 'tls',
-        'host'            => "email-smtp.us-east-1.amazonaws.com",
+        'host'            => "",
         'username'        => "",
         'port'            => 25,
         'password'        => "",
-        'from'            => ['news@testamus.com', 'Testamus'],
-        'response'        => ['news@testamus.com', 'Testamus'],
+        'from'            => ['demo@demo.com', 'Demo'],
+        'response'        => ['demo@demo.com', 'Demo'],
         'spool'           => true,
         'spool_directory' => __DIR__ . '/spool'
-    ],
-
-    'typeform' => [
-        'api_key' => ''
     ],
 
     'lang' => 'es_ES',
 
     'scope'  => 'Web',
     'scopes' => [
-        'Admin' => '/admin/',
+        'Adm' => '/adm/',
     ],
 
     'environments' => [
@@ -39,10 +35,12 @@ return [
             'host'        => 'buuum.dev',
             'public'      => 'httpdocs',
             'development' => true,
+            'site_name'   => 'Demo',
             'lang'        => 'es_ES',
+            'country'     => 'ES',
             'scope'       => 'Web',
             'scopes'      => [
-                'Admin' => '/admin/',
+                'Adm' => '/adm/',
             ],
             'locales'     => [
                 'date'     => 'd/m/Y H:i:s',
@@ -50,9 +48,9 @@ return [
                 'timezone' => "Europe/Madrid"
             ],
             'bbdd'        => [
-                'database' => '',
+                'database' => 'buuum',
                 'host'     => 'localhost',
-                'username' => '',
+                'username' => 'root',
                 'password' => ''
             ],
             'ftp'         => [
@@ -63,17 +61,15 @@ return [
                 'secret' => '',
                 'bucket' => '',
                 'urls'   => [
-                    'http'  => 'http://s3-eu-west-1.amazonaws.com/4timedev',
-                    'https' => 'https://s3-eu-west-1.amazonaws.com/4timedev'
+                    'http'  => 'http://s3-eu-west-1.amazonaws.com',
+                    'https' => 'https://s3-eu-west-1.amazonaws.com'
                 ]
             ],
             'analytics'   => [
                 'UA'           => '',
                 'tagmanagerid' => ''
             ]
-
-        ],
-
+        ]
 
     ]
 

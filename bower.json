@@ -11,10 +11,7 @@
     "node_modules",
     "bower_components"
   ],
-  "dependencies": {
-    "masonry": "^4.1.1",
-    "imagesloaded": "^4.1.1"
-  },
+  "dependencies": {},
   "license": "MIT",
   "devDependencies": {
     "jquery": "~2.1.4",
@@ -24,10 +21,8 @@
     "chosen": "^1.6.2",
     "liteUpload": "^1.0.1",
     "datatables": "^1.10.12",
-    "buuummodal": "^1.0.3",
-    "eonasdan-bootstrap-datetimepicker": "^4.17.43",
-    "jQuery-snapPuzzle": "https://github.com/Pixabay/jQuery-snapPuzzle.git",
-    "jquery-ui-draggable": "*",
-    "jquery-ui-droppable": "*"
+    "bootstrap-material-design": "master",
+    "tether": "^1.4.0",
+    "buuummodal": "^1.0.8"
   }
 }

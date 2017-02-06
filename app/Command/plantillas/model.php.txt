@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Model{{folder}};
+
+use App\Traits\ModelAppendTrait;
+use Illuminate\Database\Eloquent\Model;
+
+class {{model}}Model extends Model
+{
+
+    use ModelAppendTrait;
+
+    protected $table = '{{table}}';
+    protected $guarded = [];
+
+}

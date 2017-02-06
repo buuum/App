@@ -1,0 +1,30 @@
+.list
+
+  %h1 {{e. {{model}}}}
+  %a{:href=>"{{*{{prefix}}_add}}"}
+    {{e. Añadir {{model}} }}
+
+  .card
+    .p40
+
+      {{$messages or}}
+
+      %table#items_list.table.table-striped.table-bordered.dataTable.no-footer{:cellspacing=>"0"}
+        %thead
+          %tr
+            %th {{e. Id}}
+            %th {{e. Item}}
+            %th {{e. Acciones}}
+        %tbody
+          {{foreach ${{prefix}} as ${{model_lower}}}}
+          %tr{:id=>"item{{${{model_lower}}->id}}"}
+            %td {{${{model_lower}}->id}}
+            %td {{${{model_lower}}->rol}}
+            %td
+              .btn-group
+                %a.btn.btn-primary.btn-raised.btn-xs{:href=>"{{*{{prefix}}_edit:id|${{model_lower}}->id}}"}
+                  %i.fa.fa-pencil
+                %a.btn.btn-warning.btn-raised.btn-xs.showdelete{:href=>"{{*{{prefix}}_delete:id|${{model_lower}}->id}}"}
+                  %i.fa.fa-trash
+          {{endforeach}}
+

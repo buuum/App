@@ -3,6 +3,7 @@
 namespace App\Provider;
 
 use App\Support\ViewSupport;
+use Buuum\Template\Header;
 use Buuum\Template\View;
 use League\Container\Container;
 

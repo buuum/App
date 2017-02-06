@@ -23,6 +23,8 @@ class View
      */
     protected static $config;
 
+    protected $data;
+
     public static function setView(\Buuum\Template\View $view)
     {
         self::$view = $view;
@@ -36,10 +38,6 @@ class View
     public static function setConfig(Config $config)
     {
         self::$config = $config;
-    }
-
-    public function __construct()
-    {
     }
 
     protected function getView()
@@ -57,9 +55,19 @@ class View
         return self::$config;
     }
 
-    protected function render($view, $data)
+    public function __construct($data = null)
+    {
+        $this->data = $this->prepareData($data);
+    }
+
+    protected function render($view, $data = null)
     {
         return $this->getView()->render($view, $data, false);
+    }
+
+    public static function static_render($view, $data = null)
+    {
+        return self::$view->render($view, $data, false);
     }
 
     protected function simpleHeader($title, $description)
@@ -85,11 +93,11 @@ class View
         ]);
     }
 
-    protected function renderLayout($layout, $page, $GA)
+    protected function renderLayout($layout, $page, $headers = null)
     {
         return $this->render($layout, [
-            'page' => $page,
-            'GA'   => $GA
+            'page'        => $page,
+            'add_headers' => $headers
         ]);
     }
 
@@ -103,14 +111,45 @@ class View
                 'jquery',
                 'bootstrap',
                 'font-awesome',
-                'buuummodal',
-                'jquery-ui-draggable',
-                'jquery-ui-droppable',
-                'jQuery-snapPuzzle',
-                'jquery-knob',
-                'masonry',
-                'imagesloaded'
+                'bootstrap-material-design'
             ]);
+    }
+
+    /**
+     * Imprime los headers necesarios para hacer like en fb correctamente
+     *
+     * @access public
+     * @param string $titulo
+     * @param string $url
+     * @param string $image Url de la imagen (OPCIONAL)
+     * @param string $desc Descripcion (OPCIONAL)
+     * @param string $type
+     *
+     * @return string Metas para imprimir en el header
+     *
+     */
+    protected function renderHeaderFacebook($titulo, $url, $image = '', $desc = '', $type = 'article')
+    {
+
+        return $this->render("headers/facebook", [
+            'titulo'   => $titulo,
+            'type'     => $type,
+            'url'      => $url,
+            'image'    => $image,
+            'sitename' => $this->getConfig()->get('environment.site_name'),
+            'desc'     => $desc,
+            'fbapi'    => $this->getConfig()->get('environment.facebook.api_id')
+        ]);
+    }
+
+    protected function prepareData($data, $asArray = false)
+    {
+        if (!is_string($data)) {
+            return [];
+        }
+
+        return json_decode($data, $asArray);
+
     }
 
 }

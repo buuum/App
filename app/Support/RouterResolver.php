@@ -4,6 +4,7 @@ namespace App\Support;
 
 use Buuum\HandlerResolverInterface;
 use League\Container\Container;
+use Symfony\Component\HttpFoundation\Response;
 
 class RouterResolver implements HandlerResolverInterface
 {
@@ -45,16 +46,20 @@ class RouterResolver implements HandlerResolverInterface
 
         if ($type_error == 404) {
             // ROUTE NOT FOUND
-            return $this->container->get($error_controller)->error404();
+            //return $this->container->get($error_controller)->error404();
+            return new Response($this->container->get($error_controller)->error404(), 404);
         } elseif ($type_error == 405) {
             // REQUEST METHOD NOT ALLOWED
-            return $this->container->get($error_controller)->error405();
+            //return $this->container->get($error_controller)->error405();
+            return new Response($this->container->get($error_controller)->error405(), 405);
         } elseif ($type_error == 406) {
             // CLASS METHOD DOESNT EXIST
-            return $this->container->get($error_controller)->error404();
+            //return $this->container->get($error_controller)->error404();
+            return new Response($this->container->get($error_controller)->error404(), 404);
         } else {
             // UNKNOW ERROR
-            return $this->container->get($error_controller)->error500();
+            //return $this->container->get($error_controller)->error500();
+            return new Response($this->container->get($error_controller)->error500(), 500);
         }
 
     }

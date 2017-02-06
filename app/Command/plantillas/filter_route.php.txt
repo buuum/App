@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Filter\{{scope}};
+
+use App\Filter\Filter;
+use App\Facades\Factory{{folder}}\{{model}}Factory;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+class {{model}}Filter extends Filter
+{
+
+    public function check{{model}}($id)
+    {
+
+        if (!$item = {{model}}Factory::get()->getEdit($id)) {
+            return new RedirectResponse($this->router->getUrlRequest('home_adm'));
+        }
+
+        return [
+            'passed'   => true,
+            'response' => [
+                '{{model_lower}}' => $item
+            ]
+        ];
+    }
+
+}

@@ -1,0 +1,8 @@
+%h1 {{e. Delete User}}
+
+%h3 {{$user->name}}
+
+%a.btn.btn-primary.cancelitem{:href=>"#"}
+  {{e. Cancelar}}
+%a.btn.btn-warning.btn-raised.deleteitem{:href=>"{{*users_delete:id|$user->id}}"}
+  {{e. Borrar}}

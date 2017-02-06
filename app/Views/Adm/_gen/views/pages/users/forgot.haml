@@ -1,0 +1,24 @@
+.center
+  .card
+    .card-header
+      {{e. Admin}}
+
+    {{$errors}}
+
+    %form.form-floating{:action=>"{{*user_forgot}}", :method=>"post"}
+      .card-content
+        .form-group.label-floating
+          %label.control-label{:for => "inputEmail"} {{e. Email}}
+          %input.form-control{:type => "text", :name=>"email", :value=>"{{$email or ''}}"}
+
+      .card-action.clearfix
+        .pull-right
+          %a.btn.btn-primary.btn-raised.black-text{:href => "{{*login_adm}}"}
+            {{e. Go to login}}
+            .ripple-wrapper
+
+          %button.btn.btn-primary.btn-raised.black-text.blockload{:type => "submit",:data=>{'disabledtext' => '{{e. Enviando...}}'}}
+            %span {{e. Enviar}}
+
+
+

@@ -1,0 +1,29 @@
+.p40
+
+  {{$errors}}
+  {{$messages or}}
+
+  .card
+    .p40
+
+      %form{:action=>"{{*countries_edit:id|$id}}", :method=>"post"}
+
+        .row
+          .col-md-12
+            .form-group.label-floating
+              %label.control-label {{e. Name}}
+              %input.form-control{:type => "text", :name=>"name", :value=>"{{$name or}}"}
+
+        .row
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. ISO ALPHA 2}}
+              %input.form-control{:type => "text", :name=>"iso_alpha2", :value=>"{{$iso_alpha2 or}}"}
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. ISO ALPHA 3}}
+              %input.form-control{:type => "text", :name=>"iso_alpha3", :value=>"{{$iso_alpha3 or}}"}
+
+        .bloque
+          %button.btn.btn-default.btn-raised{:type=>"submit"}
+            {{e. Editar}}

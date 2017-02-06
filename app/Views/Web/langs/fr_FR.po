@@ -1,0 +1,1530 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-01-17 12:11+0100\n"
+"PO-Revision-Date: 2017-01-17 12:28+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: _e;$this->getText;getText\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: Views/Web/public\n"
+"X-Poedit-SearchPath-1: Validation\n"
+"X-Poedit-SearchPath-2: Form\n"
+"X-Poedit-SearchPath-3: Handler\n"
+"X-Poedit-SearchPath-4: Controller/Web\n"
+
+#: Controller/Web/Mail/User.php:22
+msgid "Confirma tu email"
+msgstr "Confirmez votre email"
+
+#: Controller/Web/Mail/User.php:39
+msgid "Recuperar contraseña"
+msgstr "Récupérer votre mot de passe"
+
+#: Controller/Web/Test/Participante/ParticipationCheckerController.php:27
+msgid "La fase no está abierta."
+msgstr "La phase n'est pas encore ouverte. "
+
+#: Form/Blog/Category/FormAdd.php:29 Form/Blog/Post/FormAdd.php:30
+msgid "Categoría creada correctamente."
+msgstr "Catégorie créé avec succès"
+
+#: Form/Blog/Category/FormEdit.php:31 Form/Blog/Post/FormEdit.php:36
+#: Form/Image/Image/FormEdit.php:31 Form/Image/ImageType/FormEdit.php:31
+#: Form/Page/FormEdit.php:31 Form/Platform/FormEdit.php:31
+#: Form/Rol/FormEdit.php:33 Form/Tests/Actions/ComentarioPost/FormEdit.php:36
+#: Form/Tests/Actions/Diferencias/FormEdit.php:36
+#: Form/Tests/Actions/Facebook/FormEdit.php:36
+#: Form/Tests/Actions/Memory/FormEdit.php:36
+#: Form/Tests/Actions/Puzzle/FormEdit.php:36
+#: Form/Tests/Actions/SopaLetras/FormEdit.php:36
+#: Form/Tests/Actions/Twittear/FormEdit.php:33
+#: Form/Tests/Actions/TwittearCustom/FormEdit.php:35
+#: Form/Tests/Actions/Typeform/FormEdit.php:36
+#: Form/Tests/Actions/WordSearch/FormEdit.php:34
+#: Form/Tests/Filtro/FormFilter.php:31 Form/Tests/Test/FormEdit.php:31
+#: Form/User/FormDatos.php:32 Form/User/FormEdit.php:33
+#: Form/User/FormNewsletter.php:30 Form/User/FormPass.php:29
+#: Views/Web/public/forms/user/datos_success.php:1
+msgid "Datos editados correctamente."
+msgstr "Données éditées avec succès"
+
+#: Form/Blog/Comment/FormAdd.php:39
+#: Form/Blog/Comment/FormPostCommentActionAdd.php:47
+msgid "Comentario post realizado correctamente."
+msgstr "Commentaire du blog créé avec succès"
+
+#: Form/Blog/Comment/FormAddComment.php:52
+msgid "Comentario añadido correctamente."
+msgstr "Commentaire ajouté avec succès"
+
+#: Form/Page/FormAdd.php:29
+msgid "Página creada correctamente."
+msgstr "Page créée avec succès"
+
+#: Form/User/FormReset.php:30 Views/Web/public/forms/user/reset_success.php:1
+#: Views/Web/public/modals/success/reset.php:1
+msgid "Te hemos enviado un email para restaurar tu contraseña"
+msgstr "Nous vous avons envoyé un email pour mettre à jour votre mot de passe"
+
+#: Handler/Blog/CategoryHandler.php:46 Handler/Blog/CategoryHandler.php:49
+#: Handler/Blog/CategoryHandler.php:71
+msgid "Esta categoria ya existe."
+msgstr "Cette catégorie existe déjà"
+
+#: Handler/Blog/CategoryHandler.php:74
+msgid "Ya existe una categoría con esta url."
+msgstr "Une catégorie avec cet URL existe déjà."
+
+#: Handler/Image/ImageTypeHandler.php:33
+msgid "Ya existe este tipo imagen."
+msgstr "Ce type d’image existe déjà."
+
+#: Handler/Image/ImageTypeHandler.php:44
+msgid "Ya existe este tipo imagen"
+msgstr "Ce type d’image existe déjà"
+
+#: Handler/PageHandler.php:35 Handler/PageHandler.php:38
+#: Handler/PageHandler.php:50
+msgid "Esta página ya existe."
+msgstr "Cette page existe déjà"
+
+#: Handler/PageHandler.php:53
+msgid "Ya existe una página con esta url."
+msgstr "Une page avec cet url existe déjà."
+
+#: Handler/RolHandler.php:26
+msgid "Ya existe un rol con este nombre."
+msgstr "Il y a déjà un rôle avec ce nom."
+
+#: Handler/ShortUrl/ShortUrlHandler.php:43
+msgid "Esta url ya existe."
+msgstr "Cette url existe déjà."
+
+#: Handler/ShortUrl/ShortUrlHandler.php:58
+msgid "Esta url short ya existe."
+msgstr "Cet url short existe déjà."
+
+#: Handler/Tests/Actions/SopaLetras/SopaLetrasHandler.php:18
+#: Handler/Tests/Actions/SopaLetras/SopaLetrasHandler.php:31
+#: Handler/Tests/Actions/SopaLetras/SopaLetrasHandler.php:49
+msgid "La sintaxis de las palabras introducidas no es correcta."
+msgstr "La syntaxe des phrases introduites est incorrecte."
+
+#: Handler/Tests/Actions/TypeformHandler.php:37
+msgid "Recibes puntos por hacerlo"
+msgstr "Recevez des points pour cette action"
+
+#: Handler/Tests/Actions/TypeformHandler.php:38
+msgid "Recibes puntos si los puntos obtenidos por el typeform son inferiores a"
+msgstr "Recevez les points si les points obtenus sur le typeform sont inférieurs à"
+
+#: Handler/Tests/Actions/TypeformHandler.php:39
+msgid "Recibes los puntos de la acción mas los puntos obtenidos por el typeform"
+msgstr "Recevez les points de l’action PLUS les points obtenus pour le typeform"
+
+#: Handler/Tests/FaseTextTypeHandler.php:33
+msgid "Ya existe este tipo de texto."
+msgstr "Ce type de texte existe déjà."
+
+#: Handler/Tests/FaseTextTypeHandler.php:44
+msgid "Ya existe este tipo de texto"
+msgstr "Ce type de texte existe déjà."
+
+#: Handler/Tests/FasesHandler.php:140
+msgid "Código introducido incorrecto"
+msgstr "Le code introduit est incorrect"
+
+#: Handler/Tests/Participante/ProfileHandler.php:19
+msgid "Ya existe un profile para este participante."
+msgstr "Un profil de participant existe."
+
+#: Handler/UserHandler.php:54 Handler/UserHandler.php:248
+#: Handler/UserHandler.php:284
+msgid "Este email ya esta en uso."
+msgstr "Cette adresse email est déjà utilisée."
+
+#: Handler/UserHandler.php:60 Handler/UserHandler.php:210
+#: Handler/UserHandler.php:254 Handler/UserHandler.php:290
+#: Handler/UserHandler.php:354
+msgid "El nombre de usuario no está disponible."
+msgstr "Ce pseudo n’est pas disponible."
+
+#: Handler/UserHandler.php:68 Handler/UserHandler.php:266
+#: Handler/UserHandler.php:362
+msgid "No se pueden registrar menores de 18 años."
+msgstr "Les mineurs de moins de 18 ans ne peuvent pas participer."
+
+#: Handler/UserHandler.php:88 Handler/UserHandler.php:92
+#: Handler/UserHandler.php:434 Handler/UserHandler.php:438
+#: Handler/UserHandler.php:457 Handler/UserHandler.php:461
+#: Handler/UserHandler.php:465
+msgid "Usuario o contraseña incorrectos."
+msgstr "Utilisateur ou mot de passe incorrects."
+
+#: Handler/UserHandler.php:96 Handler/UserHandler.php:443
+#: Handler/UserHandler.php:469
+msgid "Tienes que validar el email."
+msgstr "Vous devez valider votre email."
+
+#: Handler/UserHandler.php:105
+msgid "Este email no existe en nuestra bbdd."
+msgstr "Cet email n’existe pas dans notre système."
+
+#: Handler/UserHandler.php:109
+msgid "No tienes el email validado."
+msgstr "Votre email n’est pas validé."
+
+#: Handler/UserHandler.php:204 Handler/UserHandler.php:348
+msgid "Ya existe un usuario con este email."
+msgstr "Il y a déjà un utilisateur avec cet email."
+
+#: Handler/UserHandler.php:258 Handler/UserHandler.php:294
+msgid "Este usuario no existe"
+msgstr "Cet utilisateur n’existe pas"
+
+#: Handler/UserHandler.php:488 Validation/User.php:48
+msgid "Las contraseñas no coinciden."
+msgstr "Les mots de passe ne sont pas identiques"
+
+#: Validation/Blog/Category.php:24 Validation/Blog/Comment.php:21
+#: Validation/Blog/Post.php:30 Validation/Image/Image.php:28
+#: Validation/Image/ImageText.php:23 Validation/Image/ImageTextDesc.php:21
+#: Validation/Image/ImageType.php:21 Validation/Page.php:24
+#: Validation/Platform.php:21 Validation/Tests/Actions/Action.php:47
+#: Validation/Tests/Actions/ComentarioPost.php:22
+#: Validation/Tests/Actions/Diferencias.php:28
+#: Validation/Tests/Actions/Facebook.php:24
+#: Validation/Tests/Actions/Memory.php:26
+#: Validation/Tests/Actions/Puzzle.php:26
+#: Validation/Tests/Actions/SopaLetras.php:26
+#: Validation/Tests/Actions/Twittear.php:26
+#: Validation/Tests/Actions/TwittearCustom.php:30
+#: Validation/Tests/Actions/Typeform.php:28
+#: Validation/Tests/Actions/TypeformPoints.php:26
+#: Validation/Tests/Actions/WordSearch.php:24 Validation/Tests/Fase.php:32
+#: Validation/Tests/FaseText.php:24 Validation/Tests/Filtro.php:26
+#: Validation/Tests/Participante/Profile.php:36
+#: Validation/Tests/Settings.php:28 Validation/Tests/Test.php:42
+#: Validation/User.php:46
+msgid "El campo :attribute es obligatorio."
+msgstr "Le champ :attribute est obligatoire."
+
+#: Validation/Blog/Category.php:25 Validation/Blog/Post.php:31
+#: Validation/Page.php:25 Validation/Tests/Actions/Action.php:49
+#: Validation/Tests/Actions/Typeform.php:29
+msgid "El campo :attribute tiene que ser un entero."
+msgstr "Le champ :attribute doit être un nombre entier"
+
+#: Validation/Blog/Category.php:26 Validation/Blog/Post.php:32
+#: Validation/Page.php:26
+msgid "El campo :attribute tiene que ser alfa numerico"
+msgstr "Le champ :attribute doit être alpha-numérique"
+
+#: Validation/Blog/Category.php:27 Validation/Blog/Post.php:33
+#: Validation/Page.php:27
+msgid "El campo :attribute tiene que ser url"
+msgstr "Le champ :attribute doit être une URL"
+
+#: Validation/Blog/Category.php:31 Validation/Image/Image.php:35
+#: Validation/Image/ImageText.php:27
+#: Validation/Tests/Participante/Profile.php:45 Validation/Tests/Test.php:48
+#: Validation/User.php:56
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+#: Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Nombre"
+msgstr "Prénom"
+
+#: Validation/Blog/Category.php:32 Validation/Blog/Post.php:39
+#: Validation/Image/Image.php:37 Validation/Tests/Test.php:49
+msgid "Url"
+msgstr "URL"
+
+#: Validation/Blog/Comment.php:22
+msgid "El campo :attribute ha de tener al menos 30 caracteres."
+msgstr "Le champ :attribute doit avoir un minimum de 30 caractères."
+
+#: Validation/Blog/Comment.php:26
+msgid "Comentario"
+msgstr "Commentaire"
+
+#: Validation/Blog/Post.php:34 Validation/Tests/Actions/Action.php:48
+#: Validation/Tests/Fase.php:33
+msgid "El campo :attribute tiene que ser una fecha válida."
+msgstr "Le champ :attribute doit être une date valide."
+
+#: Validation/Blog/Post.php:38
+msgid "Titulo"
+msgstr "Titre"
+
+#: Validation/Blog/Post.php:40 Validation/Image/Image.php:36
+#: Validation/Image/ImageTextDesc.php:25
+msgid "Descripción"
+msgstr "Description"
+
+#: Validation/Blog/Post.php:41
+msgid "Fecha de publicación"
+msgstr "Date de publication"
+
+#: Validation/Blog/Post.php:42
+msgid "Categorias"
+msgstr "Catégories"
+
+#: Validation/Image/Image.php:29 Validation/Tests/Test.php:43
+msgid "El campo :attribute tiene que ser válido."
+msgstr "Le champ :attribute doit être valide."
+
+#: Validation/Image/Image.php:30
+msgid "Tienes que seleccionar un tipo de imagen."
+msgstr "Vous devez sélectionner un type d’image."
+
+#: Validation/Image/Image.php:31 Validation/Tests/Actions/Facebook.php:25
+#: Validation/Tests/Test.php:44
+msgid "El campo :attribute tiene que ser una url válida."
+msgstr "Le champ :attribute doit être une URL valide."
+
+#: Validation/Image/Image.php:38 Validation/Image/ImageType.php:25
+#: Validation/Tests/Test.php:50
+msgid "Tipo imagen"
+msgstr "Type Image"
+
+#: Validation/Image/ImageText.php:28 Validation/Tests/Actions/Twittear.php:31
+msgid "Texto"
+msgstr "Texte"
+
+#: Validation/Tests/Actions/Action.php:46
+msgid "titulo obligatorio."
+msgstr "Titre obligatoire."
+
+#: Validation/Tests/Actions/Action.php:53
+#: Validation/Tests/Actions/Twittear.php:30
+#: Validation/Tests/Actions/TwittearCustom.php:35
+msgid "Título"
+msgstr "Titre"
+
+#: Validation/Tests/Actions/Memory.php:27
+#: Validation/Tests/Actions/Puzzle.php:27
+msgid "El campo :attribute debe ser una url válida."
+msgstr "Le champ :attribute doit être une URL valide."
+
+#: Validation/Tests/Actions/Memory.php:28
+msgid "El campo :attribute debe ser un entero."
+msgstr "Le champ :attribute doit être un nombre entier."
+
+#: Validation/Tests/Actions/TwittearCustom.php:31
+msgid "El tweet no puede estar vacio."
+msgstr "Le tweet ne peut pas être vide."
+
+#: Validation/Tests/Actions/TwittearCustom.php:36
+msgid "Texto base"
+msgstr "Texte de base"
+
+#: Validation/Tests/Actions/TwittearCustom.php:37
+msgid "Tweet"
+msgstr "Tweet"
+
+#: Validation/Tests/Actions/TwittearCustom.php:38
+msgid "Palabras clave"
+msgstr "Mots clefs:"
+
+#: Validation/Tests/Actions/TypeformPoints.php:27
+msgid "El campo :attribute ha de ser númerico."
+msgstr "Le champ :attribute doit être de type numérique."
+
+#: Validation/Tests/Filtro.php:27
+msgid "El campo :attribute tiene que ser numérico."
+msgstr "Le champ :attribute doit être de type numérique."
+
+#: Validation/Tests/Participante/Profile.php:37 Validation/User.php:47
+msgid "El campo :attribute tiene que ser un email válido."
+msgstr "Le champ :attribute doit être un email valide."
+
+#: Validation/Tests/Participante/Profile.php:38 Validation/User.php:49
+msgid "El campo :attribute tiene que ser valido"
+msgstr "Le champ :attribute doit être valide"
+
+#: Validation/Tests/Participante/Profile.php:39
+msgid "Tiene que ser numérico"
+msgstr "Ce champ doit être un champ numérique"
+
+#: Validation/Tests/Participante/Profile.php:40
+msgid "Tiene que ser válido"
+msgstr "Ce champ doit être valide"
+
+#: Validation/Tests/Participante/Profile.php:44 Validation/User.php:60
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+#: Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+#: Views/Web/public/forms/user/login.php:1
+#: Views/Web/public/forms/user/loginn.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+#: Views/Web/public/forms/user/reset.php:1
+msgid "Email"
+msgstr "Email"
+
+#: Validation/Tests/Participante/Profile.php:46 Validation/User.php:57
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+#: Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Apellidos"
+msgstr "Nom"
+
+#: Validation/Tests/Participante/Profile.php:47
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+msgid "Dirección"
+msgstr "Adresse"
+
+#: Validation/Tests/Participante/Profile.php:48
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+msgid "Código postal"
+msgstr "Code postal"
+
+#: Validation/Tests/Participante/Profile.php:49
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+msgid "Complemento de dirección"
+msgstr "Complément d’adresse"
+
+#: Validation/Tests/Participante/Profile.php:50
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+msgid "Tratamiento"
+msgstr "Traitement"
+
+#: Validation/Tests/Participante/Profile.php:51
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+msgid "Ciudad"
+msgstr "Ville"
+
+#: Validation/Tests/Participante/Profile.php:52
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+msgid "Teléfono"
+msgstr "Téléphone"
+
+#: Validation/User.php:50
+msgid "La fecha seleccionada es incorrecta."
+msgstr "La date sélectionnée est incorrecte."
+
+#: Validation/User.php:51
+msgid "Tienes que aceptar las Condiciones generales y la Política de privacidad"
+msgstr "Vous devez accepter les Conditions Générales d’Utilisation et la Politique de Confidentialité"
+
+#: Validation/User.php:52
+msgid "El campo :attribute solo puede contener letras, números y _"
+msgstr "Le champ :attribute ne peut contenir que des lettres, des numéros et _"
+
+#: Validation/User.php:58 Views/Web/public/forms/user/login.php:1
+#: Views/Web/public/forms/user/loginn.php:1
+#: Views/Web/public/forms/user/pass.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Contraseña"
+msgstr "Mot de passe"
+
+#: Validation/User.php:59 Views/Web/public/forms/user/pass.php:1
+msgid "Repite Contraseña"
+msgstr "Confirmez votre nouveau mot de passe"
+
+#: Validation/User.php:61 Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+msgid "Pais"
+msgstr "Pays"
+
+#: Validation/User.php:62
+msgid "Dia"
+msgstr "Jour"
+
+#: Validation/User.php:63
+msgid "Mes"
+msgstr "Mois"
+
+#: Validation/User.php:64
+msgid "Año"
+msgstr "Année"
+
+#: Validation/User.php:65 Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Sexo"
+msgstr "Sexe"
+
+#: Validation/User.php:66
+msgid "Condiciones generales y la Política de privacidad"
+msgstr "Conditions générales d’utilisation"
+
+#: Validation/User.php:67 Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Nombre de usuario"
+msgstr "Pseudo"
+
+#: Views/Web/public/actions/fases/action.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_do.php:1
+msgid "Volver"
+msgstr "Retour"
+
+#: Views/Web/public/actions/fases/action.php:1
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+msgid "Siguiente nivel"
+msgstr "Niveau suivant"
+
+#: Views/Web/public/actions/fases/action.php:1
+#: Views/Web/public/actions/fases/memory/action_do.php:1
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+msgid "Volver a realizar la acción"
+msgstr "Refaire l’action"
+
+#: Views/Web/public/actions/fases/actions_graph.php:1
+#: Views/Web/public/test/user/acciones.php:1
+msgid "Nota de corte"
+msgstr "Note de coupe"
+
+#: Views/Web/public/actions/fases/actions_graph.php:1
+#: Views/Web/public/test/user/acciones.php:1
+msgid "Puntos mínimos para entrar en el grupo de selección"
+msgstr "Minimum de points requis pour se qualifier dans le groupe de sélection"
+
+#: Views/Web/public/actions/fases/actions_graph.php:1
+#: Views/Web/public/test/user/acciones.php:1
+msgid "Mis acciones realizadas"
+msgstr "Mes actions déjà réalisées"
+
+#: Views/Web/public/actions/fases/actions_grid.php:1
+#: Views/Web/public/test/user/acciones.php:1
+msgid "Realiza las siguientes acciones para poder completar la campaña"
+msgstr "Réalisez les actions suivantes pour pouvoir démarrer le test produit"
+
+#: Views/Web/public/actions/fases/actions_table.php:1
+#: Views/Web/public/test/user/acciones.php:1
+msgid "Acciones completadas"
+msgstr "Liste des actions réalisées"
+
+#: Views/Web/public/actions/fases/actions_table.php:1
+#: Views/Web/public/test/user/acciones.php:1
+msgid "Acción"
+msgstr "Action"
+
+#: Views/Web/public/actions/fases/actions_table.php:1
+#: Views/Web/public/test/user/acciones.php:1
+msgid "Fecha"
+msgstr "Date"
+
+#: Views/Web/public/actions/fases/actions_table.php:1
+#: Views/Web/public/test/user/acciones.php:1
+msgid "Puntos"
+msgstr "Points"
+
+#: Views/Web/public/actions/fases/comentario_post/action_coming.php:1
+#: Views/Web/public/actions/fases/comentario_post/action_complete.php:1
+#: Views/Web/public/actions/fases/comentario_post/action_end.php:1
+#: Views/Web/public/actions/fases/comentario_post/action_todo.php:1
+#: Views/Web/public/actions/fases/memory/action_coming.php:1
+#: Views/Web/public/actions/fases/memory/action_complete.php:1
+#: Views/Web/public/actions/fases/memory/action_done.php:1
+#: Views/Web/public/actions/fases/memory/action_end.php:1
+#: Views/Web/public/actions/fases/memory/action_todo.php:1
+#: Views/Web/public/actions/fases/puzzle/action_coming.php:1
+#: Views/Web/public/actions/fases/puzzle/action_complete.php:1
+#: Views/Web/public/actions/fases/puzzle/action_done.php:1
+#: Views/Web/public/actions/fases/puzzle/action_end.php:1
+#: Views/Web/public/actions/fases/puzzle/action_in_process.php:1
+#: Views/Web/public/actions/fases/puzzle/action_todo.php:1
+#: Views/Web/public/actions/fases/twittear/action_coming.php:1
+#: Views/Web/public/actions/fases/twittear/action_complete.php:1
+#: Views/Web/public/actions/fases/twittear/action_end.php:1
+#: Views/Web/public/actions/fases/twittear/action_todo.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_coming.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_complete.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_end.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_todo.php:1
+#: Views/Web/public/actions/fases/typeform/action_coming.php:1
+#: Views/Web/public/actions/fases/typeform/action_complete.php:1
+#: Views/Web/public/actions/fases/typeform/action_end.php:1
+#: Views/Web/public/actions/fases/typeform/action_todo.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_coming.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_complete.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_end.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_todo.php:1
+#, php-format
+msgid "+ %s puntos"
+msgstr "+ %s points"
+
+#: Views/Web/public/actions/fases/comentario_post/action_coming.php:1
+#: Views/Web/public/actions/fases/memory/action_coming.php:1
+#: Views/Web/public/actions/fases/puzzle/action_coming.php:1
+#: Views/Web/public/actions/fases/twittear/action_coming.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_coming.php:1
+#: Views/Web/public/actions/fases/typeform/action_coming.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_coming.php:1
+msgid "Próximamente"
+msgstr "Prochainement"
+
+#: Views/Web/public/actions/fases/comentario_post/action_complete.php:1
+#: Views/Web/public/actions/fases/memory/action_complete.php:1
+#: Views/Web/public/actions/fases/puzzle/action_complete.php:1
+#: Views/Web/public/actions/fases/twittear/action_complete.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_complete.php:1
+#: Views/Web/public/actions/fases/typeform/action_complete.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_complete.php:1
+msgid "Completada"
+msgstr "Action réalisée"
+
+#: Views/Web/public/actions/fases/comentario_post/action_end.php:1
+#: Views/Web/public/actions/fases/memory/action_end.php:1
+#: Views/Web/public/actions/fases/puzzle/action_end.php:1
+#: Views/Web/public/actions/fases/twittear/action_end.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_end.php:1
+#: Views/Web/public/actions/fases/typeform/action_end.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_end.php:1
+msgid "Finalizada"
+msgstr "Action terminée"
+
+#: Views/Web/public/actions/fases/diferencias/action_complete.php:1
+msgid "Diferencias COMPLETE"
+msgstr "Jeu des différences TERMINÉ"
+
+#: Views/Web/public/actions/fases/diferencias/action_done.php:1
+#: Views/Web/public/actions/fases/diferencias/action_todo.php:1
+msgid "Diferencias"
+msgstr "Différences"
+
+#: Views/Web/public/actions/fases/diferencias/action_todo.php:1
+#: Views/Web/public/actions/fases/sopa_letras/action_todo.php:1
+msgid "completar"
+msgstr "Terminer"
+
+#: Views/Web/public/actions/fases/facebook/action_complete.php:1
+#: Views/Web/public/actions/filtro/facebook/action_complete.php:1
+msgid "Facebook COMPLETE"
+msgstr "Facebook TERMINÉ"
+
+#: Views/Web/public/actions/fases/facebook/action_done.php:1
+#: Views/Web/public/actions/fases/facebook/action_todo.php:1
+msgid "Facebook"
+msgstr "Facebook"
+
+#: Views/Web/public/actions/fases/memory/action_do.php:1
+msgid "Memory completado."
+msgstr "Memory terminé."
+
+#: Views/Web/public/actions/fases/memory/action_do.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_do.php:1
+#, php-format
+msgid "Has conseguido %s puntos."
+msgstr "Vous avez gagné %s points."
+
+#: Views/Web/public/actions/fases/memory/action_do.php:1
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+msgid "Volver al test"
+msgstr "Revenir sur le test "
+
+#: Views/Web/public/actions/fases/memory/action_done.php:1
+#: Views/Web/public/actions/fases/puzzle/action_done.php:1
+msgid "Volver a realizar"
+msgstr "Refaire l’action"
+
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+msgid "Para jugar sólo tiene que arrastrar las piezas en su lugar utilizando el ratón para restaurar la imagen."
+msgstr "Pour jouer il vous suffit de faire glisser les pièces du puzzle à leur place à l’aide du curseur de votre souris pour reconstituer l’image."
+
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+#, php-format
+msgid "El puzzle tiene %s niveles, cada uno un poco más difícil que el anterior."
+msgstr "Le puzzle comporte %s niveaux, chacun étant un peu plus difficile que le précédent."
+
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+#, php-format
+msgid "para cada nivel completado, ganas %s puntos."
+msgstr "pour chaque niveau réussi, vous gagnez %s points."
+
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+#, php-format
+msgid "para ganar el máximo de puntos, tienes que completar %s niveles"
+msgstr "pour gagner le maximum de points, il faut faire les %s niveaux"
+
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+msgid "siempre se puede interrumpir el juego para terminar más tarde. Al volver a jugar, continuará a partir del último nivel sin finalizar."
+msgstr "vous pouvez à tout moment interrompre votre partie pour la finir plus tard. En arrêtant en cours de jeu, vous devrez nécessairement recommencer le dernier niveau non finalisé."
+
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+msgid "JUGAR"
+msgstr "JOUER"
+
+#: Views/Web/public/actions/fases/puzzle/action_do.php:1
+#, php-format
+msgid "Nivel %s de %s"
+msgstr "Niveau %s sur %s"
+
+#: Views/Web/public/actions/fases/puzzle/action_in_process.php:1
+#: Views/Web/public/actions/fases/typeform/action_in_process.php:1
+#: Views/Web/public/actions/filtro/typeform/action_in_process.php:1
+msgid "Continuar"
+msgstr "Continuer"
+
+#: Views/Web/public/actions/fases/sopa_letras/action_complete.php:1
+#: Views/Web/public/actions/filtro/sopa_de_letras/action_complete.php:1
+msgid "Sopa de letras COMPLETE"
+msgstr "Mots Mêlés TERMINÉ "
+
+#: Views/Web/public/actions/fases/sopa_letras/action_done.php:1
+#: Views/Web/public/actions/fases/sopa_letras/action_todo.php:1
+#: Views/Web/public/actions/filtro/sopa_de_letras/action_done.php:1
+#: Views/Web/public/actions/filtro/sopa_de_letras/action_todo.php:1
+msgid "Sopa de letras"
+msgstr "Mots Mêlés"
+
+#: Views/Web/public/actions/fases/twittear/action_do.php:1
+#: Views/Web/public/actions/fases/twittear/action_done.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_do.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_done.php:1
+#: Views/Web/public/actions/fases/wordsearch/action_done.php:1
+msgid "Twittear"
+msgstr "Twitter"
+
+#: Views/Web/public/actions/fases/twittear/action_do.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_do.php:1
+msgid "Para poder realizar la acción debes sincronizar tu cuenta de twitter."
+msgstr "Pour pouvoir faire cette action, vous devez synchroniser votre compte Twitter."
+
+#: Views/Web/public/actions/fases/twittear/action_do.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_do.php:1
+#: Views/Web/public/user/socials/facebook/notconnected.php:1
+#: Views/Web/public/user/socials/twitter/notconnected.php:1
+msgid "Sincronizando"
+msgstr "Synchronisation en cours"
+
+#: Views/Web/public/actions/fases/twittear/action_do.php:1
+#: Views/Web/public/actions/fases/twittear_custom/action_do.php:1
+#: Views/Web/public/user/socials/twitter/notconnected.php:1
+msgid "Sincronizar Twitter"
+msgstr "Synchroniser Twitter"
+
+#: Views/Web/public/actions/fases/twittear/message/error.php:1
+#: Views/Web/public/actions/fases/twittear_custom/message/error.php:1
+msgid "Error al hacer el tweet."
+msgstr "Une erreur s’est produites en faisant le tweet."
+
+#: Views/Web/public/actions/fases/twittear_custom/message/error_text_incorrect.php:1
+msgid "No has incluido alguno de los requisitos pedidos. Revisa los hashtag y las menciones que has puesto en tu tuit, vuelve a componerlo y envíalo."
+msgstr "Certains des mots obligatoires ont été supprimés du tweet. Vous devez les rajouter et retentez de tweeter. "
+
+#: Views/Web/public/actions/fases/typeform/action_do_open.php:1
+#: Views/Web/public/actions/filtro/typeform/action_do_open.php:1
+msgid "Contesta el typeform"
+msgstr "Répondre aux questions"
+
+#: Views/Web/public/actions/fases/typeform/action_done.php:1
+#: Views/Web/public/actions/fases/typeform/action_in_process.php:1
+#: Views/Web/public/actions/filtro/typeform/action_done.php:1
+#: Views/Web/public/actions/filtro/typeform/action_in_process.php:1
+msgid "Typeform"
+msgstr "Typeform"
+
+#: Views/Web/public/actions/fases/wordsearch/action_do.php:1
+msgid "Sopa de letras completada."
+msgstr "Mots mêlés terminé"
+
+#: Views/Web/public/actions/filtro/facebook/action_done.php:1
+msgid "Facebook done"
+msgstr "Facebook"
+
+#: Views/Web/public/actions/filtro/memory/action_complete.php:1
+msgid "Memory COMPLETE"
+msgstr "Memory TERMINÉ"
+
+#: Views/Web/public/actions/filtro/memory/action_done.php:1
+#: Views/Web/public/actions/filtro/memory/action_todo.php:1
+msgid "Memory"
+msgstr "Memory"
+
+#: Views/Web/public/actions/filtro/puzzle/action_complete.php:1
+msgid "Puzzle COMPLETE"
+msgstr "Puzzle TERMINÉ"
+
+#: Views/Web/public/actions/filtro/puzzle/action_done.php:1
+#: Views/Web/public/actions/filtro/puzzle/action_todo.php:1
+msgid "Puzzle"
+msgstr "Puzzle"
+
+#: Views/Web/public/blog/blog.php:1
+msgid "Blog"
+msgstr "Blog"
+
+#: Views/Web/public/blog/comment.php:1
+#, php-format
+msgid "hace %s horas"
+msgstr "Il y a %s heures"
+
+#: Views/Web/public/blog/comment.php:1
+msgid "Responder"
+msgstr "Répondre"
+
+#: Views/Web/public/blog/list_comment.php:1
+msgid "Mejores comentarios"
+msgstr "Les meilleurs commentaires"
+
+#: Views/Web/public/blog/list_comment.php:1
+msgid "Mis comentarios"
+msgstr "Mes commentaires"
+
+#: Views/Web/public/blog/list_comment.php:1
+msgid "Todos los comentarios"
+msgstr "Tous les commentaires"
+
+#: Views/Web/public/blog/list_comment.php:1
+msgid "No hay comentarios"
+msgstr "Il n\\'y a pas de commentaire"
+
+#: Views/Web/public/blog/list_comment.php:1
+msgid "Cargando..."
+msgstr "Voir plus..."
+
+#: Views/Web/public/blog/list_comment.php:1
+msgid "Ver más"
+msgstr "Lire la suite"
+
+#: Views/Web/public/blog/post_footer.php:1
+msgid "Compartir"
+msgstr "Partager"
+
+#: Views/Web/public/blog/post_footer.php:1
+msgid "Deja tu comentario"
+msgstr "Laisser un commentaire"
+
+#: Views/Web/public/breadcrumb.php:1 Views/Web/public/breadcrumb/action.php:1
+#: Views/Web/public/breadcrumb/actions.php:1
+#: Views/Web/public/breadcrumb/filter.php:1
+#: Views/Web/public/breadcrumb/test.php:1
+msgid "Home"
+msgstr "Home"
+
+#: Views/Web/public/breadcrumb/action.php:1
+#: Views/Web/public/breadcrumb/actions.php:1
+#: Views/Web/public/breadcrumb/filter.php:1
+msgid "Completa las acciones"
+msgstr "Faites les actions"
+
+#: Views/Web/public/cookies/warning_cookies.php:1
+msgid "Utilizamos cookies propias y de terceros para realizar análisis de uso y de medición de nuestra web para mejorar nuestros servicios. Si continua navegando, consideramos que acepta su uso."
+msgstr "Nous utilisons des cookies sur notre site pour pouvoir analyser l’usage de nos pages et pour améliorer votre expérience en tant qu'utilisateur. Si vous acceptez l'installation de cookies ou continuez à naviguer sur le site, nous considérons que vous acceptez leur utilisation."
+
+#: Views/Web/public/cookies/warning_cookies.php:1
+msgid "Más información"
+msgstr "Plus d’infos"
+
+#: Views/Web/public/demo_error.php:1
+msgid "No has realizado todas las acciones requeridas para entrar en la campaña."
+msgstr "Vous n'avez pas effectué toutes les actions requises pour entrer dans le test produit."
+
+#: Views/Web/public/errors/404.php:1 Views/Web/public/errors/500.php:1
+msgid "Página no encontrada"
+msgstr "Page non trouvée"
+
+#: Views/Web/public/errors/404.php:1 Views/Web/public/errors/500.php:1
+msgid "Volver a testamus"
+msgstr "Revenir vers Testamus"
+
+#: Views/Web/public/forms/test/action/comment.php:1
+#: Views/Web/public/forms/test/blog/comment.php:1
+msgid "Haz tu comentario aquí"
+msgstr "Laissez votre commentaire ici"
+
+#: Views/Web/public/forms/test/action/comment.php:1
+#: Views/Web/public/forms/test/blog/comment.php:1
+#: Views/Web/public/forms/test/fase/code.php:1
+#: Views/Web/public/forms/user/reset.php:1
+#: Views/Web/public/forms/user/reset_password.php:1
+msgid "Enviar"
+msgstr "Envoyer"
+
+#: Views/Web/public/forms/test/action/comment.php:1
+#: Views/Web/public/forms/test/blog/comment.php:1
+msgid "Para poder comentar debes estar logeado."
+msgstr "Pour pouvoir commenter vous devez être connecté"
+
+#: Views/Web/public/forms/test/action/comment.php:1
+#: Views/Web/public/forms/test/blog/comment.php:1
+#: Views/Web/public/menu/header.php:1 Views/Web/public/test/user/login.php:1
+msgid "Iniciar sesión"
+msgstr "Connectez-vous"
+
+#: Views/Web/public/forms/test/action/comment.php:1
+#: Views/Web/public/forms/test/blog/comment.php:1
+#: Views/Web/public/test/user/login.php:1
+msgid "Registrar"
+msgstr "Inscrivez-vous"
+
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+msgid "Sra"
+msgstr "Mme"
+
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+msgid "Srta"
+msgstr "Mlle"
+
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+msgid "Sr"
+msgstr "Mr"
+
+#: Views/Web/public/forms/test/participante/profile/add.php:1
+#: Views/Web/public/forms/user/login.php:1
+#: Views/Web/public/forms/user/loginn.php:1
+msgid "Entrar"
+msgstr "Entrer"
+
+#: Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Hombre"
+msgstr "Homme"
+
+#: Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Mujer"
+msgstr "Femme"
+
+#: Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Fecha nacimiento"
+msgstr "Date de naissance"
+
+#: Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+#, php-format
+msgid "Acepto las %s de Testamus"
+msgstr "J’accepte les %s de Testamus"
+
+#: Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+#: Views/Web/public/forms/user/newsletter.php:1
+msgid "Modificando"
+msgstr "En cours de modification"
+
+#: Views/Web/public/forms/user/completeregister.php:1
+#: Views/Web/public/forms/user/datos.php:1
+msgid "Modificar datos"
+msgstr "Modifier vos données"
+
+#: Views/Web/public/forms/user/login.php:1
+#: Views/Web/public/forms/user/loginn.php:1
+msgid "Mantenerme logeado"
+msgstr "Me maintenir connecté"
+
+#: Views/Web/public/forms/user/newsletter.php:1
+#: Views/Web/public/modals/unsubscribe.php:1
+msgid "No"
+msgstr "Non"
+
+#: Views/Web/public/forms/user/newsletter.php:1
+#: Views/Web/public/modals/unsubscribe.php:1
+msgid "Sí"
+msgstr "Oui"
+
+#: Views/Web/public/forms/user/newsletter.php:1
+msgid "Modificar"
+msgstr "Modifier"
+
+#: Views/Web/public/forms/user/pass.php:1
+msgid "Guardando"
+msgstr "En cours de sauvegarde"
+
+#: Views/Web/public/forms/user/pass.php:1
+msgid "Guardar"
+msgstr "Enregistrer"
+
+#: Views/Web/public/forms/user/registro.php:1
+#, php-format
+msgid "Acepto las %s y la %s de Testamus"
+msgstr "J’ai lu et j’accepte les %s et %s de Testamus "
+
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Creando"
+msgstr "En cours de création"
+
+#: Views/Web/public/forms/user/registro.php:1
+#: Views/Web/public/forms/user/registroTestamusFr.php:1
+#: Views/Web/public/forms/user/registron.php:1
+msgid "Crear mi cuenta"
+msgstr "Créer mon compte"
+
+#: Views/Web/public/forms/user/registrosuccess.php:1
+msgid "Registro ok"
+msgstr "Enregistrement terminé"
+
+#: Views/Web/public/forms/user/registrosuccess.php:1
+msgid "Te hemos enviado un email para completar tu registro"
+msgstr "Nous vous avons envoyé un email pour terminer votre enregistrement"
+
+#: Views/Web/public/forms/user/reset.php:1
+#: Views/Web/public/forms/user/reset_password.php:1
+msgid "Enviando"
+msgstr "En cours d’envoi"
+
+#: Views/Web/public/forms/user/reset_pass_success.php:1
+msgid "Ya puedes acceder con tu nueva contraseña."
+msgstr "Vous pouvez désormais vous connecter avec votre nouveau mot de passe."
+
+#: Views/Web/public/forms/user/reset_password.php:1
+msgid "Nueva contraseña:"
+msgstr "Nouveau mot de passe:"
+
+#: Views/Web/public/forms/user/reset_password.php:1
+msgid "Repite Contraseña:"
+msgstr "Répétez le mot de passe:"
+
+#: Views/Web/public/forms/user/unsubscribe.php:1
+msgid "¿Estás seguro que quieres darte de baja de Testamus?"
+msgstr "Etes-vous sûr de vouloir vous désinscrire de Testamus ?"
+
+#: Views/Web/public/forms/user/unsubscribe.php:1
+msgid "Sí, quiero darme de baja"
+msgstr "Oui, je veux me désinscrire"
+
+#: Views/Web/public/index.php:1
+msgid "Bienvenido a la comunidad de marketing participativo más activa de España."
+msgstr "Bienvenue à la communauté de marketing participatif la plus active."
+
+#: Views/Web/public/index.php:1
+msgid "Juntos aprendemos, probamos nuevos productos y colaboramos con las mejores marcas."
+msgstr "Ensemble nous allons découvrir et tester de nouveaux produits en collaborant avec les plus grandes marques."
+
+#: Views/Web/public/index.php:1
+msgid "¡Juntos somos influyentes!"
+msgstr "Découvrons ensemble !"
+
+#: Views/Web/public/index.php:1
+msgid "Participar"
+msgstr "Participer"
+
+#: Views/Web/public/index.php:1
+msgid "Ver campañas"
+msgstr "Voir les tests produits"
+
+#: Views/Web/public/index.php:1
+msgid "Entra en la campaña"
+msgstr "Participez au test produit"
+
+#: Views/Web/public/index.php:1
+msgid "Responde la encuesta para participar en las pruebas de la campaña"
+msgstr "Répondez à l'enquête pour participer au test produit"
+
+#: Views/Web/public/index.php:1
+msgid "Participa y acumula puntos"
+msgstr "Participez et gagnez des points"
+
+#: Views/Web/public/index.php:1
+msgid "Juega con la marca para ganar puntos y conviértete en embajador de la marca."
+msgstr "Jouez avec la marque pour gagner des points et tenter de devenir ambassadeur"
+
+#: Views/Web/public/index.php:1
+msgid "Recibe tu caja de Testamus"
+msgstr "Recevez votre Box Testamus"
+
+#: Views/Web/public/index.php:1
+msgid "Una vez seas embajador de la marca prueba el producto y danos tu opinión."
+msgstr "Devenez ambassadeur, testez le produit et donnez votre avis"
+
+#: Views/Web/public/index.php:1
+msgid "Campañas activas"
+msgstr "Tests produits en cours"
+
+#: Views/Web/public/index.php:1
+msgid "Campañas finalizadas"
+msgstr "Tests produits terminés"
+
+#: Views/Web/public/index.php:1
+msgid "Productos y marcas participantes en Testamus"
+msgstr "Ils ont participé à Testamus"
+
+#: Views/Web/public/layout.php:1 Views/Web/public/layouthome.php:16
+#: Views/Web/public/layouttest.php:1 Views/Web/public/menu/headermenu.php:1
+msgid "Testamus"
+msgstr "Testamus"
+
+#: Views/Web/public/links/condiciones.php:1 Views/Web/public/menu/footer.php:1
+#: Views/Web/public/menu/footerFR.php:1
+msgid "Condiciones generales"
+msgstr "Conditions générales d’utilisation"
+
+#: Views/Web/public/links/politica_privacidad.php:1
+msgid "Política de privacidad"
+msgstr "Politique de confidentialité"
+
+#: Views/Web/public/mails/activacion.php:1
+msgid "Bienvenido a Testamus"
+msgstr "Bienvenue sur Testamus"
+
+#: Views/Web/public/mails/activacion.php:1
+msgid "Debes activar tu cuenta para poder participar en las campañas de testamus."
+msgstr "Vous devez activer votre compte pour pouvoir participer aux tests produits Testamus."
+
+#: Views/Web/public/mails/activacion.php:1
+msgid "Validar mi email"
+msgstr "Valider mon email"
+
+#: Views/Web/public/mails/activacion.php:1
+msgid "Si no puedes hacer click en el enlace anterior prueba copiando y pegando el siguiente texto en tu navegador"
+msgstr "Si vous ne pouvez pas cliquer sur le lien ci-dessus, essayez de le copier puis de le coller dans votre navigateur web"
+
+#: Views/Web/public/mails/reset.php:1
+msgid "Cambiar contraseña de Testamus"
+msgstr "Changer le mot de passe Testamus"
+
+#: Views/Web/public/mails/reset.php:1
+msgid "Para poder cambiar tu contraseña debes acceder mediante el siguiente enlace."
+msgstr "Pour pouvoir changer votre mot de passe vous devez accéder à la page internet via ce lien."
+
+#: Views/Web/public/mails/reset.php:1 Views/Web/public/user/profile_menu.php:1
+msgid "Cambiar contraseña"
+msgstr "Changer de mot de passe"
+
+#: Views/Web/public/menu/footer.php:1 Views/Web/public/menu/footerFR.php:1
+msgid "Aviso legal"
+msgstr "Mentions légales"
+
+#: Views/Web/public/menu/footer.php:1 Views/Web/public/menu/footerFR.php:1
+msgid "Política de cookies"
+msgstr "Informations sur les cookies"
+
+#: Views/Web/public/menu/footer.php:1 Views/Web/public/menu/footerFR.php:1
+msgid "Contacto"
+msgstr "Contact"
+
+#: Views/Web/public/menu/footer.php:1 Views/Web/public/menu/footerFR.php:1
+msgid "Resolución de Conflictos"
+msgstr "Résolution des conflits"
+
+#: Views/Web/public/menu/footer.php:1 Views/Web/public/menu/footerFR.php:1
+msgid "Copyright © 2016 - Testamus - All rights reserved."
+msgstr "Copyright © 2016 - Testamus - All rights reserved."
+
+#: Views/Web/public/menu/header.php:1
+msgid "Cómo funciona"
+msgstr "Comment ça marche ?"
+
+#: Views/Web/public/menu/header.php:1
+msgid "Info para marcas"
+msgstr "Infos pour les marques"
+
+#: Views/Web/public/menu/header.php:1
+msgid "Configuración"
+msgstr "Espace Perso"
+
+#: Views/Web/public/menu/header.php:1
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: Views/Web/public/menu/header.php:1
+msgid "Register"
+msgstr "Enregistrement"
+
+#: Views/Web/public/menu/header.php:1
+msgid "Login"
+msgstr "Connexion"
+
+#: Views/Web/public/modals/errors/login.php:1
+msgid "Email o contraseña incorrectos"
+msgstr "Email ou mot de passe incorrects"
+
+#: Views/Web/public/modals/errors/reset.php:1
+msgid "Email incorrecto"
+msgstr "Email incorrect"
+
+#: Views/Web/public/modals/login.php:1 Views/Web/public/user/login.php:1
+#: Views/Web/public/user/loginold.php:1
+msgid "Inicia sesión"
+msgstr "Se connecter"
+
+#: Views/Web/public/modals/login.php:1 Views/Web/public/user/login.php:1
+#: Views/Web/public/user/loginold.php:1 Views/Web/public/user/register.php:1
+msgid "Inicia sesión con Facebook"
+msgstr "Se connecter avec Facebook"
+
+#: Views/Web/public/modals/login.php:1 Views/Web/public/user/login.php:1
+#: Views/Web/public/user/loginold.php:1 Views/Web/public/user/register.php:1
+msgid "— o  —"
+msgstr "— ou  —"
+
+#: Views/Web/public/modals/register.php:1
+msgid "¿Todavía no tienes una cuenta?"
+msgstr "Vous n’avez pas encore de compte ?"
+
+#: Views/Web/public/modals/reset.php:1 Views/Web/public/user/login.php:1
+#: Views/Web/public/user/loginold.php:1 Views/Web/public/user/remember.php:1
+msgid "¿Has olvidado tu contraseña?"
+msgstr "Vous avez oublié votre mot de passe ?"
+
+#: Views/Web/public/modals/unsubscribe.php:1
+msgid "¿Seguro que quieres darte de baja?"
+msgstr "Etes-vous sûr de vouloir vous désinscrire ?"
+
+#: Views/Web/public/pagina.php:1
+msgid "Preguntas fecuentes"
+msgstr "Questions fréquentes"
+
+#: Views/Web/public/submit_filters.php:1
+msgid "Entrar en el test"
+msgstr "Entrer sur le test produit"
+
+#: Views/Web/public/test/fase_closed.php:1
+#: Views/Web/public/test/test_not_started.php:1
+msgid "Test no comenzado."
+msgstr "Test pas encore démarré"
+
+#: Views/Web/public/test/list/test_active.php:1
+msgid "Participar ahora"
+msgstr "Participer"
+
+#: Views/Web/public/test/list/test_active.php:1
+#, php-format
+msgid "Buscamos %s embajadores"
+msgstr "Nous cherchons %s ambassadeurs"
+
+#: Views/Web/public/test/list/test_not_started.php:1
+msgid "Ver campaña"
+msgstr "Voir le test produit"
+
+#: Views/Web/public/test/participante/message_in.php:1
+#: Views/Web/public/test/participante/message_not_in.php:1
+msgid "Mi participación"
+msgstr "Ma participation"
+
+#: Views/Web/public/test/participante/message_in.php:1
+msgid "estás en el grupo de selección"
+msgstr "Vous êtes dans le groupe de sélection"
+
+#: Views/Web/public/test/participante/message_not_in.php:1
+msgid "aun no estás en el grupo de selección"
+msgstr "Vous n’êtes pas encore dans le groupe de séléction"
+
+#: Views/Web/public/test/participante/points_in.php:1
+#: Views/Web/public/test/participante/points_not_in.php:1
+msgid "Mis puntos acumulados"
+msgstr "Mes points"
+
+#: Views/Web/public/test/participante/profile.php:1
+msgid "Rellena el perfil"
+msgstr "Remplissez votre profil"
+
+#: Views/Web/public/test/participante/profile.php:1
+#: Views/Web/public/test_profile.php:1
+msgid "Rellena el perfil para acceder al test."
+msgstr "Merci d’indiquer l’adresse à laquelle vous souhaitez recevoir votre Box Testamus si vous êtes sélectionné comme ambassadeur/rice."
+
+#: Views/Web/public/test/test_finished.php:1
+msgid "Test finalizado."
+msgstr "Test terminé."
+
+#: Views/Web/public/test/user/entrar.php:1
+#: Views/Web/public/test/user/entrar_filter.php:1
+msgid "Participar en la campaña"
+msgstr "Participer au test produit"
+
+#: Views/Web/public/test/user/entrar_profile.php:1
+msgid "Rellena tu perfil"
+msgstr "Remplissez votre perfil"
+
+#: Views/Web/public/test/user/entrar_puntos.php:1
+msgid "Ganar más puntos"
+msgstr "Gagner plus de points"
+
+#: Views/Web/public/test/user/errorfilter.php:1
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+#: Views/Web/public/test/user/errorfilter.php:1
+msgid "Debes completar todas las acciones."
+msgstr "Vous devez terminer toutes les actions."
+
+#: Views/Web/public/test/user/filter_actions_not_completed.php:1
+msgid "No has completado todas las acciones filtro"
+msgstr "Vous n’avez pas terminé toutes les actions de selection"
+
+#: Views/Web/public/test/user/filter_actions_not_completed.php:1
+msgid "Acciones que debes completar:"
+msgstr "Les actions que vous devez faire :"
+
+#: Views/Web/public/test/user/filter_actions_not_completed.php:1
+msgid "Acciones completadas:"
+msgstr "Liste des actions réalisées :"
+
+#: Views/Web/public/test/user/koedad.php:1
+#: Views/Web/public/test/user/kofiltro.php:1
+#: Views/Web/public/test/user/kosex.php:1
+msgid "Por desgracia, su solicitud no ha sido seleccionada para esta prueba."
+msgstr "Malheureusement, votre candidature n’a pas été retenue pour ce test produit."
+
+#: Views/Web/public/test/user/koedad.php:1
+#: Views/Web/public/test/user/kofiltro.php:1
+#: Views/Web/public/test/user/kosex.php:1
+msgid "De hecho, para el registro, se tiene en cuenta la edad y el género. Pero no se preocupe, nuevas pruebas de productos se planifican y se tendrán todas sus posibilidades de participar! ;)"
+msgstr "En effet, pour l’inscription, nous prenons en compte l’âge et et le genre. Mais ne vous inquiétez pas, de nouveaux tests produits sont prévus et vous aurez toutes vos chances de pouvoir y participer ! ;)"
+
+#: Views/Web/public/test/user/login.php:1
+msgid "Para poder participar debes estar logeado."
+msgstr "Pour pouvoir participer vous devez être connecté."
+
+#: Views/Web/public/test/user/participar.php:1
+#: Views/Web/public/test_filter.php:1
+msgid "Realiza las siguientes acciones para poder entrar en la campaña"
+msgstr "Réalisez les actions suivantes pour pouvoir entrer sur le test produit"
+
+#: Views/Web/public/test/user/participar.php:1
+msgid "Entrar en la campaña"
+msgstr "Entrer dans le test produit"
+
+#: Views/Web/public/user/complete.php:1
+#: Views/Web/public/user/completeregister.php:1
+msgid "Completa los datos para continuar"
+msgstr "Complétez les données pour continuer"
+
+#: Views/Web/public/user/confirm_success.php:1
+msgid "Has validado correctamente el email. Ya puedes logearte."
+msgstr "Vous avez validé votre email avec succès. Vous pouvez maintenant vous connecter."
+
+#: Views/Web/public/user/login.php:1 Views/Web/public/user/loginold.php:1
+#: Views/Web/public/user/register.php:1
+msgid "¿Aún no te has registrado?"
+msgstr "Pas encore inscrit ?"
+
+#: Views/Web/public/user/login.php:1
+msgid "Regístrate"
+msgstr "S'inscrire"
+
+#: Views/Web/public/user/messages/facebookdisconnect_success.php:1
+#: Views/Web/public/user/messages/twitterdisconnect_success.php:1
+msgid "Cuenta desincronizada correctamente."
+msgstr "Compte désynchronisé avec succès"
+
+#: Views/Web/public/user/messages/facebooksync_error.php:1
+#: Views/Web/public/user/messages/twittersync_error.php:1
+msgid "Ha ocurrido un error al sincronizar la cuenta."
+msgstr "Une erreur s’est produite lors de la synchronisation."
+
+#: Views/Web/public/user/messages/facebooksync_error_duplicate.php:1
+#: Views/Web/public/user/messages/twittersync_error_duplicate.php:1
+msgid "Esta cuenta ya está relacionada con otro usuario."
+msgstr "Ce compte est déjà lié à un autre utilisateur"
+
+#: Views/Web/public/user/messages/facebooksync_success.php:1
+#: Views/Web/public/user/messages/twittersync_success.php:1
+msgid "Cuenta sincronizada correctamente."
+msgstr "Compte synchronisé avec succès."
+
+#: Views/Web/public/user/profile_menu.php:1
+#: Views/Web/public/user/titles/config.php:1
+msgid "Mi configuración"
+msgstr "Mon espace perso"
+
+#: Views/Web/public/user/profile_menu.php:1
+#: Views/Web/public/user/titles/socials.php:1
+msgid "Redes sociales"
+msgstr "Réseaux Sociaux"
+
+#: Views/Web/public/user/profile_menu.php:1
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: Views/Web/public/user/profile_menu.php:1
+msgid "Darse de baja"
+msgstr "Se désinscrire"
+
+#: Views/Web/public/user/register.php:1
+msgid "¿Ya tienes una cuenta?"
+msgstr "Vous avez déjà un compte ?"
+
+#: Views/Web/public/user/register_complete.php:1
+msgid "Has recibido un email para completar el registro"
+msgstr "Vous avez reçu un email pour terminer votre inscription"
+
+#: Views/Web/public/user/register_complete.php:1
+msgid "En cuanto valides tu cuenta podrás acceder a testamus"
+msgstr "Vous pourrez accéder à Testamus après avoir validé votre compte"
+
+#: Views/Web/public/user/remember.php:1
+msgid "Volver al login"
+msgstr "Revenir à la page de connexion"
+
+#: Views/Web/public/user/resetpass.php:1
+msgid "Te hemos generado un nuevo password."
+msgstr "Nous avons généré un nouveau mot de passe"
+
+#: Views/Web/public/user/resetpass.php:1
+#, php-format
+msgid "Ahora puedes logearte con el pass %s"
+msgstr "Vous pouvez vous connecter maintenant avec le mot de passe %s"
+
+#: Views/Web/public/user/socials/facebook/connected.php:1
+msgid "Facebook conectado"
+msgstr "Facebook connecté"
+
+#: Views/Web/public/user/socials/facebook/connected.php:1
+msgid "Desconectar facebook"
+msgstr "Déconnecter Facebook"
+
+#: Views/Web/public/user/socials/facebook/notconnected.php:1
+msgid "Facebook NO conectado"
+msgstr "Facebook NON connecté"
+
+#: Views/Web/public/user/socials/facebook/notconnected.php:1
+msgid "Sincronizar Facebook"
+msgstr "Synchroniser Facebook"
+
+#: Views/Web/public/user/socials/twitter/connected.php:1
+msgid "Twitter conectado"
+msgstr "Twitter connecté"
+
+#: Views/Web/public/user/socials/twitter/connected.php:1
+msgid "Desconectar Twitter"
+msgstr "Déconnecter Twitter"
+
+#: Views/Web/public/user/socials/twitter/notconnected.php:1
+msgid "Twitter NO conectado"
+msgstr "Twitter NON connecté"
+
+#: Views/Web/public/user/titles/newsletter.php:1
+msgid "¿Quieres recibir nuestra newsletter?"
+msgstr "Voulez-vous recevoir notre newsletter ?"
+
+#: Views/Web/public/user/titles/password.php:1
+msgid "¿Quieres cambiar tu contraseña?"
+msgstr "Voulez-vous changer de mot de passe ?"
+
+#: Views/Web/public/user/titles/unsubscribe.php:1
+msgid "¿Quieres darte de baja?"
+msgstr "Vous souhaitez vous désinscrire ?"
+
+#: Views/Web/public/user/unsubscribe_ok.php:1
+msgid "Baja confirmada correctamente"
+msgstr "Désinscription confirmée"
+
+#~ msgid "Cerrar"
+#~ msgstr "Fermer"
+
+#~ msgid "Twittear COMPLETE"
+#~ msgstr "Twitter TERMINÉ"
+
+#~ msgid "Acepto las %s de Kuvut"
+#~ msgstr "J’accepte les %s de Kuvut"
+
+#~ msgid "Ya has realizado todas las acciones activas hasta el momento."
+#~ msgstr "Vous avez réalisé toutes les actions actives à cette date"
+
+#~ msgid "No cumple los requisitos de edad"
+#~ msgstr ""
+#~ "Malheureusement, votre candidature n’a pas été retenue pour ce test produit. \n"
+#~ "En effet, pour l’inscription, nous prenons en compte l’âge et et le genre. Mais ne vous inquiétez pas, de nouveaux tests produits sont prévus et vous aurez toutes vos chances de pouvoir y participer ! ;)"
+
+#~ msgid "No cumple los requisitos del patrocinador."
+#~ msgstr ""
+#~ "Malheureusement votre candidature n’a pas été retenue pour ce test produit. En effet, pour l’inscription, nous prenons en compte des habitudes de consommation.\n"
+#~ "Mais ne vous inquiétez pas, de nouveaux tests produits sont prévus et vous aurez toutes vos chances de pouvoir y participer! ;)"
+
+#~ msgid "No cumple los requisitos de sexo"
+#~ msgstr ""
+#~ "Malheureusement, votre candidature n’a pas été retenue pour ce test produit. \n"
+#~ "En effet, pour l’inscription, nous prenons en compte l’âge et et le genre. Mais ne vous inquiétez pas, de nouveaux tests produits sont prévus et vous aurez toutes vos chances de pouvoir y participer ! ;)"
+
+#~ msgid "Mi participación: aun no estás en el grupo de selección"
+#~ msgstr "Votre statut: Vous n’êtes pas encore dans le groupe de sélection"
+
+#~ msgid "Puntos acumulados"
+#~ msgstr "Points accumulés"
+
+#~ msgid "Comentario post COMPLETE"
+#~ msgstr "Commentaire du Blog TERMINÉ"
+
+#~ msgid "Comentario post"
+#~ msgstr "Commentaire du Blog"
+
+#~ msgid "¿Quieres participar en la campaña? Rellena tu perfil"
+#~ msgstr "Vous voulez participer au test produit ? Remplissez votre profile"
+
+#~ msgid "¿Quieres participar en la campaña? Completa las acciones para acceder."
+#~ msgstr "Vous voulez participer au test produit ? Complétez les actions pour y accéder."
+
+#~ msgid "¿Quieres aumentar tus posibilidades de ganar?"
+#~ msgstr "Vous voulez augmenter vos chances de gagner ?"
+
+#~ msgid "Participa en la campaña y descubre todo los que necesitas sobre el producto."
+#~ msgstr "Participez au test produit et découvrez tout ce qui compte sur le produit"
+
+#~ msgid "Realiza las acciones para acumular puntos y convertirte en un embajador de la marca."
+#~ msgstr "Faites les actions pour gagner des points et devenir ambassadeur de la marque."
+
+#~ msgid "Recibe tu testabox"
+#~ msgstr "Recevez votre testabox"
+
+#~ msgid "Una vez seas embajador de la marca recibirás el producto en casa para que puedas probarlo."
+#~ msgstr "Après être sélectionné comme ambassadeur vous recevrez le produit chez vous pour pouvoir l’essayer"
+
+#~ msgid "¿Quieres participar en la campaña?."
+#~ msgstr "Vous souhaitez participer au test produit ?"
+
+#~ msgid "Acepto las %s y la %s de Kuvut"
+#~ msgstr "J’accepte les %s et la %s de Testamus"
+
+#~ msgid "Proximas campañas"
+#~ msgstr "Prochaines campagnes"
+
+#~ msgid "Sobre nosotros"
+#~ msgstr "Qui sommes-nous ?"
+
+#~ msgid "Protección de datos"
+#~ msgstr "Protection des données"
+
+#~ msgid "Experiencias"
+#~ msgstr "Expérience"
+
+#~ msgid "Emails"
+#~ msgstr "Emails"
+
+#~ msgid "Campañas"
+#~ msgstr "Campagnes"
+
+#~ msgid "Realizar Acción"
+#~ msgstr "Faire l’action"
+
+#~ msgid "Facebook TODO"
+#~ msgstr "Facebook TERMINÉ"
+
+#~ msgid "Has tu comentario aquí"
+#~ msgstr "Laissez votre commentaire ici"
+
+#~ msgid "Título de la campaña"
+#~ msgstr "Titre de la campagne"
+
+#~ msgid "Entrar en campaña"
+#~ msgstr "Entrer dans la campagne"
