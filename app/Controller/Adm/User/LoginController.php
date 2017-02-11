@@ -35,12 +35,12 @@ class LoginController extends Controller
     public function onFormSuccess($data)
     {
         $user = UserFactory::get()->getByField('email', $data['email']);
-        UserHandler::get()->setSession($user, $this->session);
+        $user->setSession($this->session);
 
         $response = new RedirectResponse($this->router->getUrlRequest('home_adm'));
 
         if (!empty($data['remember'])) {
-            $response->headers->setCookie(UserHandler::get()->setCookie($user, 'remember'));
+            $response->headers->setCookie($user->setCookie('remember'));
         }
 
         return $response;

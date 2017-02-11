@@ -5,8 +5,8 @@ namespace App\Controller\Adm\User;
 use App\Controller\Adm\Controller;
 use App\Facades\Factory\CountryFactory;
 use App\Facades\Factory\RolFactory;
-use App\Facades\Handler\UserHandler;
 use App\Form\User\UserForm;
+use App\Handler\UserHandler;
 use App\ViewsBuilder\Adm\Messages\UserMessage;
 use App\ViewsBuilder\Adm\Pages\UserPage;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -15,12 +15,12 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class EditController extends Controller
 {
 
-    public function get($user)
+    public function get(UserHandler $user)
     {
         return $this->renderView($user->toArray());
     }
 
-    public function post($user)
+    public function post(UserHandler $user)
     {
         $form = new UserForm('edit');
 
@@ -39,9 +39,9 @@ class EditController extends Controller
         return $this->renderView($data, $errors);
     }
 
-    public function onFormSuccess($user, $data)
+    public function onFormSuccess(UserHandler $user, $data)
     {
-        UserHandler::get()->edit($user, $data);
+        $user->edit($data);
 
         $this->flash->set('messages', [
             'class' => UserMessage::class,

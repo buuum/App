@@ -1,0 +1,30 @@
+.list
+
+  %h1 {{e. Escort}}
+  %a{:href=>"{{*escorts_add}}"}
+    {{e. Añadir Escort }}
+
+  .card
+    .p40
+
+      {{$messages or}}
+
+      %table#items_list.table.table-striped.table-bordered.dataTable.no-footer{:cellspacing=>"0"}
+        %thead
+          %tr
+            %th {{e. Id}}
+            %th {{e. Item}}
+            %th {{e. Acciones}}
+        %tbody
+          {{foreach $escorts as $escort}}
+          %tr{:id=>"item{{$escort->id}}"}
+            %td {{$escort->id}}
+            %td {{$escort->rol}}
+            %td
+              .btn-group
+                %a.btn.btn-primary.btn-raised.btn-xs{:href=>"{{*escorts_edit:id|$escort->id}}"}
+                  %i.fa.fa-pencil
+                %a.btn.btn-warning.btn-raised.btn-xs.showdelete{:href=>"{{*escorts_delete:id|$escort->id}}"}
+                  %i.fa.fa-trash
+          {{endforeach}}
+

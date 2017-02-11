@@ -2,18 +2,16 @@
 
 return [
 
-    'environment'  => 'local',
-    'cache'        => 'array',
     'session.name' => 's_id',
 
     'encode' => [
-        'key'       => 'keypass',
+        'key'       => '!))!99!',
         'algorithm' => 'GOST'
     ],
 
     'mail' => [
         'smtpsecure'      => 'tls',
-        'host'            => "",
+        'host'            => "email-smtp.us-east-1.amazonaws.com",
         'username'        => "",
         'port'            => 25,
         'password'        => "",
@@ -35,9 +33,7 @@ return [
             'host'        => 'buuum.dev',
             'public'      => 'httpdocs',
             'development' => true,
-            'site_name'   => 'Demo',
             'lang'        => 'es_ES',
-            'country'     => 'ES',
             'scope'       => 'Web',
             'scopes'      => [
                 'Adm' => '/adm/',
@@ -48,7 +44,7 @@ return [
                 'timezone' => "Europe/Madrid"
             ],
             'bbdd'        => [
-                'database' => 'buuum',
+                'database' => 'db',
                 'host'     => 'localhost',
                 'username' => 'root',
                 'password' => ''
@@ -69,6 +65,7 @@ return [
                 'UA'           => '',
                 'tagmanagerid' => ''
             ]
+
         ]
 
     ]

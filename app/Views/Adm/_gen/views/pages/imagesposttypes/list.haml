@@ -1,0 +1,30 @@
+.list
+
+  %h1 {{e. ImagePostType}}
+  %a{:href=>"{{*imagesposttypes_add}}"}
+    {{e. Añadir ImagePostType }}
+
+  .card
+    .p40
+
+      {{$messages or}}
+
+      %table#items_list.table.table-striped.table-bordered.dataTable.no-footer{:cellspacing=>"0"}
+        %thead
+          %tr
+            %th {{e. Id}}
+            %th {{e. Item}}
+            %th {{e. Acciones}}
+        %tbody
+          {{foreach $imagesposttypes as $imageposttype}}
+          %tr{:id=>"item{{$imageposttype->id}}"}
+            %td {{$imageposttype->id}}
+            %td {{$imageposttype->type}}
+            %td
+              .btn-group
+                %a.btn.btn-primary.btn-raised.btn-xs{:href=>"{{*imagesposttypes_edit:id|$imageposttype->id}}"}
+                  %i.fa.fa-pencil
+                %a.btn.btn-warning.btn-raised.btn-xs.showdelete{:href=>"{{*imagesposttypes_delete:id|$imageposttype->id}}"}
+                  %i.fa.fa-trash
+          {{endforeach}}
+

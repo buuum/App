@@ -1,1 +1,0 @@
-<div class="alert alert-info"><span><?=$this->getText("Rol editado correctamente")?></span></div>

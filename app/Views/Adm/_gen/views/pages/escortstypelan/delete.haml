@@ -1,0 +1,8 @@
+%h1 {{e. Delete EscortTypeLang}}
+
+%h3 {{$escorttypelang->field}}
+
+%a.btn.btn-primary.cancelitem{:href=>"#"}
+  {{e. Cancelar}}
+%a.btn.btn-warning.btn-raised.deleteitem{:href=>"{{*escortstypelan_delete:id|$escorttypelang->id}}"}
+  {{e. Borrar}}

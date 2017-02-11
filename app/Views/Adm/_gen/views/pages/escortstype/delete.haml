@@ -1,0 +1,8 @@
+%h1 {{e. Delete EscortType}}
+
+%h3 {{$escorttype->name}}
+
+%a.btn.btn-primary.cancelitem{:href=>"#"}
+  {{e. Cancelar}}
+%a.btn.btn-warning.btn-raised.deleteitem{:href=>"{{*escortstype_delete:id|$escorttype->id}}"}
+  {{e. Borrar}}

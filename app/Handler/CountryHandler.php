@@ -2,19 +2,30 @@
 
 namespace App\Handler;
 
-use App\Handler\BaseHandler;
 use App\Model\CountryModel;
 
-class CountryHandler extends BaseHandler
+class CountryHandler extends AbstractHandler
 {
-    public function __construct()
+
+    public function __construct(CountryModel $rol)
     {
-        parent::__construct(new CountryModel());
+        $this->model = $rol;
     }
 
-    public function edit(CountryModel $country, $data)
+    public function create($data)
     {
-        $country->update($data);
+        $this->model->name = $data['name'];
+        $this->model->iso_alpha2 = $data['iso_alpha2'];
+        $this->model->iso_alpha3 = $data['iso_alpha3'];
+        $this->model->save();
+    }
+
+    public function edit($data)
+    {
+        $this->model->name = $data['name'];
+        $this->model->iso_alpha2 = $data['iso_alpha2'];
+        $this->model->iso_alpha3 = $data['iso_alpha3'];
+        $this->model->update();
     }
 
 }

@@ -1,0 +1,14 @@
+<?php
+
+namespace App\HandlerCollection{{folder}};
+
+use App\HandlerCollection\HandlerCollectionAbstract;
+use App\Handler{{folder}}\{{model}}Handler;
+
+class {{model}}HandlerCollection extends HandlerCollectionAbstract
+{
+    protected $handlerclass = {{model}}Handler::class;
+
+
+
+}

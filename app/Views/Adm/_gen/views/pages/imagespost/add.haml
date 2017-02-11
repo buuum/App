@@ -1,0 +1,18 @@
+.p40
+
+  {{$errors}}
+
+  .card
+    .p40
+
+      %form{:action=>"{{*imagespost_add}}", :method=>"post"}
+
+        .row
+          .col-md-12
+            .form-group.label-floating
+              %label.control-label {{e. Nombre}}
+              %input.form-control{:type => "text", :name=>"field", :value=>"{{$field or}}"}
+
+        .bloque
+          %button.btn.btn-default.btn-raised{:type=>"submit"}
+            {{e. Crear}}

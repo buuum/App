@@ -1,0 +1,8 @@
+%h1 {{e. Delete MediaType}}
+
+%h3 {{$mediatype->type}}
+
+%a.btn.btn-primary.cancelitem{:href=>"#"}
+  {{e. Cancelar}}
+%a.btn.btn-warning.btn-raised.deleteitem{:href=>"{{*mediastype_delete:id|$mediatype->id}}"}
+  {{e. Borrar}}

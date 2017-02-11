@@ -1,0 +1,12 @@
+.card.item_list
+  .p40
+    .row
+      .col-md-6
+        .form-group.label-floating
+          %label.control-label {{e. Tag}}
+          %input.form-control{:type=>"text",:name=>"tags[{{$k or '0'}}][name]",:value=>"{{$tag->name or ''}}"}
+        %input{:type=>"hidden",:name=>"tags[{{$k or '0'}}][id]",:value=>"{{$tag->id or ''}}"}
+      .col-md-6
+        %a.btn.btn-default.btn-raised.delete_item{:href=>'#'}
+          %i.fa.fa-trash
+

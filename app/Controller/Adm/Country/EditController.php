@@ -3,7 +3,6 @@
 namespace App\Controller\Adm\Country;
 
 use App\Controller\Adm\Controller;
-use App\Facades\Handler\CountryHandler;
 use App\Form\Country\CountryForm;
 use App\ViewsBuilder\Adm\Messages\CountryMessage;
 use App\ViewsBuilder\Adm\Pages\CountryPage;
@@ -36,7 +35,7 @@ class EditController extends Controller
 
     public function onFormSuccess($country, $data)
     {
-        CountryHandler::get()->edit($country, $data);
+       $country->edit($data);
 
         $this->flash->set('messages', [
             'class' => CountryMessage::class,

@@ -1,0 +1,16 @@
+.item_list
+  .row.bloque
+    .col-lg-12
+      %h3 {{e. Lang}}
+    .col-md-6
+      %input{:type=>"text",:name=>"langs[{{$k or '0'}}][name]",:value=>"{{$lang->name or ''}}"}
+    .col-md-6
+      %input{:type=>"text",:name=>"langs[{{$k or '0'}}][lang]",:value=>"{{$lang->lang or ''}}"}
+
+    %input{:type=>"hidden",:name=>"langs[{{$k or '0'}}][id]",:value=>"{{$lang->id or ''}}"}
+
+    .col-md-12
+      %a.btn.btn-danger.btn-raised.delete_item{:href=>'#'}
+        {{e. Remove}}
+
+

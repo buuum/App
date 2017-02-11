@@ -2,20 +2,27 @@
 
 namespace App\Handler{{folder}};
 
-use App\Handler\BaseHandler;
+use App\Handler\AbstractHandler;
 use App\Model{{folder}}\{{model}}Model;
 
-class {{model}}Handler extends BaseHandler
+class {{model}}Handler extends AbstractHandler
 {
-    public function __construct()
+
+    public function __construct({{model}}Model ${{model_lower}})
     {
-        parent::__construct(new {{model}}Model());
+        $this->model = ${{model_lower}};
     }
 
-    public function edit({{model}}Model ${{model_lower}}, $data)
+    public function create($data)
     {
-        ${{model_lower}}->field = $data['field'];
-        ${{model_lower}}->update();
+        $this->model->build($data);
+        $this->model->save();
+    }
+
+    public function edit($data)
+    {
+        $this->model->field = $data['field'];
+        $this->model->update();
     }
 
 }

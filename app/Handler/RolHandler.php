@@ -4,16 +4,23 @@ namespace App\Handler;
 
 use App\Model\RolModel;
 
-class RolHandler extends BaseHandler
+class RolHandler extends AbstractHandler
 {
-    public function __construct()
+    public function __construct(RolModel $rol)
     {
-        parent::__construct(new RolModel());
+        $this->model = $rol;
     }
 
-    public function edit(RolModel $rol, $data)
+    public function create($data)
     {
-        $rol->rol = $data['rol'];
-        $rol->update();
+        $this->model->rol = $data['rol'];
+        $this->model->save();
     }
+
+    public function edit($data)
+    {
+        $this->model->rol = $data['rol'];
+        $this->model->update();
+    }
+
 }

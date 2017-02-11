@@ -22,7 +22,7 @@ class DeleteController extends Controller
 
     public function delete($user)
     {
-        UserHandler::get()->remove($user);
+        $user->delete();
         return [
             'error' => false,
             'id'    => $user->id

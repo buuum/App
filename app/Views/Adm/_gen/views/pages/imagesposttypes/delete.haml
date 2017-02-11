@@ -1,0 +1,8 @@
+%h1 {{e. Delete ImagePostType}}
+
+%h3 {{$imageposttype->type}}
+
+%a.btn.btn-primary.cancelitem{:href=>"#"}
+  {{e. Cancelar}}
+%a.btn.btn-warning.btn-raised.deleteitem{:href=>"{{*imagesposttypes_delete:id|$imageposttype->id}}"}
+  {{e. Borrar}}

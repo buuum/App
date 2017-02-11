@@ -2,31 +2,32 @@
 
 namespace App\Factory;
 
+use App\Handler\RolHandler;
+use App\HandlerCollection\RolHandlerCollection;
 use App\Model\RolModel;
+use App\Validation\Rol;
 
 class RolFactory extends AbstractFactory
 {
-    public function __construct()
-    {
-        parent::__construct(new RolModel());
-    }
+
+    protected $modelclass = RolModel::class;
+    protected $handlerclass = RolHandler::class;
+    protected $handlercollectionclass = RolHandlerCollection::class;
 
     public function getList()
     {
-        return RolModel::all();
+        return $this->getHandlerCollection($this->model->all());
     }
 
     public function getEdit($id)
     {
-        return $this->model->find($id);
+        return $this->getHandler($this->model->find($id));
     }
 
     public function build($data)
     {
-        $rol = new RolModel();
-        $rol->rol = $data['rol'];
-
-        $rol->save();
+        $handler = $this->getHandler(new RolModel());
+        $handler->create($data);
     }
 
 }

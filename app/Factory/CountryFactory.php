@@ -2,30 +2,31 @@
 
 namespace App\Factory;
 
-use App\Factory\AbstractFactory;
+use App\Handler\CountryHandler;
+use App\HandlerCollection\CountryHandlerCollection;
 use App\Model\CountryModel;
 
 class CountryFactory extends AbstractFactory
 {
-    public function __construct()
-    {
-        parent::__construct(new CountryModel());
-    }
+
+    protected $modelclass = CountryModel::class;
+    protected $handlerclass = CountryHandler::class;
+    protected $handlercollectionclass = CountryHandlerCollection::class;
 
     public function getList()
     {
-        return CountryModel::all();
+        return $this->getHandlerCollection(CountryModel::all());
     }
 
     public function getEdit($id)
     {
-        return $this->model->find($id);
+        return $this->getHandler($this->model->find($id));
     }
 
     public function build($data)
     {
-        $item = new CountryModel($data);
-        $item->save();
+        $handler = $this->getHandler(new CountryModel());
+        $handler->create($data);
     }
 
 }

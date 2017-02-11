@@ -12,15 +12,15 @@ class UserValidation implements ValidationInterface
     public function getValidations()
     {
         return [
-            'name'           => 'required',
-            'email'          => 'required|valid_email',
-            'dia'            => 'required|integer',
-            'mes'            => 'required|integer',
-            'ano'            => 'required|integer|groupdate:ano:mes:dia',
-            'password'       => 'required',
-            'password2'      => 'required|equals:password',
-            'roles_relation' => 'required',
-            'estado'         => 'required'
+            'name'     => 'required',
+            'email'    => 'required|valid_email',
+            'birthday' => 'required|date:Y-n-j',
+            'password' => 'required',
+            'pass'     => 'required',
+            'pass2'    => 'required|equals:pass',
+            'roles'    => 'required',
+            'estado'   => 'required',
+            'pais'     => 'required'
         ];
     }
 
@@ -29,7 +29,8 @@ class UserValidation implements ValidationInterface
         return [
             'required'    => _e('El campo :attribute es obligatorio.'),
             'valid_email' => _e('El campo :attribute tiene que ser un email válido.'),
-            'equals'      => _e('Las contraseñas no coinciden')
+            'equals'      => _e('Las contraseñas no coinciden'),
+            'date'        => _e('El campo fecha es incorrecto')
         ];
     }
 
@@ -39,11 +40,10 @@ class UserValidation implements ValidationInterface
         return [
             'name'           => _e('Nombre'),
             'password'       => _e('Contraseña'),
-            'password2'      => _e('Contraseña'),
+            'pass'           => _e('Contraseña'),
+            'pass2'          => _e('Contraseña'),
             'email'          => _e('Email'),
-            'dia'            => _e('Dia'),
-            'mes'            => _e('Mes'),
-            'ano'            => _e('Año'),
+            'birthday'       => _e('Fecha nacimiento'),
             'roles_relation' => _e('Roles')
         ];
     }
@@ -100,9 +100,7 @@ class UserValidation implements ValidationInterface
 
     public function checkedad($data)
     {
-        $date = $data['ano'] . '-' . $data['mes'] . '-' . $data['dia'];
-
-        $d = \DateTime::createFromFormat('Y-m-d', $date);
+        $d = \DateTime::createFromFormat('Y-m-d', $data['birthday']);
         $today = new \DateTime();
         $years = $today->diff($d);
         if ($years->format('%y') < 18) {

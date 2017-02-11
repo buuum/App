@@ -41,7 +41,7 @@ class CountryForm extends AbstractForms
     public function addrelation()
     {
         return [
-            'fields'            => ['pais_id'],
+            'fields'            => ['id'],
             'relations'         => [],
             'extra_filters'     => [],
             'extra_validations' => []

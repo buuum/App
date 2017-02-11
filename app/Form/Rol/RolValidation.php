@@ -10,6 +10,7 @@ class RolValidation implements ValidationInterface
     public function getValidations()
     {
         return [
+            'id'             => 'required',
             'rol'            => 'required',
             'roles_relation' => 'required'
         ];

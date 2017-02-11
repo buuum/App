@@ -41,7 +41,7 @@ class RolForm extends AbstractForms
     public function addrelation()
     {
         return [
-            'fields'            => ['roles_relation'],
+            'fields'            => ['id'],
             'relations'         => [],
             'extra_filters'     => [],
             'extra_validations' => []

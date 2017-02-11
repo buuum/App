@@ -2,11 +2,10 @@
   {{$errors}}
   {{$messages or}}
 
-  .card
-    .p40
+  %form.form-floating{:action=>"{{*users_edit:id|$id}}", :method=>"post"}
 
-      %form.form-floating{:action=>"{{*users_edit:id|$id}}", :method=>"post"}
-
+    .card
+      .p40
         .row
           .col-md-6
             .form-group.label-floating
@@ -55,9 +54,9 @@
           .col-md-4
             .form-group
               %label {{e. Pais}}
-              %select.form-control{:name=>"pais_id"}
+              %select.form-control{:name=>"pais[id]"}
                 {{foreach $paises as $pais_i}}
-                {{$selected = !empty($pais_id) && ($pais_i->id == $pais_id)}}
+                {{$selected = isset($pais->id) && ($pais_i->id == $pais->id)}}
                 %option(selected:selected){:value=>"{{$pais_i->id}}"} {{$pais_i->name}}
                 {{endforeach}}
           .col-md-8
@@ -83,17 +82,6 @@
                   %option(selected:selected){:value=>"{{$name}}"} {{$name}}
                   {{endforeach}}
 
-
-        .row
-          .col-lg-12
-            .form-group
-              %label {{e. Roles}}
-              %select.chosen.form-control{:name=>"roles_relation[]", :multiple=>"multiple"}
-                {{foreach $list_roles as $rol}}
-                {{$selected = (!empty($roles_relation) && in_array($rol->id, $roles_relation))}}
-                %option(selected:selected){:value=>"{{$rol->id}}"} {{$rol->rol}}
-                {{endforeach}}
-
         .row
           .col-md-12
             %label {{e. Estado}}
@@ -116,6 +104,23 @@
                 %input(checked:selected){:type=>"radio", :name=>"estado", :value=>"2"}
                 {{e. Pendiente}}
 
+
+    %h3 {{e. Roles}}
+    .card
+      .p40
+        .row
+          .col-lg-12
+            .form-group
+              .checkbox
+                {{foreach $list_roles as $rol}}
+                %label
+                  {{$checked = isset($roles) && in_array($rol->id, $roles)}}
+                  %input(checked:checked){:type=>"checkbox", :name=>"roles[][id]", :value=>"{{$rol->id}}"}
+                  {{$rol->rol}}
+                {{endforeach}}
+
+    .card.mt20
+      .p40
         .bloque
           %button.btn.btn-primary.btn-raised{:type=>"submit"}
             {{e. Editar}}

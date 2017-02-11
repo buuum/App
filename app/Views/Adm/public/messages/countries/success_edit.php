@@ -1,1 +1,0 @@
-<div class="alert alert-info"><span><?=$this->getText("Country editado correctamente")?></span></div>

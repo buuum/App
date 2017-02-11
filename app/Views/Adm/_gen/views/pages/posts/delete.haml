@@ -1,0 +1,8 @@
+%h1 {{e. Delete Post}}
+
+%h3 {{$post->title}}
+
+%a.btn.btn-primary.cancelitem{:href=>"#"}
+  {{e. Cancelar}}
+%a.btn.btn-warning.btn-raised.deleteitem{:href=>"{{*posts_delete:id|$post->id}}"}
+  {{e. Borrar}}

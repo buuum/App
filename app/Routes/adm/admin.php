@@ -19,11 +19,17 @@ $route->group(['prefix' => 'adm'], function (Router $route) {
 
     $route->group(['before' => 'enterWithLogin'], function (Router $route) {
         $route->get('/', [Home::class, 'get'])->setName('home_adm');
+        $route->get('/en/', [Home::class, 'get'])->setName('home_adm');
         $route->get('/logout/', [LogoutController::class, 'get'])->setName('logout');
 
         include_once __DIR__ . '/Rol_route.php';
         include_once __DIR__ . '/Country_route.php';
         include_once __DIR__ . '/User_route.php';
+        include_once __DIR__ . '/Blog/Category_route.php';
+        include_once __DIR__ . '/Blog/Post_route.php';
+        include_once __DIR__ . '/Blog/ImagePost_route.php';
+        include_once __DIR__ . '/Blog/ImagePostType_route.php';
+        include_once __DIR__ . '/Media/MediaType_route.php';
 
     });
 

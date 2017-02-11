@@ -1,0 +1,8 @@
+%h1 {{e. Delete Tag}}
+
+%h3 {{$tag->field}}
+
+%a.btn.btn-primary.cancelitem{:href=>"#"}
+  {{e. Cancelar}}
+%a.btn.btn-warning.btn-raised.deleteitem{:href=>"{{*tags_delete:id|$tag->id}}"}
+  {{e. Borrar}}

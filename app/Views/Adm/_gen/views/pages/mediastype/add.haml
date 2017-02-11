@@ -1,0 +1,25 @@
+.p40
+
+  {{$errors}}
+
+  .card
+    .p40
+
+      %form{:action=>"{{*mediastype_add}}", :method=>"post"}
+
+        .row
+          .col-md-12
+            .form-group.label-floating
+              %label.control-label {{e. Type}}
+              %input.form-control{:type => "text", :name=>"type", :value=>"{{$type or}}"}
+
+        .row
+          .col-md-12
+            .form-group.label-floating
+              %label.control-label {{e. Descripción}}
+              %textarea.summernote.form-control{:name=>"description"}
+                {{$description or}}
+
+        .bloque
+          %button.btn.btn-default.btn-raised{:type=>"submit"}
+            {{e. Crear}}

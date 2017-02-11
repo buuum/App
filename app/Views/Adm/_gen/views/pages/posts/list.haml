@@ -1,0 +1,30 @@
+.list
+
+  %h1 {{e. Post}}
+  %a{:href=>"{{*posts_add}}"}
+    {{e. Añadir Post }}
+
+  .card
+    .p40
+
+      {{$messages or}}
+
+      %table#items_list.table.table-striped.table-bordered.dataTable.no-footer{:cellspacing=>"0"}
+        %thead
+          %tr
+            %th {{e. Id}}
+            %th {{e. Item}}
+            %th {{e. Acciones}}
+        %tbody
+          {{foreach $posts as $post}}
+          %tr{:id=>"item{{$post->id}}"}
+            %td {{$post->id}}
+            %td {{$post->title}}
+            %td
+              .btn-group
+                %a.btn.btn-primary.btn-raised.btn-xs{:href=>"{{*posts_edit:id|$post->id}}"}
+                  %i.fa.fa-pencil
+                %a.btn.btn-warning.btn-raised.btn-xs.showdelete{:href=>"{{*posts_delete:id|$post->id}}"}
+                  %i.fa.fa-trash
+          {{endforeach}}
+

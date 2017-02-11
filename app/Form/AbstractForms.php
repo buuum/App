@@ -39,10 +39,10 @@ abstract class AbstractForms
                         $relation_name => $data[$relation_name]
                     ]);
                     $data[$relation_name] = $filt[$relation_name];
-                } elseif ($relations[$relation_name]['relation_type'] == 'onetomany') {
-                    if (empty($data[$relation_name])) {
-                        $data[$relation_name] = [];
-                    }
+                //} elseif ($relations[$relation_name]['relation_type'] == 'onetomany') {
+                //    if (empty($data[$relation_name])) {
+                //        $data[$relation_name] = [];
+                //    }
                 } else {
                     if (!empty($data[$relation_name])) {
                         foreach ($data[$relation_name] as $key => $relationdata) {
@@ -82,21 +82,24 @@ abstract class AbstractForms
                 $newr = new $relations[$relation_name]['form_class']($relations[$relation_name]['validation_type'][$this->type]);
                 $alias = (!empty($alias[$relation_name])) ? $alias[$relation_name] : $relation_name;
                 if ($relations[$relation_name]['relation_type'] == 'one') {
-                    //$value = isset($data[$relation_name]) ? $data[$relation_name] : '';
-                    $value = empty($data[$relation_name]) ? [] : [$relation_name => $data[$relation_name]];
-                    //if ($error_ = $newr->validate($value)) {
-                    //    $errors[$alias][0] = $error_;
-                    //}
+                    $value = $data[$relation_name];
                     if ($error_ = $newr->validate($value)) {
-                        $errors[$alias] = $error_[$relation_name];
+                        if (!isset($error_[$relation_name])) {
+                            $errors[$alias][0] = $error_;
+                        } else {
+                            $errors[$alias] = $error_[$relation_name];
+                        }
                     }
-                } elseif ($relations[$relation_name]['relation_type'] == 'onetomany') {
-                    $value = empty($data[$relation_name]) ? [] : [$relation_name => $data[$relation_name]];
-                    if ($error_ = $newr->validate($value)) {
-                        $errors[$alias] = $error_[$relation_name];
-                    }
+                //} elseif ($relations[$relation_name]['relation_type'] == 'onetomany') {
+                //    $value = $data[$relation_name];
+                //    foreach ($value as $k => $v) {
+                //        if ($error_ = $newr->validate($v)) {
+                //            $errors[$alias . ' ' . ($k + 1)][0] = $error_;
+                //        }
+                //    }
                 } else {
-                    $value = isset($data[$relation_name]) ? $data[$relation_name] : [];
+                    //$value = isset($data[$relation_name]) ? $data[$relation_name] : [];
+                    $value = $data[$relation_name];
                     foreach ($value as $k => $v) {
                         if ($error_ = $newr->validate($v)) {
                             $errors[$alias . ' ' . ($k + 1)][0] = $error_;
@@ -159,6 +162,5 @@ abstract class AbstractForms
             'only_alpha_numeric_dash' => _e('El campo :attribute solo puede contener letras, números y _')
         ];
     }
-
 
 }

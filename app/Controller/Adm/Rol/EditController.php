@@ -3,7 +3,6 @@
 namespace App\Controller\Adm\Rol;
 
 use App\Controller\Adm\Controller;
-use App\Facades\Handler\RolHandler;
 use App\Form\Rol\RolForm;
 use App\ViewsBuilder\Adm\Messages\RolMessage;
 use App\ViewsBuilder\Adm\Pages\RolPage;
@@ -36,7 +35,7 @@ class EditController extends Controller
 
     public function onFormSuccess($rol, $data)
     {
-        RolHandler::get()->edit($rol, $data);
+        $rol->edit($data);
 
         $this->flash->set('messages', [
             'class' => RolMessage::class,

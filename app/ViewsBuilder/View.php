@@ -62,12 +62,12 @@ class View
 
     protected function render($view, $data = null)
     {
-        return $this->getView()->render($view, $data, false);
+        return $this->getView()->render(static::translateView($view), $data, false);
     }
 
     public static function static_render($view, $data = null)
     {
-        return self::$view->render($view, $data, false);
+        return self::$view->render(static::translateView($view), $data, false);
     }
 
     protected function simpleHeader($title, $description)
@@ -152,4 +152,8 @@ class View
 
     }
 
+    protected static function translateView($view)
+    {
+        return $view;
+    }
 }

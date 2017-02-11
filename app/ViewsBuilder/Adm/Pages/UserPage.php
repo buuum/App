@@ -60,7 +60,7 @@ class UserPage extends Page
 
         $breadcrumb = [
             'users' => $this->getRoute()->getUrlRequest('users_list'),
-            'Add' => false
+            'Add'   => false
         ];
 
         $this->data->errors = $this->printErrors($this->data->errors);
@@ -70,7 +70,12 @@ class UserPage extends Page
             'dias'  => range(1, 31),
             'meses' => range(1, 12),
             'anos'  => array_reverse(range(date('Y') - 100, date('Y'))),
+            'dia'   => !empty($this->data->birthday) ? date('j', strtotime($this->data->birthday)) : 0,
+            'mes'   => !empty($this->data->birthday) ? date('n', strtotime($this->data->birthday)) : 0,
+            'ano'   => !empty($this->data->birthday) ? date('Y', strtotime($this->data->birthday)) : 0,
         ];
+
+        $this->data->roles = $this->parseOneToMany($this->data->roles);
 
         $this->data = (object)array_merge((array)$this->data, $data);
 
@@ -85,7 +90,7 @@ class UserPage extends Page
 
         $breadcrumb = [
             'users' => $this->getRoute()->getUrlRequest('users_list'),
-            'Edit' => false
+            'Edit'  => false
         ];
 
         $this->data->errors = $this->printErrors($this->data->errors);
@@ -95,7 +100,11 @@ class UserPage extends Page
             'dias'  => range(1, 31),
             'meses' => range(1, 12),
             'anos'  => array_reverse(range(date('Y') - 100, date('Y'))),
+            'dia'   => !empty($this->data->birthday) ? date('j', strtotime($this->data->birthday)) : 0,
+            'mes'   => !empty($this->data->birthday) ? date('n', strtotime($this->data->birthday)) : 0,
+            'ano'   => !empty($this->data->birthday) ? date('Y', strtotime($this->data->birthday)) : 0,
         ];
+        $this->data->roles = $this->parseOneToMany($this->data->roles);
         $this->data = (object)array_merge((array)$this->data, $data);
 
         $page = $this->render('pages/users/edit', $this->data);

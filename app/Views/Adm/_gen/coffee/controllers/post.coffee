@@ -26,6 +26,8 @@ class postsController
           @renumerar $data, schema, num
           return
 
+      App.actionsC.iniUpload()
+
 
   renumerar: (divs, schema, num = null) ->
     # Renumerar divs

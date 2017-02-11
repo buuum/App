@@ -1,1 +1,0 @@
-<h1><?=$this->getText("Delete User")?></h1><h3><?=$user->name?></h3><a class="btn btn-primary cancelitem" href="#"> <?=$this->getText("Cancelar")?> </a><a class="btn btn-warning btn-raised deleteitem" href="<?=$this->getUrl('users_delete', array ("id" => $user->id,))?>"> <?=$this->getText("Borrar")?> </a>

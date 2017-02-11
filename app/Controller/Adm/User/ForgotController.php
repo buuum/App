@@ -54,29 +54,30 @@ class ForgotController extends Controller
         return $page->forgot();
     }
 
-    public function getemail($email)
+    public function getemail($user)
     {
-        return $this->renderForgotView($email);
+        return $this->renderForgotView($user->toArray());
     }
 
-    public function postemail($email)
+    public function postemail($user)
     {
         $validation = new UserForm('reset_pass');
         $data = $validation->filter($this->request->request->all());
 
         if (!$errors = $validation->validate($data)) {
             // form success
-            return $this->onFormSuccessPassword($email, $data);
+            return $this->onFormSuccessPassword($user, $data);
         }
 
         // form error
-        return $this->renderForgotView($email, $data, $errors);
+        $data = array_merge($user->toArray(), $data);
+        return $this->renderForgotView($data, $errors);
     }
 
-    public function onFormSuccessPassword($email, $data)
+    public function onFormSuccessPassword($user, $data)
     {
 
-        UserHandler::get()->setPasswordFromEmail($email, $data['password']);
+        $user->setPassword($data['pass']);
 
         $this->flash->set('messages', [
             'class' => UserMessage::class,
@@ -86,10 +87,10 @@ class ForgotController extends Controller
         return new RedirectResponse($this->router->getUrlRequest('login_adm'));
     }
 
-    public function renderForgotView($email, $data = [], $errors = [])
+    public function renderForgotView($data = [], $errors = [])
     {
         $emailencode = Encode::encode([
-            'email' => $email
+            'email' => $data['email']
         ]);
 
         $data['errors'] = $errors;

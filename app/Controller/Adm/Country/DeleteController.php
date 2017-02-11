@@ -3,7 +3,6 @@
 namespace App\Controller\Adm\Country;
 
 use App\Controller\Adm\Controller;
-use App\Facades\Handler\CountryHandler;
 use App\ViewsBuilder\Adm\Pages\CountryPage;
 
 class DeleteController extends Controller
@@ -22,7 +21,7 @@ class DeleteController extends Controller
 
     public function delete($country)
     {
-        CountryHandler::get()->remove($country);
+        $country->delete();
         return [
             'error' => false,
             'id'    => $country->id

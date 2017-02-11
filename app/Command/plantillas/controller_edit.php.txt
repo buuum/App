@@ -3,7 +3,6 @@
 namespace App\Controller\{{scope}}{{folder}}\{{model}};
 
 use App\Controller\{{scope}}\Controller;
-use App\Facades\Handler\{{model}}Handler;
 use App\Form{{folder}}\{{model}}\{{model}}Form;
 use App\ViewsBuilder\{{scope}}\Messages\{{model}}Message;
 use App\ViewsBuilder\{{scope}}\Pages\{{model}}Page;
@@ -38,7 +37,7 @@ class EditController extends Controller
 
     public function onFormSuccess(${{model_lower}}, $data)
     {
-        {{model}}Handler::get()->edit(${{model_lower}}, $data);
+        ${{model_lower}}->edit($data);
 
         $this->flash->set('messages', [
             'class' => {{model}}Message::class,

@@ -59,4 +59,15 @@ class Page extends View
         return $showmessages;
     }
 
+    protected function parseOneToMany($data)
+    {
+        $list = [];
+        if (!empty($data)) {
+            foreach ($data as $datum){
+                $list[] = $datum->id;
+            }
+        }
+        return $list;
+    }
+
 }

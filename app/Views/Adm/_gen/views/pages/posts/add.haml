@@ -1,0 +1,66 @@
+.p40
+
+  {{$errors}}
+
+  .card
+    .p40
+
+      %form{:action=>"{{*posts_add}}", :method=>"post"}
+
+        .row
+          .col-md-12
+            .form-group.label-floating
+              %label.control-label {{e. Título}}
+              %input.form-control{:type => "text", :name=>"title", :value=>"{{$title or}}"}
+        .row
+          .col-md-12
+            .form-group.label-floating
+              %label.control-label {{e. Texto}}
+              %textarea.summernote.form-control{:name=>"text"}
+                {{$text or}}
+
+        .row
+          .col-md-12
+            .form-group
+              %label.control-label {{e. Fecha de publicación}}
+              %input.form-control.datetimepicker{:type => "text", :name=>"publish_date", :value=>"{{$publish_date or}}"}
+
+
+        .row
+          .col-lg-12
+            .form-group
+              .checkbox
+                {{foreach $list_categories as $category}}
+                %label
+                  {{$checked = isset($categories) && in_array($category->id, $categories)}}
+                  %input(checked:checked){:type=>"checkbox", :name=>"categories[][id]", :value=>"{{$category->id}}"}
+                  {{$category->name}}
+                {{endforeach}}
+
+        .row.no-gutter.list_items
+          .content-items.col-md-12
+            {{if !empty($tags)}}
+            {{foreach $tags as $k=>$tag}}
+            {{@/pages/posts/add_tag}}
+            {{endforeach}}
+            {{endif}}
+
+          .col-md-12
+            %a.btn.btn-default.btn-raised.additem{:data=>{'schema' => '(tags\[)([0-9]+)(\])'}, :href=>"{{*posts_add_tag}}"}
+              {{e. Add Tag}}
+
+        .row.no-gutter.list_items
+          .content-items.col-md-12
+            {{if !empty($images)}}
+            {{foreach $images as $k=>$image}}
+            {{@/pages/posts/add_image}}
+            {{endforeach}}
+            {{endif}}
+
+          .col-md-12
+            %a.btn.btn-default.btn-raised.additem{:data=>{'schema' => '(images\[)([0-9]+)(\])'}, :href=>"{{*posts_add_image}}"}
+              {{e. Add Imagen}}
+
+        .bloque
+          %button.btn.btn-default.btn-raised{:type=>"submit"}
+            {{e. Crear}}

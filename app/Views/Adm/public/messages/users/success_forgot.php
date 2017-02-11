@@ -1,1 +1,0 @@
-<div class="alert alert-info"><span><?=$this->getText("Te hemos enviado un email con los pasos para recuperar tu contraseña.")?></span></div>

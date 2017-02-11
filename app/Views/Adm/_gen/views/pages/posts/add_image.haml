@@ -1,0 +1,35 @@
+.card.item_list
+  .p40
+    .row.bloque
+      .col-lg-12
+        %h3 {{e. Imagen}}
+      .col-md-6
+        %img.img-responsive{:src=>"{{$image->media->url or ''}}"}
+        -#%input{:type=>"text",:name=>"images[{{$k or '0'}}][media][url]",:value=>"{{$image->url or ''}}"}
+        %input.url-img{:type=>"hidden",:name=>"images[{{$k or '0'}}][media][url]",:value=>"{{$image->media->url or ''}}"}
+        %input.liteupload{:data=>{'url' => '{{*posts_upload_image}}'},:type=>"file",:name=>"uploadfile"}
+        %a.btn.btn-raised.btn-default{:href=>"#"}
+          {{e. Upload}}
+      .col-md-6
+        .form-group
+          %select.form-control{:name=>"images[{{$k or '0'}}][type][id]"}
+            {{foreach $types as $type}}
+            {{$k = isset($k)? $k : 0}}
+            {{$selected = (isset($image->type->id)) && $type->id==$image->type->id}}
+            %option(selected:selected){:value=>"{{$type->id}}"} {{$type->type}}
+            {{endforeach}}
+
+      {{if !empty($image->media->variants)}}
+      {{foreach $image->media->variants as $t=>$variant}}
+      %img.img-responsive{:src=>"{{$variant->url}}"}
+      %input.url-img{:type=>"hidden",:name=>"images[{{$k or '0'}}][media][variants][{{$t}}][id]",:value=>"{{$variant->id or ''}}"}
+      %input.url-img{:type=>"hidden",:name=>"images[{{$k or '0'}}][media][variants][{{$t}}][url]",:value=>"{{$variant->url or ''}}"}
+      {{endforeach}}
+      {{endif}}
+
+      %input{:type=>"hidden",:name=>"images[{{$k or '0'}}][id]",:value=>"{{$image->id or ''}}"}
+      .col-md-12
+        %a.btn.btn-danger.btn-raised.delete_item{:href=>'#'}
+          {{e. Remove}}
+
+

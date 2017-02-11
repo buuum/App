@@ -1,0 +1,840 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-02-10 22:44+0100\n"
+"PO-Revision-Date: 2017-02-10 22:44+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;$this->getText;getText\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: Form\n"
+"X-Poedit-SearchPath-1: ViewsBuilder/Adm\n"
+"X-Poedit-SearchPath-2: Views/Adm/public\n"
+
+#: Form/AbstractForms.php:155 Form/Blog/Category/CategoryValidation.php:22
+#: Form/Blog/ImagePost/ImagePostValidation.php:19
+#: Form/Blog/ImagePostType/ImagePostTypeValidation.php:20
+#: Form/Blog/Post/PostValidation.php:26 Form/Blog/Tag/TagValidation.php:19
+#: Form/Country/CountryValidation.php:24
+#: Form/Escort/Escort/EscortValidation.php:19
+#: Form/Escort/EscortType/EscortTypeValidation.php:19
+#: Form/Escort/EscortTypeLang/EscortTypeLangValidation.php:20
+#: Form/Media/Media/MediaValidation.php:19
+#: Form/Media/MediaType/MediaTypeValidation.php:19
+#: Form/Media/MediaVariant/MediaVariantValidation.php:19
+#: Form/Rol/RolValidation.php:22 Form/User/UserValidation.php:30
+msgid "El campo :attribute es obligatorio."
+msgstr ""
+
+#: Form/AbstractForms.php:156 Form/User/UserValidation.php:31
+msgid "El campo :attribute tiene que ser un email válido."
+msgstr ""
+
+#: Form/AbstractForms.php:157
+msgid "Las contraseñas no coinciden."
+msgstr ""
+
+#: Form/AbstractForms.php:158
+msgid "El campo :attribute tiene que ser valido"
+msgstr ""
+
+#: Form/AbstractForms.php:159
+msgid "La fecha seleccionada es incorrecta."
+msgstr ""
+
+#: Form/AbstractForms.php:160
+msgid "Tienes que aceptar las Condiciones generales y la Política de privacidad"
+msgstr ""
+
+#: Form/AbstractForms.php:161
+msgid "El campo :attribute solo puede contener letras, números y _"
+msgstr ""
+
+#: Form/Blog/Category/CategoryValidation.php:30 Form/User/UserValidation.php:41
+#: Views/Adm/public/pages/categories/add.php:1
+#: Views/Adm/public/pages/categories/edit.php:1
+#: Views/Adm/public/pages/escorts/add.php:1
+#: Views/Adm/public/pages/escorts/edit.php:1
+#: Views/Adm/public/pages/escortstypelan/add.php:1
+#: Views/Adm/public/pages/escortstypelan/edit.php:1
+#: Views/Adm/public/pages/imagespost/add.php:1
+#: Views/Adm/public/pages/imagespost/edit.php:1
+#: Views/Adm/public/pages/medias/add.php:1
+#: Views/Adm/public/pages/medias/edit.php:1
+#: Views/Adm/public/pages/mediasvariant/add.php:1
+#: Views/Adm/public/pages/mediasvariant/edit.php:1
+#: Views/Adm/public/pages/roles/add.php:1
+#: Views/Adm/public/pages/roles/edit.php:1
+#: Views/Adm/public/pages/tags/add.php:1 Views/Adm/public/pages/tags/edit.php:1
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+#: Views/Adm/public/pages/users/list.php:1
+msgid "Nombre"
+msgstr ""
+
+#: Form/Blog/Category/CategoryValidation.php:39
+msgid "Ya existe una categoria con este nombre."
+msgstr ""
+
+#: Form/Blog/Category/CategoryValidation.php:51
+msgid "Ya existe una categoria con esta url."
+msgstr ""
+
+#: Form/Blog/ImagePost/ImagePostValidation.php:27
+#: Views/Adm/public/pages/categories/edit.php:1
+#: Views/Adm/public/pages/posts/edit.php:1
+msgid "Url"
+msgstr ""
+
+#: Form/Blog/ImagePostType/ImagePostTypeValidation.php:28
+#: Form/Country/CountryValidation.php:32
+#: Form/Escort/Escort/EscortValidation.php:27
+#: Form/Escort/EscortType/EscortTypeValidation.php:27
+#: Form/Escort/EscortTypeLang/EscortTypeLangValidation.php:28
+#: Form/Media/Media/MediaValidation.php:27
+#: Form/Media/MediaType/MediaTypeValidation.php:27
+#: Form/Media/MediaVariant/MediaVariantValidation.php:27
+msgid "Field"
+msgstr ""
+
+#: Form/Blog/Post/PostValidation.php:34 Views/Adm/public/includes/sidebar.php:1
+#: Views/Adm/public/pages/posts/edit.php:1
+msgid "Categorías"
+msgstr ""
+
+#: Form/Blog/Post/PostValidation.php:44
+msgid "Ya existe un post con esta url."
+msgstr ""
+
+#: Form/Blog/Tag/TagValidation.php:27
+msgid "Nombre del tag"
+msgstr ""
+
+#: Form/Country/CountryValidation.php:40
+msgid "Ya existe un pais con este nombre."
+msgstr ""
+
+#: Form/Rol/RolValidation.php:30 Views/Adm/public/pages/roles/list.php:1
+msgid "Rol"
+msgstr ""
+
+#: Form/Rol/RolValidation.php:38
+msgid "Ya existe un rol con este nombre."
+msgstr ""
+
+#: Form/User/UserValidation.php:32
+msgid "Las contraseñas no coinciden"
+msgstr ""
+
+#: Form/User/UserValidation.php:33
+msgid "El campo fecha es incorrecto"
+msgstr ""
+
+#: Form/User/UserValidation.php:42 Form/User/UserValidation.php:43
+#: Form/User/UserValidation.php:44 Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+#: Views/Adm/public/pages/users/setpassword.php:1
+msgid "Contraseña"
+msgstr ""
+
+#: Form/User/UserValidation.php:45 Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+#: Views/Adm/public/pages/users/forgot.php:1
+#: Views/Adm/public/pages/users/login.php:1
+msgid "Email"
+msgstr ""
+
+#: Form/User/UserValidation.php:46
+msgid "Fecha nacimiento"
+msgstr ""
+
+#: Form/User/UserValidation.php:47 Views/Adm/public/includes/sidebar.php:1
+#: Views/Adm/public/pages/roles/list.php:1
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Roles"
+msgstr ""
+
+#: Form/User/UserValidation.php:58 Form/User/UserValidation.php:62
+#: Form/User/UserValidation.php:66
+msgid "Usuario o contraseña incorrectos."
+msgstr ""
+
+#: Form/User/UserValidation.php:70
+msgid "Tienes que validar el email."
+msgstr ""
+
+#: Form/User/UserValidation.php:82
+msgid "Ya existe un usuario con este email."
+msgstr ""
+
+#: Form/User/UserValidation.php:95
+msgid "No existe ningún usuario con este email."
+msgstr ""
+
+#: Form/User/UserValidation.php:107
+msgid "No se pueden registrar menores de 18 años."
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "ADMIN"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "settings"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "logout"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "Dashboard"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "Users"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+#: Views/Adm/public/pages/users/list.php:1
+msgid "Usuarios"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+#: Views/Adm/public/pages/countries/list.php:1
+msgid "Paises"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "Media Types"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "Blog"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "Posts"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "Image Types"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "Escorts"
+msgstr ""
+
+#: Views/Adm/public/includes/sidebar.php:1
+msgid "Tipos"
+msgstr ""
+
+#: Views/Adm/public/mails/user/forgot.php:1
+msgid "Recuperar contraseña"
+msgstr ""
+
+#: Views/Adm/public/messages/categories/success_add.php:1
+msgid "Category añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/categories/success_edit.php:1
+msgid "Category editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/countries/success_add.php:1
+msgid "Country añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/countries/success_edit.php:1
+msgid "Country editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/escorts/success_add.php:1
+msgid "Escort añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/escorts/success_edit.php:1
+msgid "Escort editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/escortstype/success_add.php:1
+msgid "EscortType añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/escortstype/success_edit.php:1
+msgid "EscortType editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/escortstypelan/success_add.php:1
+msgid "EscortTypeLang añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/escortstypelan/success_edit.php:1
+msgid "EscortTypeLang editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/imagespost/success_add.php:1
+msgid "ImagePost añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/imagespost/success_edit.php:1
+msgid "ImagePost editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/imagesposttypes/success_add.php:1
+msgid "ImagePostType añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/imagesposttypes/success_edit.php:1
+msgid "ImagePostType editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/medias/success_add.php:1
+msgid "Media añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/medias/success_edit.php:1
+msgid "Media editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/mediastype/success_add.php:1
+msgid "MediaType añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/mediastype/success_edit.php:1
+msgid "MediaType editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/mediasvariant/success_add.php:1
+msgid "MediaVariant añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/mediasvariant/success_edit.php:1
+msgid "MediaVariant editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/posts/success_add.php:1
+msgid "Post añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/posts/success_edit.php:1
+msgid "Post editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/roles/success_add.php:1
+msgid "Rol añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/roles/success_edit.php:1
+msgid "Rol editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/tags/success_add.php:1
+msgid "Tag añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/tags/success_edit.php:1
+msgid "Tag editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/users/success_add.php:1
+#: Views/Adm/public/messages/users/success_forgot_message.php:1
+msgid "User añadido correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/users/success_edit.php:1
+msgid "User editado correctamente"
+msgstr ""
+
+#: Views/Adm/public/messages/users/success_forgot.php:1
+msgid "Te hemos enviado un email con los pasos para recuperar tu contraseña."
+msgstr ""
+
+#: Views/Adm/public/messages/users/success_reset.php:1
+msgid "Ya puedes acceder con tu nueva contraseña."
+msgstr ""
+
+#: Views/Adm/public/pages/categories/add.php:1
+#: Views/Adm/public/pages/categories/edit.php:1
+msgid "Categoría padre"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/add.php:1
+#: Views/Adm/public/pages/categories/edit.php:1
+msgid "Categoría Padre"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/add.php:1
+#: Views/Adm/public/pages/countries/add.php:1
+#: Views/Adm/public/pages/escorts/add.php:1
+#: Views/Adm/public/pages/escortstype/add.php:1
+#: Views/Adm/public/pages/escortstypelan/add.php:1
+#: Views/Adm/public/pages/imagespost/add.php:1
+#: Views/Adm/public/pages/imagesposttypes/add.php:1
+#: Views/Adm/public/pages/medias/add.php:1
+#: Views/Adm/public/pages/mediastype/add.php:1
+#: Views/Adm/public/pages/mediasvariant/add.php:1
+#: Views/Adm/public/pages/posts/add.php:1
+#: Views/Adm/public/pages/roles/add.php:1 Views/Adm/public/pages/tags/add.php:1
+msgid "Crear"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/delete.php:1
+msgid "Delete Category"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/delete.php:1
+#: Views/Adm/public/pages/countries/delete.php:1
+#: Views/Adm/public/pages/escorts/delete.php:1
+#: Views/Adm/public/pages/escortstype/delete.php:1
+#: Views/Adm/public/pages/escortstypelan/delete.php:1
+#: Views/Adm/public/pages/imagespost/delete.php:1
+#: Views/Adm/public/pages/imagesposttypes/delete.php:1
+#: Views/Adm/public/pages/medias/delete.php:1
+#: Views/Adm/public/pages/mediastype/delete.php:1
+#: Views/Adm/public/pages/mediasvariant/delete.php:1
+#: Views/Adm/public/pages/posts/delete.php:1
+#: Views/Adm/public/pages/roles/delete.php:1
+#: Views/Adm/public/pages/tags/delete.php:1
+#: Views/Adm/public/pages/users/delete.php:1
+msgid "Cancelar"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/delete.php:1
+#: Views/Adm/public/pages/countries/delete.php:1
+#: Views/Adm/public/pages/escorts/delete.php:1
+#: Views/Adm/public/pages/escortstype/delete.php:1
+#: Views/Adm/public/pages/escortstypelan/delete.php:1
+#: Views/Adm/public/pages/imagespost/delete.php:1
+#: Views/Adm/public/pages/imagesposttypes/delete.php:1
+#: Views/Adm/public/pages/medias/delete.php:1
+#: Views/Adm/public/pages/mediastype/delete.php:1
+#: Views/Adm/public/pages/mediasvariant/delete.php:1
+#: Views/Adm/public/pages/posts/delete.php:1
+#: Views/Adm/public/pages/roles/delete.php:1
+#: Views/Adm/public/pages/tags/delete.php:1
+#: Views/Adm/public/pages/users/delete.php:1
+msgid "Borrar"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/edit.php:1
+#: Views/Adm/public/pages/countries/edit.php:1
+#: Views/Adm/public/pages/escorts/edit.php:1
+#: Views/Adm/public/pages/escortstype/edit.php:1
+#: Views/Adm/public/pages/escortstypelan/edit.php:1
+#: Views/Adm/public/pages/imagespost/edit.php:1
+#: Views/Adm/public/pages/imagesposttypes/edit.php:1
+#: Views/Adm/public/pages/medias/edit.php:1
+#: Views/Adm/public/pages/mediastype/edit.php:1
+#: Views/Adm/public/pages/mediasvariant/edit.php:1
+#: Views/Adm/public/pages/posts/edit.php:1
+#: Views/Adm/public/pages/roles/edit.php:1
+#: Views/Adm/public/pages/tags/edit.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Editar"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/list.php:1
+msgid "Category"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/list.php:1
+msgid "Añadir Category"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/list.php:1
+#: Views/Adm/public/pages/countries/list.php:1
+#: Views/Adm/public/pages/escorts/list.php:1
+#: Views/Adm/public/pages/escortstype/list.php:1
+#: Views/Adm/public/pages/escortstypelan/list.php:1
+#: Views/Adm/public/pages/imagespost/list.php:1
+#: Views/Adm/public/pages/imagesposttypes/list.php:1
+#: Views/Adm/public/pages/medias/list.php:1
+#: Views/Adm/public/pages/mediastype/list.php:1
+#: Views/Adm/public/pages/mediasvariant/list.php:1
+#: Views/Adm/public/pages/posts/list.php:1
+#: Views/Adm/public/pages/roles/list.php:1
+#: Views/Adm/public/pages/tags/list.php:1
+#: Views/Adm/public/pages/users/list.php:1
+msgid "Id"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/list.php:1
+#: Views/Adm/public/pages/countries/list.php:1
+#: Views/Adm/public/pages/escorts/list.php:1
+#: Views/Adm/public/pages/escortstype/list.php:1
+#: Views/Adm/public/pages/escortstypelan/list.php:1
+#: Views/Adm/public/pages/imagespost/list.php:1
+#: Views/Adm/public/pages/imagesposttypes/list.php:1
+#: Views/Adm/public/pages/medias/list.php:1
+#: Views/Adm/public/pages/mediastype/list.php:1
+#: Views/Adm/public/pages/mediasvariant/list.php:1
+#: Views/Adm/public/pages/posts/list.php:1
+#: Views/Adm/public/pages/tags/list.php:1
+msgid "Item"
+msgstr ""
+
+#: Views/Adm/public/pages/categories/list.php:1
+#: Views/Adm/public/pages/countries/list.php:1
+#: Views/Adm/public/pages/escorts/list.php:1
+#: Views/Adm/public/pages/escortstype/list.php:1
+#: Views/Adm/public/pages/escortstypelan/list.php:1
+#: Views/Adm/public/pages/imagespost/list.php:1
+#: Views/Adm/public/pages/imagesposttypes/list.php:1
+#: Views/Adm/public/pages/medias/list.php:1
+#: Views/Adm/public/pages/mediastype/list.php:1
+#: Views/Adm/public/pages/mediasvariant/list.php:1
+#: Views/Adm/public/pages/posts/list.php:1
+#: Views/Adm/public/pages/roles/list.php:1
+#: Views/Adm/public/pages/tags/list.php:1
+#: Views/Adm/public/pages/users/list.php:1
+msgid "Acciones"
+msgstr ""
+
+#: Views/Adm/public/pages/countries/add.php:1
+#: Views/Adm/public/pages/countries/edit.php:1
+msgid "Name"
+msgstr ""
+
+#: Views/Adm/public/pages/countries/add.php:1
+#: Views/Adm/public/pages/countries/edit.php:1
+msgid "ISO ALPHA 2"
+msgstr ""
+
+#: Views/Adm/public/pages/countries/add.php:1
+#: Views/Adm/public/pages/countries/edit.php:1
+msgid "ISO ALPHA 3"
+msgstr ""
+
+#: Views/Adm/public/pages/countries/delete.php:1
+msgid "Delete Country"
+msgstr ""
+
+#: Views/Adm/public/pages/countries/list.php:1
+msgid "Añadir pais"
+msgstr ""
+
+#: Views/Adm/public/pages/errors/error404.php:1
+#: Views/Adm/public/pages/errors/error500.php:1
+msgid "Soy tan despistado que no sé si he perdido el perro o me he encontrado una correa."
+msgstr ""
+
+#: Views/Adm/public/pages/errors/error404.php:1
+#: Views/Adm/public/pages/errors/error500.php:1
+msgid "Back to the homepage"
+msgstr ""
+
+#: Views/Adm/public/pages/escorts/delete.php:1
+msgid "Delete Escort"
+msgstr ""
+
+#: Views/Adm/public/pages/escorts/list.php:1
+msgid "Escort"
+msgstr ""
+
+#: Views/Adm/public/pages/escorts/list.php:1
+msgid "Añadir Escort"
+msgstr ""
+
+#: Views/Adm/public/pages/escortstype/add.php:1
+#: Views/Adm/public/pages/escortstype/edit.php:1
+msgid "Add Lang"
+msgstr ""
+
+#: Views/Adm/public/pages/escortstype/add_lang.php:1
+msgid "Lang"
+msgstr ""
+
+#: Views/Adm/public/pages/escortstype/add_lang.php:1
+#: Views/Adm/public/pages/posts/add_image.php:1
+msgid "Remove"
+msgstr ""
+
+#: Views/Adm/public/pages/escortstype/delete.php:1
+msgid "Delete EscortType"
+msgstr ""
+
+#: Views/Adm/public/pages/escortstype/list.php:1
+msgid "EscortType"
+msgstr ""
+
+#: Views/Adm/public/pages/escortstype/list.php:1
+msgid "Añadir EscortType"
+msgstr ""
+
+#: Views/Adm/public/pages/escortstypelan/delete.php:1
+msgid "Delete EscortTypeLang"
+msgstr ""
+
+#: Views/Adm/public/pages/escortstypelan/list.php:1
+msgid "EscortTypeLang"
+msgstr ""
+
+#: Views/Adm/public/pages/escortstypelan/list.php:1
+msgid "Añadir EscortTypeLang"
+msgstr ""
+
+#: Views/Adm/public/pages/home.php:1
+msgid "Hola"
+msgstr "Hello"
+
+#: Views/Adm/public/pages/imagespost/delete.php:1
+msgid "Delete ImagePost"
+msgstr ""
+
+#: Views/Adm/public/pages/imagespost/list.php:1
+msgid "ImagePost"
+msgstr ""
+
+#: Views/Adm/public/pages/imagespost/list.php:1
+msgid "Añadir ImagePost"
+msgstr ""
+
+#: Views/Adm/public/pages/imagesposttypes/add.php:1
+#: Views/Adm/public/pages/imagesposttypes/edit.php:1
+msgid "Tipo"
+msgstr ""
+
+#: Views/Adm/public/pages/imagesposttypes/add.php:1
+#: Views/Adm/public/pages/imagesposttypes/edit.php:1
+msgid "Descripcion"
+msgstr ""
+
+#: Views/Adm/public/pages/imagesposttypes/delete.php:1
+msgid "Delete ImagePostType"
+msgstr ""
+
+#: Views/Adm/public/pages/imagesposttypes/list.php:1
+msgid "ImagePostType"
+msgstr ""
+
+#: Views/Adm/public/pages/imagesposttypes/list.php:1
+msgid "Añadir ImagePostType"
+msgstr ""
+
+#: Views/Adm/public/pages/medias/delete.php:1
+msgid "Delete Media"
+msgstr ""
+
+#: Views/Adm/public/pages/medias/list.php:1
+msgid "Media"
+msgstr ""
+
+#: Views/Adm/public/pages/medias/list.php:1
+msgid "Añadir Media"
+msgstr ""
+
+#: Views/Adm/public/pages/mediastype/add.php:1
+#: Views/Adm/public/pages/mediastype/edit.php:1
+msgid "Type"
+msgstr ""
+
+#: Views/Adm/public/pages/mediastype/add.php:1
+#: Views/Adm/public/pages/mediastype/edit.php:1
+msgid "Descripción"
+msgstr ""
+
+#: Views/Adm/public/pages/mediastype/delete.php:1
+msgid "Delete MediaType"
+msgstr ""
+
+#: Views/Adm/public/pages/mediastype/list.php:1
+msgid "MediaType"
+msgstr ""
+
+#: Views/Adm/public/pages/mediastype/list.php:1
+msgid "Añadir MediaType"
+msgstr ""
+
+#: Views/Adm/public/pages/mediasvariant/delete.php:1
+msgid "Delete MediaVariant"
+msgstr ""
+
+#: Views/Adm/public/pages/mediasvariant/list.php:1
+msgid "MediaVariant"
+msgstr ""
+
+#: Views/Adm/public/pages/mediasvariant/list.php:1
+msgid "Añadir MediaVariant"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/add.php:1
+#: Views/Adm/public/pages/posts/edit.php:1
+msgid "Título"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/add.php:1
+#: Views/Adm/public/pages/posts/edit.php:1
+msgid "Texto"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/add.php:1
+#: Views/Adm/public/pages/posts/edit.php:1
+msgid "Fecha de publicación"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/add.php:1
+#: Views/Adm/public/pages/posts/edit.php:1
+msgid "Add Tag"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/add.php:1
+#: Views/Adm/public/pages/posts/edit.php:1
+msgid "Add Imagen"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/add_image.php:1
+msgid "Imagen"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/add_image.php:1
+msgid "Upload"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/add_tag.php:1
+#: Views/Adm/public/pages/tags/list.php:1
+msgid "Tag"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/delete.php:1
+msgid "Delete Post"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/edit.php:1
+msgid "Tags"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/edit.php:1
+msgid "Imagenes"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/list.php:1
+msgid "Post"
+msgstr ""
+
+#: Views/Adm/public/pages/posts/list.php:1
+msgid "Añadir Post"
+msgstr ""
+
+#: Views/Adm/public/pages/roles/delete.php:1
+msgid "Delete Rol"
+msgstr ""
+
+#: Views/Adm/public/pages/roles/list.php:1
+msgid "Añadir rol"
+msgstr ""
+
+#: Views/Adm/public/pages/tags/delete.php:1
+msgid "Delete Tag"
+msgstr ""
+
+#: Views/Adm/public/pages/tags/list.php:1
+msgid "Añadir Tag"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Apellidos"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Nombre de usuario"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Hombre"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Mujer"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Pais"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Fecha de Nacimiento"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Estado"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Baja"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Activo"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/edit.php:1
+msgid "Pendiente"
+msgstr ""
+
+#: Views/Adm/public/pages/users/add.php:1
+#: Views/Adm/public/pages/users/forgot.php:1
+#: Views/Adm/public/pages/users/setpassword.php:1
+msgid "Enviar"
+msgstr ""
+
+#: Views/Adm/public/pages/users/delete.php:1
+msgid "Delete User"
+msgstr ""
+
+#: Views/Adm/public/pages/users/forgot.php:1
+#: Views/Adm/public/pages/users/login.php:1
+#: Views/Adm/public/pages/users/setpassword.php:1
+msgid "Admin"
+msgstr ""
+
+#: Views/Adm/public/pages/users/forgot.php:1
+#: Views/Adm/public/pages/users/setpassword.php:1
+msgid "Go to login"
+msgstr ""
+
+#: Views/Adm/public/pages/users/forgot.php:1
+msgid "Enviando..."
+msgstr ""
+
+#: Views/Adm/public/pages/users/list.php:1
+msgid "Añadir usuario"
+msgstr ""
+
+#: Views/Adm/public/pages/users/login.php:1
+msgid "Password"
+msgstr ""
+
+#: Views/Adm/public/pages/users/login.php:1
+msgid "Remember me"
+msgstr ""
+
+#: Views/Adm/public/pages/users/login.php:1
+msgid "Forgot password"
+msgstr ""
+
+#: Views/Adm/public/pages/users/login.php:1
+msgid "Login"
+msgstr ""
+
+#: Views/Adm/public/pages/users/setpassword.php:1
+msgid "Repite tu contraseña"
+msgstr ""

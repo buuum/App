@@ -1,0 +1,34 @@
+.p40
+
+  {{$errors}}
+  {{$messages or}}
+
+  .card
+    .p40
+
+      %form{:action=>"{{*categories_edit:id|$id}}", :method=>"post"}
+
+        .row
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. Nombre}}
+              %input.form-control{:type => "text", :name=>"name", :value=>"{{$name or}}"}
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. Url}}
+              %input.form-control{:type => "text", :name=>"url", :value=>"{{$url or}}"}
+        .row
+          .col-md-12
+            .form-group
+              %label {{e. Categoría padre}}
+              %select.form-control{:name=>"categoryparent[id]"}
+                %option{:value=>""} {{e. Categoría Padre}}
+                {{foreach $categories as $category}}
+                {{$selected = isset($categoryparent->id) && ($category->id == $categoryparent->id)}}
+                %option(selected:selected){:value=>"{{$category->id}}"} {{$category->name}}
+                {{endforeach}}
+
+
+        .bloque
+          %button.btn.btn-default.btn-raised{:type=>"submit"}
+            {{e. Editar}}

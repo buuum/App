@@ -54,11 +54,12 @@ class GenCommand extends AbstractCommand
                 @mkdir(dirname($file_path), 0777, true);
                 file_put_contents($file_path, $plantilla);
             }
-            $file_path = __DIR__ . '/../Facades/Handler/' . $model_name . 'Handler.php';
+
+            $file_path = __DIR__ . '/../HandlerCollection' . $folder_path . '/' . $model_name . 'HandlerCollection.php';
             if (!file_exists($file_path)) {
-                $plantilla = $this->getPlantilla('handler_facade');
-                $plantilla = str_replace(['{{folder}}', '{{model}}'],
-                    [str_replace('/', '\\', $folder_path), $model_name], $plantilla);
+                $plantilla = $this->getPlantilla('handlercollection');
+                $plantilla = str_replace(['{{folder}}', '{{model}}', '{{model_lower}}'],
+                    [str_replace('/', '\\', $folder_path), $model_name, strtolower($model_name)], $plantilla);
                 @mkdir(dirname($file_path), 0777, true);
                 file_put_contents($file_path, $plantilla);
             }

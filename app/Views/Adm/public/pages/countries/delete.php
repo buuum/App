@@ -1,1 +1,0 @@
-<h1><?=$this->getText("Delete Country")?></h1><h3><?=$country->name?></h3><a class="btn btn-primary cancelitem" href="#"> <?=$this->getText("Cancelar")?> </a><a class="btn btn-warning btn-raised deleteitem" href="<?=$this->getUrl('countries_delete', array ("id" => $country->id,))?>"> <?=$this->getText("Borrar")?> </a>

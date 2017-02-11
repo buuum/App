@@ -3,7 +3,6 @@
 namespace App\Controller\Adm\Rol;
 
 use App\Controller\Adm\Controller;
-use App\Facades\Handler\RolHandler;
 use App\ViewsBuilder\Adm\Pages\RolPage;
 
 class DeleteController extends Controller
@@ -22,7 +21,7 @@ class DeleteController extends Controller
 
     public function delete($rol)
     {
-        RolHandler::get()->remove($rol);
+        $rol->delete();
         return [
             'error' => false,
             'id'    => $rol->id

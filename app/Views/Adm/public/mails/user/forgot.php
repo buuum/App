@@ -1,1 +1,0 @@
-<h1><?=$this->getText("Recuperar contraseña")?></h1><p><?=$link?></p>

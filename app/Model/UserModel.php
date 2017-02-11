@@ -21,7 +21,7 @@ class UserModel extends Model
         return $this->belongsToMany(RolModel::class, 'user_has_rol', 'user_id', 'rol_id');
     }
 
-    public function country()
+    public function pais()
     {
         return $this->belongsTo(CountryModel::class, 'country_id');
     }
@@ -32,31 +32,6 @@ class UserModel extends Model
         $now = new \DateTime();
         $interval = $now->diff($date);
         return $interval->y;
-    }
-
-    public function getRolesrelationAttribute()
-    {
-        return $this->roles->pluck('id');
-    }
-
-    public function getDiaAttribute()
-    {
-        return date('j', strtotime($this->birthday));
-    }
-
-    public function getMesAttribute()
-    {
-        return date('n', strtotime($this->birthday));
-    }
-
-    public function getAnoAttribute()
-    {
-        return date('Y', strtotime($this->birthday));
-    }
-
-    public function getPaisidAttribute()
-    {
-        return $this->country->id;
     }
 
 }

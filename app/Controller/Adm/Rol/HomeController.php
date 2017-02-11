@@ -4,6 +4,7 @@ namespace App\Controller\Adm\Rol;
 
 use App\Controller\Adm\Controller;
 use App\Facades\Factory\RolFactory;
+use App\Model\RolModel;
 use App\ViewsBuilder\Adm\Pages\RolPage;
 
 class HomeController extends Controller

@@ -4,28 +4,30 @@ namespace App\Factory{{folder}};
 
 use App\Factory\AbstractFactory;
 use App\Model{{folder}}\{{model}}Model;
+use App\Handler{{folder}}\{{model}}Handler;
+use App\HandlerCollection{{folder}}\{{model}}HandlerCollection;
 
 class {{model}}Factory extends AbstractFactory
 {
-    public function __construct()
-    {
-        parent::__construct(new {{model}}Model());
-    }
+
+    protected $modelclass = {{model}}Model::class;
+    protected $handlerclass = {{model}}Handler::class;
+    protected $handlercollectionclass = {{model}}HandlerCollection::class;
 
     public function getList()
     {
-        return {{model}}Model::all();
+        return $this->getHandlerCollection($this->model->all());
     }
 
     public function getEdit($id)
     {
-        return $this->model->find($id);
+        return $this->getHandler($this->model->find($id));
     }
 
     public function build($data)
     {
-        $item = new {{model}}Model($data);
-        $item->save();
+        $handler = $this->getHandler(new {{model}}Model());
+        $handler->create($data);
     }
 
 }

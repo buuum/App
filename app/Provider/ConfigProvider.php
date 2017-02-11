@@ -43,8 +43,8 @@ class ConfigProvider
             $handle = new HandleError($debugMode, $paths['log']);
             $config->setupErrors($handle);
 
-            $this->setHandlers($config);
             $this->setScope($config, $request->getPathInfo());
+            $this->getLang($config, $request->getPathInfo());
             $this->loadLang($config);
 
             return $config;
@@ -85,18 +85,6 @@ class ConfigProvider
         return $config->get('environment.scope') ?: $config->get('scope');
     }
 
-    protected function setHandlers($config)
-    {
-        $handlers = [];
-        $directory = new \RecursiveDirectoryIterator($config->get('paths.handlers'));
-        $flattened = new \RecursiveIteratorIterator($directory);
-        foreach (new \RegexIterator($flattened, '@.*/Handler/(.*)Handler.php@',
-            \RecursiveRegexIterator::GET_MATCH) as $file) {
-            $handlers[strtolower($file[1])] = str_replace('/', "\\", 'App/Handler/' . $file[1] . 'Handler');
-        }
-        $config->set('handlers', $handlers);
-    }
-
     protected function loadLang($config)
     {
         $scope = $config->get('environment.scope');
@@ -112,10 +100,12 @@ class ConfigProvider
         }
     }
 
-    protected function getLang($request_path)
+    protected function getLang($config, $request_path)
     {
-        if (substr($request_path, 0, 4) == '/en/') {
-            self::loadLang('en_EN');
+
+        if (substr($request_path, 0, 8) == '/adm/en/') {
+            //self::loadLang('en_EN');
+            $config->set('environment.lang', 'en_EN');
             setlocale(LC_CTYPE, "en_US.utf8");
             date_default_timezone_set("Europe/Madrid");
         } else {

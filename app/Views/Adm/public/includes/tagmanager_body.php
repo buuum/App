@@ -1,1 +1,0 @@
-<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=<?=$this->filter_config('analytics.tagmanagerid', [])?>" style="display:none;visibility:hidden" width="0"></iframe></noscript>

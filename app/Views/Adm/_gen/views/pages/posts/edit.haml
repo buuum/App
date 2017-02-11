@@ -1,0 +1,83 @@
+.p40
+
+  {{$errors}}
+  {{$messages or}}
+
+  %form{:action=>"{{*posts_edit:id|$id}}", :method=>"post"}
+
+    .card
+      .p40
+
+        .row
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. Título}}
+              %input.form-control{:type => "text", :name=>"title", :value=>"{{$title or}}"}
+          .col-md-6
+            .form-group.label-floating
+              %label.control-label {{e. Url}}
+              %input.form-control{:type => "text", :name=>"url", :value=>"{{$url or}}"}
+        .row
+          .col-md-12
+            .form-group.label-floating
+              %label.control-label {{e. Texto}}
+              %textarea.summernote.form-control{:name=>"text"}
+                {{$text or}}
+
+        .row
+          .col-md-12
+            .form-group
+              %label.control-label {{e. Fecha de publicación}}
+              %input.form-control.datetimepicker{:type => "text", :name=>"publish_date", :value=>"{{$publish_date|date}}"}
+
+
+    %h3 {{e. Categorías}}
+
+    .card
+      .p40
+        .row
+          .col-lg-12
+            .form-group
+              .checkbox
+                {{foreach $list_categories as $category}}
+                %label
+                  {{$checked = isset($categories) && in_array($category->id, $categories)}}
+                  %input(checked:checked){:type=>"checkbox", :name=>"categories[][id]", :value=>"{{$category->id}}"}
+                  {{$category->name}}
+                {{endforeach}}
+
+    %h3 {{e. Tags}}
+
+    .list_items
+      .content-items
+        {{if !empty($tags)}}
+        {{foreach $tags as $k=>$tag}}
+        {{@/pages/posts/add_tag}}
+        {{endforeach}}
+        {{endif}}
+
+      .card
+        .p40
+          %a.btn.btn-default.btn-raised.additem{:data=>{'schema' => '(tags\[)([0-9]+)(\])'}, :href=>"{{*posts_add_tag}}"}
+            {{e. Add Tag}}
+
+    %h3 {{e. Imagenes}}
+
+    .list_items
+      .content-items
+        {{if !empty($images)}}
+        {{foreach $images as $k=>$image}}
+        {{@/pages/posts/add_image}}
+        {{endforeach}}
+        {{endif}}
+
+      .card.mt20
+        .p40
+          %a.btn.btn-default.btn-raised.additem{:data=>{'schema' => '(images\[)([0-9]+)(\])'}, :href=>"{{*posts_add_image}}"}
+            {{e. Add Imagen}}
+
+    .card.mt20
+      .p40
+        .bloque
+          %button.btn.btn-default.btn-raised{:type=>"submit"}
+            {{e. Editar}}

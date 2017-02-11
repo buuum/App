@@ -19,7 +19,7 @@ class UserForm extends AbstractForms
     public function relatedForms()
     {
         return [
-            'pais_id'        => [
+            'pais'  => [
                 'form_class'      => CountryForm::class,
                 'relation_type'   => 'one',
                 'validation_type' => [
@@ -27,7 +27,7 @@ class UserForm extends AbstractForms
                     'edit' => 'addrelation'
                 ]
             ],
-            'roles_relation' => [
+            'roles' => [
                 'form_class'      => RolForm::class,
                 'relation_type'   => 'onetomany',
                 'validation_type' => [
@@ -51,9 +51,9 @@ class UserForm extends AbstractForms
     public function add()
     {
         return [
-            'fields'            => ['name', 'email', 'password', 'dia', 'mes', 'ano', 'gender', 'pseudo', 'estado'],
-            'relations'         => ['roles_relation', 'pais_id'],
-            'extra_filters'     => [],
+            'fields'            => ['name', 'email', 'birthday', 'password', 'gender', 'pseudo', 'estado', 'roles', 'pais'],
+            'relations'         => ['roles', 'pais'],
+            'extra_filters'     => ['filterdate'],
             'extra_validations' => ['checkmail', 'checkedad']
         ];
     }
@@ -61,9 +61,9 @@ class UserForm extends AbstractForms
     public function edit()
     {
         return [
-            'fields'            => ['name', 'email', 'dia', 'mes', 'ano', 'gender', 'pseudo', 'estado'],
-            'relations'         => ['roles_relation', 'pais_id'],
-            'extra_filters'     => [],
+            'fields'            => ['name', 'email', 'birthday', 'gender', 'pseudo', 'estado', 'roles', 'pais'],
+            'relations'         => ['roles', 'pais'],
+            'extra_filters'     => ['filterdate'],
             'extra_validations' => ['checkmail', 'checkedad']
         ];
     }
@@ -81,7 +81,7 @@ class UserForm extends AbstractForms
     public function reset_pass()
     {
         return [
-            'fields'            => ['password', 'password2'],
+            'fields'            => ['pass', 'pass2'],
             'relations'         => [],
             'extra_filters'     => [],
             'extra_validations' => []

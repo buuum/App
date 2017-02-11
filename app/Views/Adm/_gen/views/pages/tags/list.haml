@@ -1,0 +1,30 @@
+.list
+
+  %h1 {{e. Tag}}
+  %a{:href=>"{{*tags_add}}"}
+    {{e. Añadir Tag }}
+
+  .card
+    .p40
+
+      {{$messages or}}
+
+      %table#items_list.table.table-striped.table-bordered.dataTable.no-footer{:cellspacing=>"0"}
+        %thead
+          %tr
+            %th {{e. Id}}
+            %th {{e. Item}}
+            %th {{e. Acciones}}
+        %tbody
+          {{foreach $tags as $tag}}
+          %tr{:id=>"item{{$tag->id}}"}
+            %td {{$tag->id}}
+            %td {{$tag->rol}}
+            %td
+              .btn-group
+                %a.btn.btn-primary.btn-raised.btn-xs{:href=>"{{*tags_edit:id|$tag->id}}"}
+                  %i.fa.fa-pencil
+                %a.btn.btn-warning.btn-raised.btn-xs.showdelete{:href=>"{{*tags_delete:id|$tag->id}}"}
+                  %i.fa.fa-trash
+          {{endforeach}}
+

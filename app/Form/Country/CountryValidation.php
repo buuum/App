@@ -10,6 +10,7 @@ class CountryValidation implements ValidationInterface
     public function getValidations()
     {
         return [
+            'id'         => 'required',
             'name'       => 'required',
             'iso_alpha2' => 'required',
             'iso_alpha3' => 'required',

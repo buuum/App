@@ -2,57 +2,46 @@
 
 namespace App\Factory;
 
+use App\Handler\UserHandler;
+use App\HandlerCollection\UserHandlerCollection;
 use App\Model\UserModel;
 
 class UserFactory extends AbstractFactory
 {
-    public function __construct()
-    {
-        parent::__construct(new UserModel());
-    }
+
+    protected $modelclass = UserModel::class;
+    protected $handlerclass = UserHandler::class;
+    protected $handlercollectionclass = UserHandlerCollection::class;
 
     public function getList()
     {
-        return UserModel::all();
+        return $this->getHandlerCollection($this->model->all());
     }
 
     public function getEdit($id)
     {
-        UserModel::$add_appends = ['roles_relation', 'pais_id', 'dia', 'mes', 'ano'];
+        //UserModel::$add_appends = ['dia', 'mes', 'ano'];
 
-        if (!$user = UserModel::with(['roles', 'country'])->where('id', $id)->first()) {
+        if (!$user = UserModel::with(['roles', 'pais'])->where('id', $id)->first()) {
             return false;
         }
 
-        return $user;
+        return $this->getHandler($user);
+
     }
 
     public function build($data)
     {
-        $item = new UserModel($data);
-        $item->save();
+        $handler = new UserHandler(new UserModel());
+        $handler->create($data);
+        return $handler;
     }
 
     public function buildFromAdmin($data)
     {
-        $date = $data['ano'] . '-' . $data['mes'] . '-' . $data['dia'];
-
-        $user = new UserModel();
-        $user->name = $data['name'];
-        $user->surname = $data['surname'];
-        $user->gender = $data['gender'];
-        $user->email = $data['email'];
-        $user->password = password_hash($data['password'], PASSWORD_DEFAULT);
-        $user->birthday = $date;
-        $user->pseudo = $data['pseudo'];
-        $user->estado = $data['estado'];
-
-        $user->country()->associate($data['pais_id']);
-        $user->save();
-
-        $user->roles()->attach($data['roles_relation']);
-
-        return $user;
+        $handler = $this->getHandler(new UserModel());
+        $handler->create($data);
+        return $handler;
     }
 
 }

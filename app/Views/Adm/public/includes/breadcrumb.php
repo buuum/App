@@ -1,1 +1,0 @@
-<ul class="breadcrumb"><li><a href="<?=$this->getUrl('home_adm')?>">Dashboard</a></li> <?php foreach($links as $k=>$link):?> <?php if($link):?> <li><a href="<?=$link?>"><?=$k?></a></li> <?php else: ?> <li class="active"><?=$k?></li> <?php endif; ?> <?php endforeach; ?> </ul>

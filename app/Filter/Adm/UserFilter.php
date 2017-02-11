@@ -33,8 +33,8 @@ class UserFilter extends Filter
             }
 
             $data = Encode::decode($cookie);
-            $user = UserModel::find($data['id']);
-            UserHandler::get()->setSession($user, $this->session);
+            $user = UserFactory::get()->find($data['id']);
+            $user->setSession($this->session);
 
         }
 
@@ -63,7 +63,7 @@ class UserFilter extends Filter
     {
         try {
             $data = Encode::decode($emailencode);
-            $email = $data['email'];
+            $user = UserFactory::get()->getByField('email', $data['email']);
         } catch (\Exception $e) {
             return new RedirectResponse($this->router->getUrlRequest('login_adm'));
         }
@@ -71,7 +71,7 @@ class UserFilter extends Filter
         return [
             'passed'   => true,
             'response' => [
-                'email' => $email
+                'user' => $user
             ]
         ];
     }

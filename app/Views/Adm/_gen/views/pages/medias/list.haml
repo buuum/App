@@ -1,0 +1,30 @@
+.list
+
+  %h1 {{e. Media}}
+  %a{:href=>"{{*medias_add}}"}
+    {{e. Añadir Media }}
+
+  .card
+    .p40
+
+      {{$messages or}}
+
+      %table#items_list.table.table-striped.table-bordered.dataTable.no-footer{:cellspacing=>"0"}
+        %thead
+          %tr
+            %th {{e. Id}}
+            %th {{e. Item}}
+            %th {{e. Acciones}}
+        %tbody
+          {{foreach $medias as $media}}
+          %tr{:id=>"item{{$media->id}}"}
+            %td {{$media->id}}
+            %td {{$media->rol}}
+            %td
+              .btn-group
+                %a.btn.btn-primary.btn-raised.btn-xs{:href=>"{{*medias_edit:id|$media->id}}"}
+                  %i.fa.fa-pencil
+                %a.btn.btn-warning.btn-raised.btn-xs.showdelete{:href=>"{{*medias_delete:id|$media->id}}"}
+                  %i.fa.fa-trash
+          {{endforeach}}
+

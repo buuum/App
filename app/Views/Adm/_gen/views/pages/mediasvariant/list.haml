@@ -1,0 +1,30 @@
+.list
+
+  %h1 {{e. MediaVariant}}
+  %a{:href=>"{{*mediasvariant_add}}"}
+    {{e. Añadir MediaVariant }}
+
+  .card
+    .p40
+
+      {{$messages or}}
+
+      %table#items_list.table.table-striped.table-bordered.dataTable.no-footer{:cellspacing=>"0"}
+        %thead
+          %tr
+            %th {{e. Id}}
+            %th {{e. Item}}
+            %th {{e. Acciones}}
+        %tbody
+          {{foreach $mediasvariant as $mediavariant}}
+          %tr{:id=>"item{{$mediavariant->id}}"}
+            %td {{$mediavariant->id}}
+            %td {{$mediavariant->rol}}
+            %td
+              .btn-group
+                %a.btn.btn-primary.btn-raised.btn-xs{:href=>"{{*mediasvariant_edit:id|$mediavariant->id}}"}
+                  %i.fa.fa-pencil
+                %a.btn.btn-warning.btn-raised.btn-xs.showdelete{:href=>"{{*mediasvariant_delete:id|$mediavariant->id}}"}
+                  %i.fa.fa-trash
+          {{endforeach}}
+
