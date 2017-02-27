@@ -20,15 +20,7 @@ class AddController extends Controller
     public function post()
     {
         $form = new {{model}}Form('add');
-        $data = $form->filter($this->request->request->all());
-
-        if (!$errors = $form->validate($data)) {
-            // form success
-            return $this->onFormSuccess($data);
-        }
-
-        // form error
-        return $this->renderView($data, $errors);
+        return $form->submit([$this, 'onFormSuccess'], [$this, 'renderView'], $this->request->request->all());
     }
 
     public function onFormSuccess($data)

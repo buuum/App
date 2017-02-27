@@ -103,7 +103,7 @@ class Kuv
         else if App[name]?
           App[name][vle]($(e.currentTarget), e)
 
-  searchFunction: (parts, vle)->
+  searchFunction: (parts, vle, name)->
     if parts[1]
       if parts[0] != 'Utils' && parts[0] != 'App'
         if name == 'Controller'

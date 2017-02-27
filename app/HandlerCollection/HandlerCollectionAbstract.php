@@ -35,4 +35,19 @@ abstract class HandlerCollectionAbstract implements \JsonSerializable
     {
         return $this->collection->toArray();
     }
+
+    public function setAppends($appends)
+    {
+        $collections = [];
+        foreach ($this->collection as $item) {
+            $collections[] = $item->setAppends($appends);
+        }
+
+        $this->collection = new Collection($collections);
+    }
+
+    public function makeHidden($hiddens)
+    {
+        $this->collection->makeHidden($hiddens);
+    }
 }

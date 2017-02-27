@@ -31,7 +31,7 @@
         "buuum/validation": "^1.10",
         "buuum/phevent": "^0.0.3",
         "buuum/template": "^0.1.0",
-        "buuum/phdb": "^0.0.2",
+        "buuum/phdb": "^1.0",
         "buuum/S3": "^0.0.9",
         "buuum/imagediff": "^1.0"
     },

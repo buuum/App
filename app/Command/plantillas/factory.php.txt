@@ -6,6 +6,8 @@ use App\Factory\AbstractFactory;
 use App\Model{{folder}}\{{model}}Model;
 use App\Handler{{folder}}\{{model}}Handler;
 use App\HandlerCollection{{folder}}\{{model}}HandlerCollection;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 class {{model}}Factory extends AbstractFactory
 {
@@ -14,20 +16,54 @@ class {{model}}Factory extends AbstractFactory
     protected $handlerclass = {{model}}Handler::class;
     protected $handlercollectionclass = {{model}}HandlerCollection::class;
 
+    /**
+     * @param Model $model
+     * @return {{model}}Handler
+     */
+    protected function getHandler(Model $model)
+    {
+        return parent::getHandler($model);
+    }
+
+    /**
+     * @param Collection $collection
+     * @return {{model}}HandlerCollection
+     */
+    protected function getHandlerCollection(Collection $collection)
+    {
+        return parent::getHandlerCollection($collection);
+    }
+
+    /**
+     * @return {{model}}HandlerCollection
+     */
     public function getList()
     {
         return $this->getHandlerCollection($this->model->all());
     }
 
-    public function getEdit($id)
+    /**
+     * @param int $id
+     * @return {{model}}Handler|bool
+     */
+    public function getEdit(int $id)
     {
-        return $this->getHandler($this->model->find($id));
+        if (!${{model}} = $this->model->find($id)) {
+            return false;
+        }
+
+        return $this->getHandler(${{model}});
     }
 
-    public function build($data)
+    /**
+     * @param array $data
+     * @return {{model}}Handler
+     */
+    public function build(array $data)
     {
         $handler = $this->getHandler(new {{model}}Model());
         $handler->create($data);
+        return $handler;
     }
 
 }

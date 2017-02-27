@@ -2,6 +2,7 @@
 
 namespace App\Factory;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class AbstractFactory
@@ -43,12 +44,12 @@ class AbstractFactory
         return $this->getHandlerCollection($this->model->where('id', '!=', $id)->get());
     }
 
-    public function getHandler($model)
+    public function getHandler(Model $model)
     {
         return new $this->handlerclass($model);
     }
 
-    public function getHandlerCollection($collection)
+    public function getHandlerCollection(Collection $collection)
     {
         return new $this->handlercollectionclass($collection);
     }

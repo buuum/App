@@ -5,7 +5,7 @@ Buuum\App - Skeleton App
 
 ### System Requirements
 
-You need PHP >= 5.5.0 to use Buuum\App but the latest stable version of PHP is recommended.
+You need PHP >= 7.0 to use Buuum\App but the latest stable version of PHP is recommended.
 
 ### Step 1 - Composer
 

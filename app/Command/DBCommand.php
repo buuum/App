@@ -2,9 +2,8 @@
 
 namespace App\Command;
 
-
 use Buuum\Backup;
-use Buuum\StructUpdater;
+use Buuum\StructDiff;
 
 class DBCommand extends AbstractCommand
 {
@@ -85,10 +84,10 @@ class DBCommand extends AbstractCommand
         $this->db_connection->backup('*', true, false);
         $this->db_connection->save('_tmp_remote', $this->tmp_path);
 
-        $differ = new StructUpdater();
-
         $local = file_get_contents($this->tmp_path . '/_tmp_local.sql');
         $remote = file_get_contents($this->tmp_path . '/_tmp_remote.sql');
+
+        $differ = new StructDiff($local, $remote);
 
         $diffs_up = $differ->getUpdates($remote, $local);
         if(!empty($diffs_up)){

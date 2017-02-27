@@ -4,6 +4,7 @@ namespace App\Controller\{{scope}}{{folder}}\{{model}};
 
 use App\Controller\{{scope}}\Controller;
 use App\Form{{folder}}\{{model}}\{{model}}Form;
+use App\Handler{{folder}}\{{model}}Handler;
 use App\ViewsBuilder\{{scope}}\Messages\{{model}}Message;
 use App\ViewsBuilder\{{scope}}\Pages\{{model}}Page;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -12,32 +13,30 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class EditController extends Controller
 {
 
-    public function get(${{model_lower}})
+    /**
+    * @var {{model}}Handler
+    */
+    protected ${{model_lower}};
+
+    public function get({{model}}Handler ${{model_lower}})
     {
-        return $this->renderView(${{model_lower}}->toArray());
+        $this->{{model_lower}} = ${{model_lower}};
+        return $this->renderView();
     }
 
-    public function post(${{model_lower}})
+    public function post({{model}}Handler ${{model_lower}})
     {
+        $this->{{model_lower}} = ${{model_lower}};
         $form = new {{model}}Form('edit');
 
         $data = $this->request->request->all();
         $data['id'] = ${{model_lower}}->id;
-        $data = $form->filter($data);
-
-        if (!$errors = $form->validate($data)) {
-            // form success
-            return $this->onFormSuccess(${{model_lower}}, $data);
-        }
-
-        // form error
-        $data = array_merge(${{model_lower}}->toArray(), $data);
-        return $this->renderView($data, $errors);
+        return $form->submit([$this, 'onFormSuccess'], [$this, 'renderView'], $data);
     }
 
-    public function onFormSuccess(${{model_lower}}, $data)
+    public function onFormSuccess(array $data)
     {
-        ${{model_lower}}->edit($data);
+        $this->{{model_lower}}->edit($data);
 
         $this->flash->set('messages', [
             'class' => {{model}}Message::class,
@@ -45,12 +44,13 @@ class EditController extends Controller
         ]);
 
         return new RedirectResponse($this->router->getUrlRequest('{{prefix}}_edit', [
-            'id' => ${{model_lower}}->id
+            'id' => $this->{{model_lower}}->id
         ]));
     }
 
-    public function renderView($data = [], $errors = [])
+    public function renderView(array $data = [], array $errors = [])
     {
+        $data = array_merge($this->{{model_lower}}->toArray(), $data);
         $data['errors'] = $errors;
 
         $pagina = new {{model}}Page($this->prepareData($data));

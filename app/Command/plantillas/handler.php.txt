@@ -15,14 +15,16 @@ class {{model}}Handler extends AbstractHandler
 
     public function create($data)
     {
-        $this->model->build($data);
+        // TODO: define fields by create model
+        $this->model->field = $data['field'];
         $this->model->save();
     }
 
     public function edit($data)
     {
+        // TODO: define fields by edit model
         $this->model->field = $data['field'];
-        $this->model->update();
+        $this->model->save();
     }
 
 }

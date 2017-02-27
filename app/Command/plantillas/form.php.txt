@@ -6,9 +6,10 @@ use App\Form\AbstractForms;
 
 class {{model}}Form extends AbstractForms
 {
-    public function __construct($type)
+    public function __construct($type, $type_variant = 'default')
     {
         $this->type = $type;
+        $this->type_variant = $type_variant;
         $this->filter = new {{model}}Filter();
         $this->validation = new {{model}}Validation();
     }
@@ -20,22 +21,28 @@ class {{model}}Form extends AbstractForms
 
     public function add()
     {
-        return [
+        // TODO: define fields to filter and validate when add
+        $fields['default'] = [
             'fields'            => [],
             'relations'         => [],
             'extra_filters'     => [],
             'extra_validations' => []
         ];
+
+        return $fields[$this->type_variant];
     }
 
     public function edit()
     {
-        return [
+        // TODO: define fields to filter and validate when edit
+        $fields['default'] = [
             'fields'            => [],
             'relations'         => [],
             'extra_filters'     => [],
             'extra_validations' => []
         ];
+
+        return $fields[$this->type_variant];
     }
 
 }

@@ -134,3 +134,9 @@ if (!function_exists('getRealIpAdress')) {
         }
     }
 }
+
+if (!function_exists('html_entity_decode_with_quotes')) {
+    function html_entity_decode_with_quotes($text){
+        return html_entity_decode($text, ENT_QUOTES);
+    }
+}

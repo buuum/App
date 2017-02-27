@@ -13,7 +13,6 @@ $app->share('paths', function () {
         'log'       => __DIR__ . '/../log',
         'routes'    => __DIR__ . '/routes.php',
         'listeners' => __DIR__ . '/listeners.php',
-        'handlers'  => __DIR__ . '/Handler',
         'commands'  => __DIR__ . '/commands.php',
         'version'   => __DIR__ . '/../version.json',
     ];

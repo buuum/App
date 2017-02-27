@@ -9,6 +9,7 @@ class {{model}}Filter implements FilterInterface
 
     public function getFilters()
     {
+        // TODO: define filter fields and filter methods
         return [
             'field' => 'trim|sanitize_string'
         ];

@@ -2,11 +2,14 @@
 
 namespace App\Form;
 
+use App\Support\DB;
 use Buuum\Filter;
 use Buuum\Validation;
 
 abstract class AbstractForms
 {
+
+    protected $type_variant = 'default';
 
     protected $type;
     /**
@@ -161,6 +164,32 @@ abstract class AbstractForms
             'required:condiciones'    => _e('Tienes que aceptar las Condiciones generales y la Política de privacidad'),
             'only_alpha_numeric_dash' => _e('El campo :attribute solo puede contener letras, números y _')
         ];
+    }
+
+    /**
+     * @param callable $success
+     * @param callable $render
+     * @param array $data
+     * @return mixed
+     */
+    public function submit(callable $success, callable $render, array $data)
+    {
+        $data = $this->filter($data);
+
+        if (!$errors = $this->validate($data)) {
+            DB::beginTransaction();
+            try {
+                $response = call_user_func($success, $data);
+                DB::commit();
+                return $response;
+            } catch (\Exception $e) {
+                $errors = [$e->getMessage()];
+                DB::rollback();
+            }
+        }
+
+        return call_user_func($render, $data, $errors);
+
     }
 
 }

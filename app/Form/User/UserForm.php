@@ -9,9 +9,10 @@ use App\Form\Rol\RolForm;
 
 class UserForm extends AbstractForms
 {
-    public function __construct($type)
+    public function __construct($type, $type_variant = 'default')
     {
         $this->type = $type;
+        $this->type_variant = $type_variant;
         $this->filter = new UserFilter();
         $this->validation = new UserValidation();
     }
@@ -51,7 +52,17 @@ class UserForm extends AbstractForms
     public function add()
     {
         return [
-            'fields'            => ['name', 'email', 'birthday', 'password', 'gender', 'pseudo', 'estado', 'roles', 'pais'],
+            'fields'            => [
+                'name',
+                'email',
+                'birthday',
+                'password',
+                'gender',
+                'pseudo',
+                'estado',
+                'roles',
+                'pais'
+            ],
             'relations'         => ['roles', 'pais'],
             'extra_filters'     => ['filterdate'],
             'extra_validations' => ['checkmail', 'checkedad']

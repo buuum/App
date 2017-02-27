@@ -3,12 +3,13 @@
 namespace App\Controller\{{scope}}{{folder}}\{{model}};
 
 use App\Controller\{{scope}}\Controller;
+use App\Handler{{folder}}\{{model}}Handler;
 use App\ViewsBuilder\{{scope}}\Pages\{{model}}Page;
 
 class DeleteController extends Controller
 {
 
-    public function get(${{model_lower}})
+    public function get({{model}}Handler ${{model_lower}})
     {
         $pagina = new {{model}}Page($this->prepareData([
             '{{model_lower}}' => ${{model_lower}}
@@ -19,7 +20,7 @@ class DeleteController extends Controller
         ];
     }
 
-    public function delete(${{model_lower}})
+    public function delete({{model}}Handler ${{model_lower}})
     {
         ${{model_lower}}->delete();
         return [

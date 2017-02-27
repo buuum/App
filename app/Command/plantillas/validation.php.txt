@@ -8,6 +8,7 @@ class {{model}}Validation implements ValidationInterface
 {
     public function getValidations()
     {
+        // TODO: define validation fields and validations methods
         return [
             'field'          => 'required|alpha_numeric_space'
         ];

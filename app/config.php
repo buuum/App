@@ -1,7 +1,8 @@
 <?php
 
 return [
-
+    
+    'environment' => 'local',
     'session.name' => 's_id',
 
     'encode' => [
